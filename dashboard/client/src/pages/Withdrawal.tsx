@@ -44,7 +44,7 @@ export default function Withdrawal() {
 
     try {
       const response = await fetch(
-        `https://puxde-render-6pvk.onrender.com/transactions/${dataObj._id}/withdrawal`,
+        `https://stoxoras-render.onrender.com/transactions/${dataObj._id}/withdrawal`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
