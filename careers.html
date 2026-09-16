@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — Stoxoras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://ext.same-assets.com/3096741692/3057708573.ico">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0d12;--bg-card:#111620;--accent:#2bd29b;--accent-dim:rgba(43,210,155,0.12);--accent-border:rgba(43,210,155,0.22);--text:#e8edf5;--text-muted:#7a8499;--border:rgba(255,255,255,0.07);--radius:14px;--nav-h:68px}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;border:none;background:none;font-family:inherit}
+    .warning-banner{background:rgba(255,200,50,0.08);border-bottom:1px solid rgba(255,200,50,0.18);padding:10px 24px;text-align:center}
+    .warning-banner p{font-size:11px;color:rgba(255,200,50,0.75);max-width:1100px;margin:0 auto}
+    .header{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,13,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .logo-mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;letter-spacing:-0.03em;color:var(--text)}
+    .logo-mark span{color:var(--accent)}
+    .logo-mark svg path{stroke:var(--accent)}
+    .header-actions{display:flex;align-items:center;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:8px;font-weight:600;font-size:0.875rem;transition:all 0.22s;cursor:pointer;border:none;font-family:inherit}
+    .btn-primary{background:var(--accent);color:#060a0e}
+    .btn-primary:hover{background:#38f0b2;transform:translateY(-2px);box-shadow:0 8px 28px rgba(43,210,155,0.28)}
+    .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+    .section-tag{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;background:var(--accent-dim);border:1px solid var(--accent-border);font-size:0.78rem;font-weight:600;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px}
+    .section-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .page-hero{padding:100px 80px 60px;max-width:1200px;margin:0 auto;text-align:center}
+    .page-hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:800;letter-spacing:-0.04em;margin-bottom:20px}
+    .page-hero p{font-size:1.1rem;color:var(--text-muted);max-width:600px;margin:0 auto;line-height:1.7}
+    .section{padding:80px 80px}
+    .container{max-width:1100px;margin:0 auto}
+    .text-center{text-align:center}
+    .bg-card{background:var(--bg-card)}
+    .border-t{border-top:1px solid var(--border)}
+    .perks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+    .perk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color 0.3s}
+    .perk-card:hover{border-color:var(--accent-border)}
+    .perk-icon{font-size:2rem;margin-bottom:14px}
+    .perk-card h4{font-size:0.95rem;font-weight:700;margin-bottom:8px}
+    .perk-card p{font-size:0.82rem;color:var(--text-muted);line-height:1.7}
+    .jobs-list{display:flex;flex-direction:column;gap:16px;margin-top:40px}
+    .job-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;transition:border-color 0.3s,transform 0.3s;cursor:pointer}
+    .job-card:hover{border-color:var(--accent-border);transform:translateX(4px)}
+    .job-info h4{font-size:1rem;font-weight:700;margin-bottom:6px}
+    .job-meta{display:flex;gap:14px;flex-wrap:wrap}
+    .job-tag{font-size:0.75rem;color:var(--text-muted);background:rgba(255,255,255,0.05);border-radius:100px;padding:3px 10px}
+    .job-tag.remote{color:var(--accent);background:var(--accent-dim)}
+    .job-arrow{color:var(--accent);font-size:1.2rem;flex-shrink:0}
+    .dept-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+    .dept-btn{padding:8px 18px;border-radius:100px;font-size:0.82rem;font-weight:600;cursor:pointer;border:1px solid var(--border);color:var(--text-muted);background:none;font-family:inherit;transition:all 0.2s}
+    .dept-btn.active,.dept-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+    .cta-banner{background:linear-gradient(135deg,#071a12 0%,#0a1a2a 100%);border:1px solid var(--accent-border);border-radius:24px;padding:70px 60px;text-align:center;position:relative;overflow:hidden}
+    .cta-banner::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(43,210,155,0.08) 0%,transparent 70%)}
+    .cta-banner h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:14px;position:relative}
+    .cta-banner p{color:var(--text-muted);font-size:1.05rem;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;position:relative}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+    .ifooter{border-top:1px solid var(--border);padding:70px 80px 40px}
+    .ifooter-top{display:grid;grid-template-columns:220px 1fr;gap:80px;margin-bottom:60px}
+    .ifooter-brand{display:flex;flex-direction:column;gap:22px}
+    .ifooter-brand p{font-size:0.82rem;color:var(--text-muted);line-height:1.7}
+    .social-row{display:flex;gap:14px}
+    .social-row a{color:var(--text-muted);transition:color 0.2s}
+    .social-row a:hover{color:var(--accent)}
+    .ifooter-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+    .ifooter-cols h5{font-size:0.78rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px}
+    .ifooter-cols ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .ifooter-cols a{font-size:0.85rem;color:var(--text-muted);transition:color 0.2s}
+    .ifooter-cols a:hover{color:var(--accent)}
+    .ifooter-bottom{border-top:1px solid var(--border);padding-top:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+    .ifooter-bottom p{font-size:0.78rem;color:rgba(107,122,148,0.6)}
+    .risk-note{font-size:0.75rem;color:rgba(107,122,148,0.5);line-height:1.6}
+    @media(max-width:900px){
+      .page-hero,.section{padding-left:24px;padding-right:24px}
+      .perks-grid{grid-template-columns:1fr 1fr}
+      .job-card{flex-direction:column;align-items:flex-start}
+      .header{padding:0 24px}
+      .ifooter{padding:50px 24px 28px}
+      .ifooter-top{grid-template-columns:1fr;gap:40px}
+      .ifooter-cols{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){.perks-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="warning-banner"><p>CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 76% of retail investor accounts lose money when trading CFDs with this provider.</p></div>
+
+<header class="header">
+  <a href="./index.html" class="logo-mark"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Stoxoras</span></a>
+  <div class="header-actions">
+    <a href="./login.html" class="btn btn-ghost">Login</a>
+    <a href="./register.html" class="btn btn-primary">Open Account</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="section-tag" style="margin:0 auto 18px">We're Hiring</div>
+  <h1>Build the Future of <em style="color:var(--accent)">Trading</em></h1>
+  <p>Join a team of world-class engineers, traders, and financial professionals. Remote-first, mission-driven, globally connected.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:10px"><div class="section-tag">Why Stoxoras</div></div>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;text-align:center;margin-bottom:40px">Perks & Benefits</h2>
+    <div class="perks-grid">
+      <div class="perk-card"><div class="perk-icon">🌍</div><h4>Remote-First Culture</h4><p>Work from anywhere in the world. We have team members in 30+ countries and we celebrate that diversity.</p></div>
+      <div class="perk-card"><div class="perk-icon">💰</div><h4>Competitive Salary</h4><p>Market-leading compensation packages with performance bonuses, equity participation for senior roles.</p></div>
+      <div class="perk-card"><div class="perk-icon">📈</div><h4>Trading Allowance</h4><p>All employees receive a monthly trading credit to use on Stoxoras platforms — put your expertise to work.</p></div>
+      <div class="perk-card"><div class="perk-icon">🏥</div><h4>Health Coverage</h4><p>Comprehensive health, dental, and vision insurance for you and your family, wherever you're based.</p></div>
+      <div class="perk-card"><div class="perk-icon">🎓</div><h4>Learning Budget</h4><p>$2,000 annual learning budget for courses, conferences, books, and certifications of your choice.</p></div>
+      <div class="perk-card"><div class="perk-icon">🏖️</div><h4>Flexible PTO</h4><p>Unlimited paid time off policy with a minimum 20 days required. We actually mean it — take your holiday.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-card border-t">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:30px"><div class="section-tag">Open Roles</div></div>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;text-align:center;margin-bottom:30px">Current Openings</h2>
+    <div class="dept-filter">
+      <button class="dept-btn active" onclick="filterJobs('all',this)">All Departments</button>
+      <button class="dept-btn" onclick="filterJobs('tech',this)">Technology</button>
+      <button class="dept-btn" onclick="filterJobs('trading',this)">Trading</button>
+      <button class="dept-btn" onclick="filterJobs('ops',this)">Operations</button>
+      <button class="dept-btn" onclick="filterJobs('compliance',this)">Compliance</button>
+    </div>
+    <div class="jobs-list" id="jobs-list">
+      <div class="job-card" data-dept="tech">
+        <div class="job-info"><h4>Senior Backend Engineer (Go / Rust)</h4><div class="job-meta"><span class="job-tag">Technology</span><span class="job-tag remote">Remote</span><span class="job-tag">Full-time</span><span class="job-tag">$120k–$160k</span></div></div>
+        <a href="./contact.html" class="job-arrow">Apply →</a>
+      </div>
+      <div class="job-card" data-dept="tech">
+        <div class="job-info"><h4>Frontend Engineer (React / TypeScript)</h4><div class="job-meta"><span class="job-tag">Technology</span><span class="job-tag remote">Remote</span><span class="job-tag">Full-time</span><span class="job-tag">$100k–$140k</span></div></div>
+        <a href="./contact.html" class="job-arrow">Apply →</a>
+      </div>
+      <div class="job-card" data-dept="tech">
+        <div class="job-info"><h4>DevOps / Infrastructure Engineer</h4><div class="job-meta"><span class="job-tag">Technology</span><span class="job-tag remote">Remote</span><span class="job-tag">Full-time</span><span class="job-tag">$110k–$150k</span></div></div>
+        <a href="./contact.html" class="job-arrow">Apply →</a>
+      </div>
+      <div class="job-card" data-dept="trading">
+        <div class="job-info"><h4>Quantitative Analyst</h4><div class="job-meta"><span class="job-tag">Trading</span><span class="job-tag">London / Remote</span><span class="job-tag">Full-time</span><span class="job-tag">$130k–$180k</span></div></div>
+        <a href="./contact.html" class="job-arrow">Apply →</a>
+      </div>
+      <div class="job-card" data-dept="trading">
+        <div class="job-info"><h4>FX Trader — Market Making Desk</h4><div class="job-meta"><span class="job-tag">Trading</span><span class="job-tag">London</span><span class="job-tag">Full-time</span><span class="job-tag">$90k–$130k</span></div></div>
+        <a href="./contact.html" class="job-arrow">Apply →</a>
+      </div>
+      <div class="job-card" data-dept="ops">
+        <div class="job-info"><h4>Customer Support Specialist (24/7)</h4><div class="job-meta"><span class="job-tag">Operations</span><span class="job-tag remote">Remote</span><span class="job-tag">Full-time</span><span class="job-tag">$40k–$60k</span></div></div>
+        <a href="./contact.html" class="job-arrow">Apply →</a>
+      </div>
+      <div class="job-card" data-dept="compliance">
+        <div class="job-info"><h4>AML / KYC Compliance Officer</h4><div class="job-meta"><span class="job-tag">Compliance</span><span class="job-tag">Mauritius / Remote</span><span class="job-tag">Full-time</span><span class="job-tag">$70k–$100k</span></div></div>
+        <a href="./contact.html" class="job-arrow">Apply →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Don't See the Right Role?</h2>
+      <p>We're always looking for exceptional talent. Send us your CV and tell us how you'd contribute to Stoxoras.</p>
+      <div class="cta-btns"><a href="./contact.html" class="btn btn-primary">Send Open Application</a><a href="./register.html" class="btn btn-ghost">Trade with Us Instead</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="ifooter">
+  <div class="ifooter-top">
+    <div class="ifooter-brand">
+      <a href="./index.html" class="logo-mark"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Stoxoras</span></a>
+      <p>Institutional-grade trading for the modern professional.</p>
+      <div class="social-row"><a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div>
+    </div>
+    <div class="ifooter-cols">
+      <div><h5>Markets</h5><ul><li><a href="./index.html">Forex</a></li><li><a href="./index.html">Commodities</a></li></ul></div>
+      <div><h5>Trading</h5><ul><li><a href="./index.html">Accounts</a></li><li><a href="./trading-fees.html">Fees</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="./index.html">About</a></li><li><a href="./careers.html">Careers</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="./client-security.html">Security</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </div>
+  </div>
+  
+</footer>
+
+<script>
+function filterJobs(dept, btn) {
+  document.querySelectorAll('.dept-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.job-card').forEach(card => {
+    card.style.display = (dept === 'all' || card.dataset.dept === dept) ? 'flex' : 'none';
+  });
+}
+</script>
+</body>
+</html>

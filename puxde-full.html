@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stoxoras — Your Edge, Optimized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080b10;
+      --bg-card: #0f1318;
+      --bg-card2: #141920;
+      --accent: #2bd29b;
+      --accent2: #00e5c0;
+      --accent-dim: rgba(43,210,155,0.10);
+      --accent-border: rgba(43,210,155,0.22);
+      --text: #e8edf5;
+      --text-muted: #6b7a94;
+      --border: rgba(255,255,255,0.06);
+      --radius: 14px;
+      --nav-h: 68px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ===================== PAGES ===================== */
+    .page { display: none; min-height: 100vh; }
+    .page.active { display: block; }
+
+    /* ===================== WARNING BANNER ===================== */
+    .warning-banner {
+      background: rgba(255,200,50,0.06);
+      border-bottom: 1px solid rgba(255,200,50,0.14);
+      padding: 9px 24px;
+      text-align: center;
+      font-size: 10.5px;
+      color: rgba(255,200,50,0.65);
+      line-height: 1.5;
+    }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(8,11,16,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .logo-mark svg path { stroke: var(--accent); }
+    .logo-mark span { color: var(--accent); }
+
+    /* Desktop Nav */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-item {
+      position: relative;
+    }
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-btn:hover, .nav-btn.active { color: var(--text); background: rgba(255,255,255,0.05); }
+    .nav-btn svg { transition: transform 0.25s; }
+    .nav-btn.open svg { transform: rotate(180deg); }
+
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 220px;
+      background: #111720;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      z-index: 300;
+    }
+    .dropdown.show { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.2s, background 0.2s;
+    }
+    .dropdown a:hover { color: var(--accent); background: var(--accent-dim); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border-radius: 8px; font-weight: 600; font-size: 0.875rem; transition: all 0.22s; }
+    .btn-ghost { color: var(--text); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-primary { background: var(--accent); color: #050d09; }
+    .btn-primary:hover { background: #38f0b2; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(43,210,155,0.28); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+      z-index: 400;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ===================== MOBILE MENU ===================== */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: #090d11;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .mobile-menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-nav-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 22px 24px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .mobile-nav-btn svg { transition: transform 0.25s; color: var(--text-muted); }
+    .mobile-nav-btn.open svg { transform: rotate(90deg); color: var(--accent); }
+
+    .mobile-submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: rgba(255,255,255,0.02);
+    }
+    .mobile-submenu.open { max-height: 600px; }
+    .mobile-submenu a {
+      display: block;
+      padding: 14px 24px 14px 32px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-submenu a:hover { color: var(--accent); }
+
+    .mobile-plain-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 24px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-plain-link:hover { color: var(--accent); }
+
+    .mobile-menu-footer {
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: auto;
+    }
+    .mobile-menu-footer .btn { width: 100%; justify-content: center; padding: 16px; font-size: 1rem; border-radius: 10px; }
+
+    /* ===================== SCROLL ANIMATIONS ===================== */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal-right { opacity: 0; transform: translateX(60px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal-scale { opacity: 0; transform: scale(0.88) translateY(20px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.vis, .reveal-left.vis, .reveal-right.vis, .reveal-scale.vis { opacity: 1; transform: none; }
+    .reveal.past, .reveal-left.past, .reveal-right.past, .reveal-scale.past { opacity: 0; transform: translateY(-28px) scale(0.97); transition: opacity 0.45s ease-in, transform 0.45s ease-in; }
+    .d1 { transition-delay: 0ms !important; }
+    .d2 { transition-delay: 80ms !important; }
+    .d3 { transition-delay: 160ms !important; }
+    .d4 { transition-delay: 240ms !important; }
+    .d5 { transition-delay: 320ms !important; }
+    .d6 { transition-delay: 400ms !important; }
+
+    /* Lazy images */
+    img[data-src] { opacity: 0; transition: opacity 0.6s ease, filter 0.6s ease; filter: blur(6px); }
+    img.lazy-loaded { opacity: 1; filter: blur(0); }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      min-height: calc(92vh - var(--nav-h));
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding: 80px 80px 80px 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .hero h1 { font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 22px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 38px; max-width: 480px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-img img { border-radius: 20px; width: 100%; }
+    .hero-img { position: relative; }
+    .hero-img::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, var(--accent), transparent 60%);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    /* ===================== SECTION COMMONS ===================== */
+    .section { padding: 100px 80px; }
+    .section-sm { padding: 70px 80px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .section-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .section-h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; }
+    .section-lead { color: var(--text-muted); font-size: 1.05rem; max-width: 560px; line-height: 1.7; }
+    .text-center { text-align: center; }
+    .text-center .section-lead { margin-left: auto; margin-right: auto; }
+
+    /* ===================== STATS STRIP ===================== */
+    .stats-strip {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .stat {
+      padding: 50px 40px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-n { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 800; color: var(--accent); letter-spacing: -0.04em; display: block; margin-bottom: 6px; }
+    .stat-l { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* ===================== CARD GRID ===================== */
+    .card-grid { display: grid; gap: 20px; }
+    .g2 { grid-template-columns: repeat(2, 1fr); }
+    .g3 { grid-template-columns: repeat(3, 1fr); }
+    .g4 { grid-template-columns: repeat(4, 1fr); }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { border-color: var(--accent-border); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .card-icon { width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--accent); }
+    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ===================== CHECK LIST ===================== */
+    .check-list { display: flex; flex-direction: column; gap: 18px; }
+    .check-item { display: flex; align-items: flex-start; gap: 14px; }
+    .check-item svg { flex-shrink: 0; margin-top: 2px; }
+    .check-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 3px; }
+    .check-item p { font-size: 0.83rem; color: var(--text-muted); }
+
+    /* ===================== TABLE ===================== */
+    .data-table { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .t-head, .t-row { display: grid; padding: 16px 24px; gap: 16px; align-items: center; }
+    .t-head { background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .t-row { border-top: 1px solid var(--border); font-size: 0.88rem; transition: background 0.2s; }
+    .t-row:hover { background: rgba(255,255,255,0.03); }
+    .t5 { grid-template-columns: 2fr 1.5fr 1fr 1fr 1.2fr; }
+    .t4 { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    .t3 { grid-template-columns: 2fr 1fr 1fr; }
+    .instrument { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+    .instrument img { width: 28px; height: 28px; border-radius: 50%; background: #1a2030; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; }
+    .badge-green { background: rgba(43,210,155,0.12); color: var(--accent); }
+    .badge-blue { background: rgba(59,130,246,0.12); color: #60a5fa; }
+    .link-arrow { color: var(--accent); font-size: 0.82rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: gap 0.2s; }
+    .link-arrow:hover { gap: 8px; }
+
+    /* ===================== SPLIT SECTION ===================== */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .split.rev { direction: rtl; }
+    .split.rev > * { direction: ltr; }
+
+    /* ===================== HERO BIG ===================== */
+    .page-hero {
+      padding: 100px 80px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .page-hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 20px; }
+    .page-hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 580px; margin: 0 auto 40px; line-height: 1.7; }
+
+    /* ===================== DIVIDER ===================== */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ===================== PLATFORM CARDS ===================== */
+    .platform-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .platform-card:hover { border-color: var(--accent-border); transform: translateY(-6px); }
+    .platform-card-top { padding: 36px 36px 0; }
+    .platform-card-top h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+    .platform-card-top p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+    .platform-card-img { height: 200px; background: linear-gradient(135deg, #0d1a22, #0a1218); display: flex; align-items: center; justify-content: center; margin-top: 24px; }
+    .platform-screen { width: 80%; height: 140px; background: #0a1520; border-radius: 10px 10px 0 0; border: 1px solid var(--border); border-bottom: none; display: flex; flex-direction: column; padding: 12px; gap: 6px; overflow: hidden; }
+    .ps-bar { height: 6px; border-radius: 4px; background: var(--border); }
+    .ps-bar.accent { background: var(--accent); width: 40%; }
+    .ps-bar.w60 { width: 60%; }
+    .ps-bar.w80 { width: 80%; }
+    .ps-chart { flex: 1; display: flex; align-items: flex-end; gap: 3px; padding-top: 8px; }
+    .ps-col { flex: 1; background: var(--accent-dim); border-radius: 3px 3px 0 0; }
+
+    /* ===================== ACCOUNT TABLE ===================== */
+    .acc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .acc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .acc-card.featured {
+      border-color: var(--accent-border);
+      background: linear-gradient(135deg, #0d1f19 0%, #0f1318 60%);
+    }
+    .acc-card:hover { border-color: var(--accent-border); transform: translateY(-6px); }
+    .acc-featured-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #050d09;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 18px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .acc-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .acc-desc { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 28px; }
+    .acc-spread { font-size: 2.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 4px; }
+    .acc-spread-l { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 28px; }
+    .acc-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .acc-feat { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-muted); }
+    .acc-feat svg { color: var(--accent); flex-shrink: 0; }
+    .acc-feat.no svg { color: #ff4d4d; }
+    .acc-feat.no { color: #ff7777; }
+
+    /* ===================== EDUCATION ===================== */
+    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .edu-card:hover { border-color: var(--accent-border); transform: translateY(-5px); }
+    .edu-thumb {
+      height: 170px;
+      background: linear-gradient(135deg, #0d1a22, #091420);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.5));
+    }
+    .edu-level {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+    }
+    .edu-body { padding: 22px; }
+    .edu-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; font-size: 0.78rem; color: var(--text-muted); }
+    .edu-body h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 8px; }
+    .edu-body p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+    .edu-icon-wrap { width: 64px; height: 64px; border-radius: 50%; background: var(--accent-dim); border: 2px solid var(--accent-border); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+
+    /* ===================== COMPANY ===================== */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 0; width: 2px; background: var(--border); }
+    .tl-item { position: relative; padding-bottom: 40px; }
+    .tl-item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(43,210,155,0.15); }
+    .tl-year { font-size: 0.8rem; color: var(--accent); font-weight: 700; margin-bottom: 6px; letter-spacing: 0.06em; }
+    .tl-item h4 { font-size: 0.98rem; font-weight: 700; margin-bottom: 6px; }
+    .tl-item p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .team-card:hover { border-color: var(--accent-border); transform: translateY(-4px); }
+    .team-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--bg);
+    }
+    .team-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+    .team-card p { font-size: 0.78rem; color: var(--text-muted); }
+
+    .reg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .reg-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+    }
+    .reg-flag { font-size: 2rem; margin-bottom: 10px; }
+    .reg-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+    .reg-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ===================== COMPARISON TABLE ===================== */
+    .comp-table { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .comp-head, .comp-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: 18px 28px; gap: 16px; align-items: center; }
+    .comp-head { background: rgba(255,255,255,0.03); font-weight: 700; font-size: 0.88rem; }
+    .comp-head .ch-Stoxoras { color: var(--accent); }
+    .comp-row { border-top: 1px solid var(--border); font-size: 0.85rem; transition: background 0.2s; }
+    .comp-row:hover { background: rgba(255,255,255,0.02); }
+    .comp-row .feat { color: var(--text-muted); }
+    .comp-check { color: var(--accent); }
+    .comp-cross { color: #ff5555; }
+    .comp-neutral { color: var(--text-muted); }
+
+    /* ===================== LATENCY CARDS ===================== */
+    .latency-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .lat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-align: center;
+    }
+    .lat-city { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .lat-ms { font-size: 2.2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; }
+    .lat-bar { height: 4px; background: var(--border); border-radius: 4px; margin-top: 14px; overflow: hidden; }
+    .lat-fill { height: 100%; background: var(--accent); border-radius: 4px; }
+
+    /* ===================== PERFORMANCE GRID ===================== */
+    .perf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .perf-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .perf-card:hover { border-color: var(--accent-border); transform: translateY(-4px); }
+    .perf-n { font-size: 2.6rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 8px; display: block; }
+    .perf-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .perf-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ===================== CTA BANNER ===================== */
+    .cta-banner {
+      background: linear-gradient(135deg, #071a12 0%, #0a1a2a 100%);
+      border: 1px solid var(--accent-border);
+      border-radius: 24px;
+      padding: 70px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 300px;
+      background: radial-gradient(ellipse, rgba(43,210,155,0.08) 0%, transparent 70%);
+    }
+    .cta-banner h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; position: relative; }
+    .cta-banner p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 70px 80px 40px;
+    }
+    .footer-top { display: grid; grid-template-columns: 220px 1fr; gap: 80px; margin-bottom: 60px; }
+    .footer-brand { display: flex; flex-direction: column; gap: 22px; }
+    .footer-brand p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
+    .social-row { display: flex; gap: 14px; }
+    .social-row a { color: var(--text-muted); transition: color 0.2s; }
+    .social-row a:hover { color: var(--accent); }
+    .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .footer-col h5 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 0.85rem; color: var(--text-muted); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(107,122,148,0.6); }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1024px) {
+      .section, .section-sm { padding: 80px 40px; }
+      .hero { padding: 70px 40px; gap: 40px; }
+      .footer { padding: 60px 40px 32px; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-cols { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .g4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .desktop-nav, .header-actions { display: none; }
+      .hamburger { display: flex; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-img { display: none; }
+      .split { grid-template-columns: 1fr; gap: 40px; }
+      .split.rev { direction: ltr; }
+      .g2, .g3 { grid-template-columns: 1fr; }
+      .acc-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .reg-grid { grid-template-columns: 1fr 1fr; }
+      .perf-grid { grid-template-columns: 1fr; }
+      .latency-strip { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .comp-head, .comp-row { grid-template-columns: 2fr 1fr 1fr; }
+      .comp-head > *:last-child, .comp-row > *:last-child { display: none; }
+      .page-hero { padding: 70px 28px 50px; }
+      .section, .section-sm { padding: 70px 24px; }
+      .hero { padding: 60px 24px; }
+      .footer { padding: 50px 24px 28px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .header { padding: 0 24px; }
+    }
+    @media (max-width: 480px) {
+      .reg-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .footer-cols { grid-template-columns: 1fr; }
+    }
+
+    /* ===================== MISC ===================== */
+    .glow-line { width: 60px; height: 3px; background: var(--accent); border-radius: 3px; margin: 0 auto 40px; }
+    .mt4 { margin-top: 16px; }
+    .mt8 { margin-top: 32px; }
+    .mt12 { margin-top: 48px; }
+    .mt16 { margin-top: 64px; }
+    .mb8 { margin-bottom: 32px; }
+    .bg-card { background: var(--bg-card); }
+    .border-t { border-top: 1px solid var(--border); }
+    .risk-note { font-size: 0.75rem; color: rgba(107,122,148,0.5); line-height: 1.6; }
+    .highlight { color: var(--accent); }
+
+    /* Animated gradient bg for hero */
+    .hero-glow {
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(43,210,155,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    section { position: relative; }
+
+    /* Progress bars */
+    .progress-bar { height: 6px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 10px; }
+    .progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 1s ease; }
+
+    /* Number accent */
+    .big-num { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; color: var(--accent); letter-spacing: -0.05em; line-height: 1; }
+
+    /* Scroll top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      color: #060d0a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 150;
+    }
+    .scroll-top.show { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { background: #38f0b2; }
+  </style>
+</head>
+<body>
+
+<!-- Warning Banner -->
+<div class="warning-banner">
+  CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 76% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="main-header">
+  <button class="logo-mark" onclick="showPage('home')">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Stoxoras</span>
+  </button>
+
+  <nav class="desktop-nav">
+    <!-- Trade -->
+    <div class="nav-item">
+      <button class="nav-btn" onclick="toggleDropdown('dd-trade', this)">
+        Trade <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="dropdown" id="dd-trade">
+        <a href="#" onclick="showPage('trade');closeDropdowns()">Currency CFDs</a>
+        <a href="#" onclick="showPage('trade');closeDropdowns()">Commodity CFDs</a>
+        <a href="#" onclick="showPage('trade');closeDropdowns()">Stock CFDs</a>
+        <a href="#" onclick="showPage('trade');closeDropdowns()">Index CFDs</a>
+        <a href="#" onclick="showPage('trade');closeDropdowns()">Crypto CFDs</a>
+        <a href="#" onclick="showPage('trade');closeDropdowns()">Live Quotes</a>
+      </div>
+    </div>
+    <!-- Platforms -->
+    <div class="nav-item">
+      <button class="nav-btn" onclick="toggleDropdown('dd-platforms', this)">
+        Platforms <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="dropdown" id="dd-platforms">
+        <a href="#" onclick="showPage('platforms');closeDropdowns()">Stoxoras Trade App</a>
+        <a href="#" onclick="showPage('platforms');closeDropdowns()">Stoxoras WebTerminal</a>
+        <a href="#" onclick="showPage('platforms');closeDropdowns()">MetaTrader 5</a>
+      </div>
+    </div>
+    <!-- Education -->
+    <div class="nav-item">
+      <button class="nav-btn" onclick="toggleDropdown('dd-edu', this)">
+        Education <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="dropdown" id="dd-edu">
+        <a href="#" onclick="showPage('education');closeDropdowns()">Beginner's Guide</a>
+        <a href="#" onclick="showPage('education');closeDropdowns()">Video Tutorials</a>
+        <a href="#" onclick="showPage('education');closeDropdowns()">Market Analysis</a>
+        <a href="#" onclick="showPage('education');closeDropdowns()">Trading Glossary</a>
+      </div>
+    </div>
+    <!-- Company -->
+    <div class="nav-item">
+      <button class="nav-btn" onclick="toggleDropdown('dd-company', this)">
+        Company <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="dropdown" id="dd-company">
+        <a href="#" onclick="showPage('company');closeDropdowns()">About Stoxoras</a>
+        <a href="#" onclick="showPage('company');closeDropdowns()">Regulation</a>
+        <a href="#" onclick="showPage('company');closeDropdowns()">Our Team</a>
+        <a href="#" onclick="showPage('company');closeDropdowns()">Careers</a>
+        <a href="#" onclick="showPage('company');closeDropdowns()">Contact Us</a>
+      </div>
+    </div>
+    <button class="nav-btn" onclick="showPage('accounts')">Accounts</button>
+    <button class="nav-btn" onclick="showPage('comparison')">Comparison</button>
+  </nav>
+
+  <div class="header-actions">
+    <a href="#" class="btn btn-ghost">Login</a>
+    <a href="#" class="btn btn-primary">Open Account</a>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ===================== MOBILE MENU ===================== -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <button class="logo-mark" onclick="showPage('home');closeMobileMenu()">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Stoxoras</span>
+    </button>
+    <button onclick="toggleMobileMenu()" style="color:var(--text-muted)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div class="mobile-nav-item">
+    <button class="mobile-nav-btn" onclick="toggleMobileSub('ms-trade', this)">
+      Trade <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="mobile-submenu" id="ms-trade">
+      <a href="#" onclick="showPage('trade');closeMobileMenu()">Currency CFDs</a>
+      <a href="#" onclick="showPage('trade');closeMobileMenu()">Commodity CFDs</a>
+      <a href="#" onclick="showPage('trade');closeMobileMenu()">Stock CFDs</a>
+      <a href="#" onclick="showPage('trade');closeMobileMenu()">Index CFDs</a>
+      <a href="#" onclick="showPage('trade');closeMobileMenu()">Crypto CFDs</a>
+      <a href="#" onclick="showPage('trade');closeMobileMenu()">Live Quotes</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <button class="mobile-nav-btn" onclick="toggleMobileSub('ms-plat', this)">
+      Platforms <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="mobile-submenu" id="ms-plat">
+      <a href="#" onclick="showPage('platforms');closeMobileMenu()">Stoxoras Trade App</a>
+      <a href="#" onclick="showPage('platforms');closeMobileMenu()">Stoxoras WebTerminal</a>
+      <a href="#" onclick="showPage('platforms');closeMobileMenu()">MetaTrader 5</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <button class="mobile-nav-btn" onclick="toggleMobileSub('ms-edu', this)">
+      Education <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="mobile-submenu" id="ms-edu">
+      <a href="#" onclick="showPage('education');closeMobileMenu()">Beginner's Guide</a>
+      <a href="#" onclick="showPage('education');closeMobileMenu()">Video Tutorials</a>
+      <a href="#" onclick="showPage('education');closeMobileMenu()">Market Analysis</a>
+      <a href="#" onclick="showPage('education');closeMobileMenu()">Trading Glossary</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <button class="mobile-nav-btn" onclick="toggleMobileSub('ms-company', this)">
+      Company <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="mobile-submenu" id="ms-company">
+      <a href="#" onclick="showPage('company');closeMobileMenu()">About Stoxoras</a>
+      <a href="#" onclick="showPage('company');closeMobileMenu()">Regulation</a>
+      <a href="#" onclick="showPage('company');closeMobileMenu()">Our Team</a>
+      <a href="#" onclick="showPage('company');closeMobileMenu()">Careers</a>
+      <a href="#" onclick="showPage('company');closeMobileMenu()">Contact Us</a>
+    </div>
+  </div>
+  <a class="mobile-plain-link" href="#" onclick="showPage('accounts');closeMobileMenu()">
+    Accounts <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </a>
+  <a class="mobile-plain-link" href="#" onclick="showPage('comparison');closeMobileMenu()">
+    Comparison <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </a>
+
+  <div class="mobile-menu-footer">
+    <a href="#" class="btn btn-ghost">Login</a>
+    <a href="#" class="btn btn-primary">Open Account</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: HOME -->
+<!-- ============================================================ -->
+<div class="page active" id="page-home">
+  <div style="position:relative; overflow:hidden;">
+    <div class="hero-glow"></div>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="section-tag reveal d1">Institutional-Grade Trading</div>
+        <h1 class="reveal d2">Stoxoras Your <em>Edge</em>,<br>Optimized</h1>
+        <p class="hero-sub reveal d3">30ms fast execution. Raw-spread efficiency. Low-latency global access for professional traders.*</p>
+        <div class="hero-btns reveal d4">
+          <a href="#" class="btn btn-primary">Open Account</a>
+          <a href="#" class="btn btn-ghost">Watch Demo</a>
+        </div>
+      </div>
+      <div class="hero-img reveal-right">
+        <img data-src="https://ext.same-assets.com/3096741692/1501786546.png"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             alt="Trading platform">
+      </div>
+    </section>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat reveal-scale d1"><span class="stat-n">650K+</span><span class="stat-l">Traders Worldwide</span></div>
+      <div class="stat reveal-scale d2"><span class="stat-n">$1.1T+</span><span class="stat-l">Monthly Volume</span></div>
+      <div class="stat reveal-scale d3"><span class="stat-n">$70M+</span><span class="stat-l">Monthly Withdrawals</span></div>
+      <div class="stat reveal-scale d4"><span class="stat-n">6</span><span class="stat-l">Global Offices</span></div>
+    </div>
+  </div>
+
+  <!-- Trading Table -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Markets</div>
+        <h2 class="section-h2 reveal d2">Institutional-Grade Trading</h2>
+        <p class="section-lead reveal d3">Capitalize on every opportunity with the world's most popular assets.</p>
+      </div>
+      <div class="data-table reveal mt8">
+        <div class="t-head t5"><span>Instrument</span><span>Leverage</span><span>Avg. Spread (pips)</span><span>Swap-free</span><span></span></div>
+        <div class="t-row t5">
+          <div class="instrument"><img data-src="https://ext.same-assets.com/3096741692/2360559697.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="XAUUSD"><span>XAUUSD</span></div>
+          <span>Customizable</span><span>0.9</span><span><span class="badge badge-green">Available</span></span>
+          <span><a href="#" class="link-arrow" onclick="showPage('trade')">Metals →</a></span>
+        </div>
+        <div class="t-row t5">
+          <div class="instrument"><img data-src="https://ext.same-assets.com/3096741692/125848840.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="USOIL"><span>USOIL</span></div>
+          <span>Customizable</span><span>1.2</span><span><span class="badge badge-green">Available</span></span>
+          <span><a href="#" class="link-arrow" onclick="showPage('trade')">Energies →</a></span>
+        </div>
+        <div class="t-row t5">
+          <div class="instrument"><img data-src="https://ext.same-assets.com/3096741692/973283061.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="EURUSD"><span>EURUSD</span></div>
+          <span>Customizable</span><span>0.6</span><span><span class="badge badge-green">Available</span></span>
+          <span><a href="#" class="link-arrow" onclick="showPage('trade')">Currencies →</a></span>
+        </div>
+        <div class="t-row t5">
+          <div class="instrument"><img data-src="https://ext.same-assets.com/3096741692/2281553275.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="US30"><span>US30</span></div>
+          <span>Customizable</span><span>1.6</span><span><span class="badge badge-green">Available</span></span>
+          <span><a href="#" class="link-arrow" onclick="showPage('trade')">Indices →</a></span>
+        </div>
+        <div class="t-row t5">
+          <div class="instrument"><img data-src="https://ext.same-assets.com/3096741692/3498416174.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="AAPL"><span>AAPL</span></div>
+          <span>Customizable</span><span>0.6</span><span><span class="badge badge-green">Available</span></span>
+          <span><a href="#" class="link-arrow" onclick="showPage('trade')">Stocks →</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance -->
+  <section class="section bg-card border-t">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Performance</div>
+        <h2 class="section-h2 reveal d2">Numbers You Can Measure</h2>
+        <p class="section-lead reveal d3">Committed to total transparency with verifiable performance metrics.</p>
+      </div>
+      <div class="perf-grid mt12">
+        <div class="perf-card reveal-scale d1"><span class="perf-n">30ms</span><h4>Avg. Execution Speed</h4><p>Lightning-fast fills at the price you want, when you want it.</p></div>
+        <div class="perf-card reveal-scale d2"><span class="perf-n">99.91%</span><h4>Platform Uptime</h4><p>Robust infrastructure that holds even during peak volatility.</p></div>
+        <div class="perf-card reveal-scale d3"><span class="perf-n">0.11</span><h4>Avg. Spread (pips)</h4><p>Competitive spreads across all major pairs — every pip matters.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Ready to Trade at the Speed of Markets?</h2>
+        <p>Join 650,000+ traders who trust Stoxoras for institutional-grade execution.</p>
+        <div class="cta-btns">
+          <a href="#" class="btn btn-primary">Open Free Account</a>
+          <a href="#" class="btn btn-ghost" onclick="showPage('comparison')">Compare Accounts</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <button class="logo-mark" onclick="showPage('home')">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Stoxoras</span>
+        </button>
+        <p>Institutional-grade trading for the modern professional. Fast. Transparent. Global.</p>
+        <div class="social-row">
+          <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg></a>
+          <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Markets</h5><ul><li><a href="#" onclick="showPage('trade')">Currency CFDs</a></li><li><a href="#" onclick="showPage('trade')">Commodity CFDs</a></li><li><a href="#" onclick="showPage('trade')">Stock CFDs</a></li><li><a href="#" onclick="showPage('trade')">Index CFDs</a></li><li><a href="#" onclick="showPage('trade')">Crypto CFDs</a></li></ul></div>
+        <div class="footer-col"><h5>Trading</h5><ul><li><a href="#" onclick="showPage('accounts')">Account Types</a></li><li><a href="#" onclick="showPage('platforms')">Platforms</a></li><li><a href="#" onclick="showPage('comparison')">Comparison</a></li><li><a href="#">Payment Options</a></li><li><a href="#">Trading Fees</a></li></ul></div>
+        <div class="footer-col"><h5>Learn</h5><ul><li><a href="#" onclick="showPage('education')">Beginner's Guide</a></li><li><a href="#" onclick="showPage('education')">Video Tutorials</a></li><li><a href="#" onclick="showPage('education')">Market Analysis</a></li><li><a href="#" onclick="showPage('education')">Glossary</a></li></ul></div>
+        <div class="footer-col"><h5>Company</h5><ul><li><a href="#" onclick="showPage('company')">About Us</a></li><li><a href="#" onclick="showPage('company')">Regulation</a></li><li><a href="#" onclick="showPage('company')">Our Team</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="risk-note" style="max-width:800px">Risk Warning: CFDs are complex instruments and carry a high risk of losing money. 76% of retail investor accounts lose money. Please ensure you fully understand the risks involved.</p>
+      <p style="color:var(--text-muted);font-size:0.82rem">© 2024 Stoxoras Markets Limited</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: TRADE -->
+<!-- ============================================================ -->
+<div class="page" id="page-trade">
+  <section style="background:linear-gradient(180deg,#071219 0%,var(--bg) 100%); padding-bottom:0">
+    <div class="page-hero">
+      <div class="section-tag reveal" style="margin:0 auto 18px">500+ Instruments</div>
+      <h1 class="reveal d2">Trade the World's <em style="color:var(--accent)">Best Markets</em></h1>
+      <p class="reveal d3">Access 500+ financial instruments across forex, commodities, stocks, indices, and crypto — all with institutional-grade execution.</p>
+      <div class="cta-btns reveal d4">
+        <a href="#" class="btn btn-primary">Start Trading</a>
+        <a href="#" class="btn btn-ghost">View Spreads</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forex -->
+  <section class="section">
+    <div class="container">
+      <div class="section-tag reveal">Forex</div>
+      <h2 class="section-h2 reveal d2">Currency CFDs</h2>
+      <p class="section-lead reveal d3" style="margin-bottom:36px">Trade 60+ major, minor and exotic currency pairs with razor-thin spreads from 0.0 pips.</p>
+      <div class="data-table reveal">
+        <div class="t-head t5"><span>Pair</span><span>Spread from</span><span>Leverage</span><span>Daily Range</span><span></span></div>
+        <div class="t-row t5"><div class="instrument"><span>🇪🇺</span><span>EUR/USD</span></div><span class="highlight">0.6 pips</span><span>Up to 1:500</span><span>0.0042</span><span><span class="badge badge-green">Popular</span></span></div>
+        <div class="t-row t5"><div class="instrument"><span>🇬🇧</span><span>GBP/USD</span></div><span class="highlight">0.8 pips</span><span>Up to 1:500</span><span>0.0068</span><span><span class="badge badge-green">Popular</span></span></div>
+        <div class="t-row t5"><div class="instrument"><span>🇺🇸</span><span>USD/JPY</span></div><span class="highlight">0.7 pips</span><span>Up to 1:500</span><span>0.52</span><span></span></div>
+        <div class="t-row t5"><div class="instrument"><span>🇦🇺</span><span>AUD/USD</span></div><span class="highlight">0.9 pips</span><span>Up to 1:500</span><span>0.0038</span><span></span></div>
+        <div class="t-row t5"><div class="instrument"><span>🇺🇸</span><span>USD/CHF</span></div><span class="highlight">1.0 pips</span><span>Up to 1:500</span><span>0.0034</span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Asset classes -->
+  <section class="section bg-card border-t">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Asset Classes</div>
+        <h2 class="section-h2 reveal d2">Diversify Across Markets</h2>
+        <p class="section-lead reveal d3">Every major asset class, one powerful platform.</p>
+      </div>
+      <div class="card-grid g3 mt12">
+        <div class="card reveal-scale d1">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Commodities</h3>
+          <p>Gold, Silver, Oil, Natural Gas and more. Hedge your portfolio or speculate on global supply chains.</p>
+        </div>
+        <div class="card reveal-scale d2">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3>Indices</h3>
+          <p>Trade the world's leading stock market indices including US30, SPX500, NASDAQ and FTSE100.</p>
+        </div>
+        <div class="card reveal-scale d3">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h3>Stocks</h3>
+          <p>Access over 200 global stocks including Apple, Tesla, Amazon, Google and major European equities.</p>
+        </div>
+        <div class="card reveal-scale d4">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 20.364l3.126-17.727"/></svg></div>
+          <h3>Crypto CFDs</h3>
+          <p>Trade Bitcoin, Ethereum, Litecoin and 20+ major cryptocurrencies as CFDs with competitive spreads.</p>
+        </div>
+        <div class="card reveal-scale d5">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div>
+          <h3>Thematic Indices</h3>
+          <p>Gain exposure to next-generation sectors: EV, AI, Robotics, Clean Energy and Cybersecurity baskets.</p>
+        </div>
+        <div class="card reveal-scale d6">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Live Quotes</h3>
+          <p>Stream real-time bid/ask data, depth-of-market, and tick charts for all 500+ instruments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latency -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="reveal-left">
+          <div class="section-tag">Global Execution</div>
+          <h2 class="section-h2 mt4">30ms Average Execution Worldwide</h2>
+          <p class="section-lead mt4">Our co-located servers in 6 major financial hubs ensure your orders are filled at lightning speed, no matter where you trade from.</p>
+          <div class="check-list mt8">
+            <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg><div><h4>No dealing desk</h4><p>True STP/ECN execution with no intervention</p></div></div>
+            <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg><div><h4>Deep liquidity pool</h4><p>Aggregated from 20+ tier-1 liquidity providers</p></div></div>
+            <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg><div><h4>Negative balance protection</h4><p>Your account can never go below zero</p></div></div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="latency-strip" style="grid-template-columns:1fr">
+            <div class="lat-card"><div class="lat-city">LD4 London</div><div class="lat-ms">28.5ms</div><div class="lat-bar"><div class="lat-fill" style="width:95%"></div></div></div>
+            <div class="lat-card" style="margin-top:16px"><div class="lat-city">NY3 New York</div><div class="lat-ms">30.2ms</div><div class="lat-bar"><div class="lat-fill" style="width:90%"></div></div></div>
+            <div class="lat-card" style="margin-top:16px"><div class="lat-city">SG1 Singapore</div><div class="lat-ms">31.3ms</div><div class="lat-bar"><div class="lat-fill" style="width:87%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-card border-t">
+    <div class="container"><div class="cta-banner reveal"><h2>Start Trading in Minutes</h2><p>Open a live account today and access all 500+ markets with competitive spreads.</p><div class="cta-btns"><a href="#" class="btn btn-primary">Open Account</a><a href="#" class="btn btn-ghost" onclick="showPage('accounts')">View Account Types</a></div></div></div>
+  </section>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: PLATFORMS -->
+<!-- ============================================================ -->
+<div class="page" id="page-platforms">
+  <section style="background:linear-gradient(180deg,#071219 0%,var(--bg) 100%); padding-bottom:0">
+    <div class="page-hero">
+      <div class="section-tag reveal" style="margin:0 auto 18px">Award-Winning</div>
+      <h1 class="reveal d2">Trade on Any <em style="color:var(--accent)">Platform</em></h1>
+      <p class="reveal d3">Whether you're on desktop, mobile, or browser — Stoxoras delivers a seamless, lightning-fast trading experience on every device.</p>
+    </div>
+  </section>
+
+  <!-- Platform cards -->
+  <section class="section">
+    <div class="container">
+      <div class="card-grid g3">
+        <div class="platform-card reveal d1">
+          <div class="platform-card-top">
+            <div class="section-tag" style="margin-bottom:14px">Mobile</div>
+            <h3>Stoxoras Trade App</h3>
+            <p>Full-featured mobile trading with real-time charts, one-tap execution, advanced orders, and instant notifications.</p>
+            <a href="#" class="btn btn-primary" style="display:inline-flex">Download Free</a>
+          </div>
+          <div class="platform-card-img">
+            <div class="platform-screen">
+              <div class="ps-bar accent"></div>
+              <div class="ps-bar w80"></div>
+              <div class="ps-chart">
+                <div class="ps-col" style="height:30%"></div>
+                <div class="ps-col" style="height:55%"></div>
+                <div class="ps-col" style="height:40%"></div>
+                <div class="ps-col" style="height:70%;background:var(--accent)"></div>
+                <div class="ps-col" style="height:50%"></div>
+                <div class="ps-col" style="height:80%;background:var(--accent)"></div>
+                <div class="ps-col" style="height:65%"></div>
+                <div class="ps-col" style="height:90%;background:var(--accent)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card reveal d2">
+          <div class="platform-card-top">
+            <div class="section-tag" style="margin-bottom:14px">Web</div>
+            <h3>Stoxoras WebTerminal</h3>
+            <p>Trade directly from your browser with no download required. Access all markets, charts, and tools instantly.</p>
+            <a href="#" class="btn btn-primary" style="display:inline-flex">Launch Terminal</a>
+          </div>
+          <div class="platform-card-img">
+            <div class="platform-screen">
+              <div class="ps-bar w60"></div>
+              <div class="ps-bar accent" style="width:70%"></div>
+              <div class="ps-chart">
+                <div class="ps-col" style="height:60%"></div>
+                <div class="ps-col" style="height:40%"></div>
+                <div class="ps-col" style="height:75%;background:var(--accent)"></div>
+                <div class="ps-col" style="height:55%"></div>
+                <div class="ps-col" style="height:85%;background:var(--accent)"></div>
+                <div class="ps-col" style="height:45%"></div>
+                <div class="ps-col" style="height:70%"></div>
+                <div class="ps-col" style="height:95%;background:var(--accent)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card reveal d3">
+          <div class="platform-card-top">
+            <div class="section-tag" style="margin-bottom:14px">Desktop</div>
+            <h3>MetaTrader 5</h3>
+            <p>The industry-standard platform. Expert Advisors, algorithmic trading, 80+ indicators, and multi-asset coverage.</p>
+            <a href="#" class="btn btn-primary" style="display:inline-flex">Download MT5</a>
+          </div>
+          <div class="platform-card-img">
+            <div class="platform-screen">
+              <div class="ps-bar w80"></div>
+              <div class="ps-bar w60"></div>
+              <div class="ps-chart">
+                <div class="ps-col" style="height:45%"></div>
+                <div class="ps-col" style="height:70%;background:var(--accent)"></div>
+                <div class="ps-col" style="height:50%"></div>
+                <div class="ps-col" style="height:85%;background:var(--accent)"></div>
+                <div class="ps-col" style="height:60%"></div>
+                <div class="ps-col" style="height:35%"></div>
+                <div class="ps-col" style="height:75%;background:var(--accent)"></div>
+                <div class="ps-col" style="height:90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features comparison -->
+  <section class="section bg-card border-t">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Compare</div>
+        <h2 class="section-h2 reveal d2">Platform Features</h2>
+      </div>
+      <div class="data-table reveal mt12">
+        <div class="t-head" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;gap:16px">
+          <span>Feature</span><span>Trade App</span><span>WebTerminal</span><span>MT5</span>
+        </div>
+        <div class="t-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;gap:16px"><span>Real-time charts</span><span class="comp-check">✓</span><span class="comp-check">✓</span><span class="comp-check">✓</span></div>
+        <div class="t-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;gap:16px"><span>One-tap trading</span><span class="comp-check">✓</span><span class="comp-check">✓</span><span class="comp-cross">✗</span></div>
+        <div class="t-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;gap:16px"><span>Expert Advisors (EA)</span><span class="comp-cross">✗</span><span class="comp-cross">✗</span><span class="comp-check">✓</span></div>
+        <div class="t-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;gap:16px"><span>80+ Indicators</span><span class="comp-neutral">30+</span><span class="comp-neutral">50+</span><span class="comp-check">80+</span></div>
+        <div class="t-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;gap:16px"><span>Push notifications</span><span class="comp-check">✓</span><span class="comp-check">✓</span><span class="comp-check">✓</span></div>
+        <div class="t-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;gap:16px"><span>No download</span><span class="comp-cross">✗</span><span class="comp-check">✓</span><span class="comp-cross">✗</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container"><div class="cta-banner reveal"><h2>One Account. All Platforms.</h2><p>Sign up once and trade on any device with your Stoxoras credentials.</p><div class="cta-btns"><a href="#" class="btn btn-primary">Create Account</a></div></div></div>
+  </section>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: EDUCATION -->
+<!-- ============================================================ -->
+<div class="page" id="page-education">
+  <section style="background:linear-gradient(180deg,#071219 0%,var(--bg) 100%); padding-bottom:0">
+    <div class="page-hero">
+      <div class="section-tag reveal" style="margin:0 auto 18px">Free Learning</div>
+      <h1 class="reveal d2">Trade Smarter with <em style="color:var(--accent)">Knowledge</em></h1>
+      <p class="reveal d3">Whether you're just starting or refining advanced strategies — our education hub has everything you need to gain a real edge.</p>
+    </div>
+  </section>
+
+  <!-- Learning paths -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Start Learning</div>
+        <h2 class="section-h2 reveal d2">Choose Your Learning Path</h2>
+      </div>
+      <div class="edu-grid mt12">
+        <div class="edu-card reveal d1">
+          <div class="edu-thumb" style="background:linear-gradient(135deg,#071a12,#0a1220)">
+            <div class="edu-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="edu-level"><span class="badge badge-green">Beginner</span></div>
+          </div>
+          <div class="edu-body">
+            <div class="edu-meta"><span>📖 12 Lessons</span><span>⏱ 4 hrs</span></div>
+            <h3>Introduction to Trading</h3>
+            <p>Learn the fundamentals of financial markets, how CFDs work, risk management basics, and your first trade walkthrough.</p>
+          </div>
+        </div>
+        <div class="edu-card reveal d2">
+          <div class="edu-thumb" style="background:linear-gradient(135deg,#0a1520,#071420)">
+            <div class="edu-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="edu-level"><span class="badge badge-blue">Intermediate</span></div>
+          </div>
+          <div class="edu-body">
+            <div class="edu-meta"><span>📖 18 Lessons</span><span>⏱ 7 hrs</span></div>
+            <h3>Technical Analysis Mastery</h3>
+            <p>Chart patterns, candlestick formations, support & resistance, moving averages, RSI, MACD, and Fibonacci retracements.</p>
+          </div>
+        </div>
+        <div class="edu-card reveal d3">
+          <div class="edu-thumb" style="background:linear-gradient(135deg,#12071a,#0a1020)">
+            <div class="edu-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="edu-level"><span class="badge" style="background:rgba(168,85,247,0.12);color:#c084fc">Advanced</span></div>
+          </div>
+          <div class="edu-body">
+            <div class="edu-meta"><span>📖 24 Lessons</span><span>⏱ 10 hrs</span></div>
+            <h3>Algorithmic & EA Trading</h3>
+            <p>Build automated strategies using MQL5 on MT5, backtest your systems, optimize parameters, and go live with confidence.</p>
+          </div>
+        </div>
+        <div class="edu-card reveal d4">
+          <div class="edu-thumb" style="background:linear-gradient(135deg,#1a1207,#201a07)">
+            <div class="edu-icon-wrap" style="background:rgba(251,191,36,0.1);border-color:rgba(251,191,36,0.25);color:#fbbf24"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <div class="edu-level"><span class="badge badge-green">Beginner</span></div>
+          </div>
+          <div class="edu-body">
+            <div class="edu-meta"><span>📖 10 Lessons</span><span>⏱ 3 hrs</span></div>
+            <h3>Risk & Money Management</h3>
+            <p>Position sizing, stop-loss strategies, risk-to-reward ratios, drawdown management and portfolio diversification.</p>
+          </div>
+        </div>
+        <div class="edu-card reveal d5">
+          <div class="edu-thumb" style="background:linear-gradient(135deg,#071520,#051220)">
+            <div class="edu-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div class="edu-level"><span class="badge badge-blue">Intermediate</span></div>
+          </div>
+          <div class="edu-body">
+            <div class="edu-meta"><span>📖 15 Lessons</span><span>⏱ 6 hrs</span></div>
+            <h3>Fundamental Analysis</h3>
+            <p>Understand GDP, inflation, interest rates, central bank decisions, and how economic events move the markets.</p>
+          </div>
+        </div>
+        <div class="edu-card reveal d6">
+          <div class="edu-thumb" style="background:linear-gradient(135deg,#071a1a,#051520)">
+            <div class="edu-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="edu-level"><span class="badge" style="background:rgba(168,85,247,0.12);color:#c084fc">Advanced</span></div>
+          </div>
+          <div class="edu-body">
+            <div class="edu-meta"><span>📖 20 Lessons</span><span>⏱ 8 hrs</span></div>
+            <h3>Institutional Trading Strategies</h3>
+            <p>Learn how institutions trade: order flow, smart money concepts, ICT methodology, and market microstructure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Webinars -->
+  <section class="section bg-card border-t">
+    <div class="container">
+      <div class="split">
+        <div class="reveal-left">
+          <div class="section-tag">Live Events</div>
+          <h2 class="section-h2 mt4">Weekly Live Webinars</h2>
+          <p class="section-lead mt4">Join our expert analysts every week for live market breakdowns, Q&A sessions, and real-time trade analysis.</p>
+          <div class="check-list mt8">
+            <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg><div><h4>Monday: Weekly Market Outlook</h4><p>Analysis of key levels and events for the week ahead</p></div></div>
+            <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg><div><h4>Wednesday: Strategy Deep Dive</h4><p>Detailed breakdown of one trading strategy with live examples</p></div></div>
+            <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg><div><h4>Friday: Live Trade Review</h4><p>Review the week's trades, what worked, and what to improve</p></div></div>
+          </div>
+          <a href="#" class="btn btn-primary mt8" style="display:inline-flex">Register for Next Webinar</a>
+        </div>
+        <div class="reveal-right">
+          <div class="card" style="background:var(--bg)">
+            <h3 style="margin-bottom:20px">Upcoming Sessions</h3>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)"><div><div style="font-size:0.82rem;color:var(--accent);margin-bottom:4px">MON — JUN 10 @ 9:00 AM GMT</div><div style="font-size:0.9rem;font-weight:600">Weekly Market Outlook</div></div><a href="#" class="btn btn-ghost" style="padding:8px 16px;font-size:0.78rem">Join</a></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)"><div><div style="font-size:0.82rem;color:var(--accent);margin-bottom:4px">WED — JUN 12 @ 2:00 PM GMT</div><div style="font-size:0.9rem;font-weight:600">Fibonacci Retracement Mastery</div></div><a href="#" class="btn btn-ghost" style="padding:8px 16px;font-size:0.78rem">Join</a></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0"><div><div style="font-size:0.82rem;color:var(--accent);margin-bottom:4px">FRI — JUN 14 @ 4:00 PM GMT</div><div style="font-size:0.9rem;font-weight:600">Live Trade Review Session</div></div><a href="#" class="btn btn-ghost" style="padding:8px 16px;font-size:0.78rem">Join</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container"><div class="cta-banner reveal"><h2>Learn. Practice. Profit.</h2><p>Open a demo account and put your new knowledge to the test risk-free.</p><div class="cta-btns"><a href="#" class="btn btn-primary">Open Demo Account</a><a href="#" class="btn btn-ghost">Browse All Courses</a></div></div></div>
+  </section>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: COMPANY -->
+<!-- ============================================================ -->
+<div class="page" id="page-company">
+  <section style="background:linear-gradient(180deg,#071219 0%,var(--bg) 100%); padding-bottom:0">
+    <div class="page-hero">
+      <div class="section-tag reveal" style="margin:0 auto 18px">Est. 2018</div>
+      <h1 class="reveal d2">Built on <em style="color:var(--accent)">Trust</em>. Driven by Performance.</h1>
+      <p class="reveal d3">Stoxoras was founded by a team of professional traders and technologists with a single mission: deliver the trading infrastructure that institutions use, to everyone.</p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="reveal-left">
+          <div class="section-tag">Our Story</div>
+          <h2 class="section-h2 mt4">6 Years of Innovation</h2>
+          <p class="section-lead mt4">From a small team in London to a global brokerage with 650,000+ traders across 150+ countries.</p>
+          <div class="timeline mt8">
+            <div class="tl-item"><div class="tl-year">2018</div><h4>Stoxoras Founded</h4><p>Incorporated in St. Vincent & the Grenadines. Core platform launched with forex and metals trading.</p></div>
+            <div class="tl-item"><div class="tl-year">2019</div><h4>FSC Mauritius License</h4><p>Received Investment Dealer license from the Financial Services Commission of Mauritius (GB22200605).</p></div>
+            <div class="tl-item"><div class="tl-year">2021</div><h4>100K Traders Milestone</h4><p>Surpassed 100,000 active traders. Launched MT5 integration and stocks/indices products.</p></div>
+            <div class="tl-item"><div class="tl-year">2022</div><h4>FSCA South Africa</h4><p>Regulated by the Financial Sector Conduct Authority of South Africa (FSP No. 53103).</p></div>
+            <div class="tl-item"><div class="tl-year">2023</div><h4>$1T Monthly Volume</h4><p>Crossed $1 trillion in monthly trading volume. Expanded to 6 global offices and 3 data centers.</p></div>
+            <div class="tl-item"><div class="tl-year">2024</div><h4>650K Traders Worldwide</h4><p>Half a million traders across 150+ countries. New crypto CFDs and thematic indices launched.</p></div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="card-grid" style="grid-template-columns:1fr 1fr;gap:16px">
+            <div class="card text-center"><div class="big-num" style="font-size:2.6rem">6+</div><p style="color:var(--text-muted);font-size:0.82rem;margin-top:6px">Years in business</p></div>
+            <div class="card text-center"><div class="big-num" style="font-size:2.6rem">150+</div><p style="color:var(--text-muted);font-size:0.82rem;margin-top:6px">Countries served</p></div>
+            <div class="card text-center"><div class="big-num" style="font-size:2.6rem">650K</div><p style="color:var(--text-muted);font-size:0.82rem;margin-top:6px">Active traders</p></div>
+            <div class="card text-center"><div class="big-num" style="font-size:2.6rem">3</div><p style="color:var(--text-muted);font-size:0.82rem;margin-top:6px">Regulatory licenses</p></div>
+            <div class="card text-center" style="grid-column:span 2"><div class="big-num" style="font-size:2.6rem">$1.1T+</div><p style="color:var(--text-muted);font-size:0.82rem;margin-top:6px">Monthly trading volume</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section bg-card border-t">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Our People</div>
+        <h2 class="section-h2 reveal d2">Leadership Team</h2>
+        <p class="section-lead reveal d3">Industry veterans from Goldman Sachs, JP Morgan, Citadel, and leading fintech companies.</p>
+      </div>
+      <div class="team-grid mt12">
+        <div class="team-card reveal d1"><div class="team-avatar" style="background:linear-gradient(135deg,#2bd29b,#00c9a7)">AK</div><h4>Alexei Koval</h4><p>CEO & Co-Founder</p></div>
+        <div class="team-card reveal d2"><div class="team-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">SM</div><h4>Sarah Mitchell</h4><p>CTO</p></div>
+        <div class="team-card reveal d3"><div class="team-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706)">DR</div><h4>David Rosen</h4><p>Head of Liquidity</p></div>
+        <div class="team-card reveal d4"><div class="team-avatar" style="background:linear-gradient(135deg,#ec4899,#be185d)">NL</div><h4>Nina Lowe</h4><p>Chief Compliance</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regulation -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Regulation</div>
+        <h2 class="section-h2 reveal d2">Licensed & Regulated Globally</h2>
+        <p class="section-lead reveal d3">Your funds and data are protected under multiple international regulatory frameworks.</p>
+      </div>
+      <div class="reg-grid mt12">
+        <div class="reg-card reveal d1"><div class="reg-flag">🇲🇺</div><h4>FSC Mauritius</h4><p>Investment Dealer License No. GB22200605. Supervised by the Financial Services Commission of Mauritius.</p></div>
+        <div class="reg-card reveal d2"><div class="reg-flag">🇻🇨</div><h4>FSA St. Vincent</h4><p>Incorporated under Registered No. 26183 BC 2021 with the Financial Services Authority of St. Vincent & the Grenadines.</p></div>
+        <div class="reg-card reveal d3"><div class="reg-flag">🇿🇦</div><h4>FSCA South Africa</h4><p>Authorized by the Financial Sector Conduct Authority, South Africa. FSP No. 53103.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-card border-t">
+    <div class="container"><div class="cta-banner reveal"><h2>Be Part of the Stoxoras Story</h2><p>Join 650,000+ traders who have made Stoxoras their trading home.</p><div class="cta-btns"><a href="#" class="btn btn-primary">Open Account</a><a href="#" class="btn btn-ghost">Contact Us</a></div></div></div>
+  </section>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: ACCOUNTS -->
+<!-- ============================================================ -->
+<div class="page" id="page-accounts">
+  <section style="background:linear-gradient(180deg,#071219 0%,var(--bg) 100%); padding-bottom:0">
+    <div class="page-hero">
+      <div class="section-tag reveal" style="margin:0 auto 18px">Account Types</div>
+      <h1 class="reveal d2">Find the Account <em style="color:var(--accent)">Built for You</em></h1>
+      <p class="reveal d3">Whether you're just starting out or an experienced professional, Stoxoras has an account type designed to maximize your performance.</p>
+    </div>
+  </section>
+
+  <!-- Account cards -->
+  <section class="section">
+    <div class="container">
+      <div class="acc-grid">
+        <div class="acc-card reveal d1">
+          <div class="acc-name">Standard</div>
+          <div class="acc-desc">Perfect for beginners and casual traders</div>
+          <div class="acc-spread">1.2</div>
+          <div class="acc-spread-l">Average spread (pips) • No commission</div>
+          <div class="acc-features">
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Min. deposit: $100</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Leverage up to 1:500</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>All platforms supported</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Swap-free option available</div>
+            <div class="acc-feat no"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ff4d4d" stroke-width="2"/><path d="M15 9l-6 6M9 9l6 6" stroke="#ff4d4d" stroke-width="2" stroke-linecap="round"/></svg>Dedicated account manager</div>
+            <div class="acc-feat no"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ff4d4d" stroke-width="2"/><path d="M15 9l-6 6M9 9l6 6" stroke="#ff4d4d" stroke-width="2" stroke-linecap="round"/></svg>Raw spreads</div>
+          </div>
+          <a href="#" class="btn btn-ghost" style="width:100%;justify-content:center">Open Standard</a>
+        </div>
+
+        <div class="acc-card featured reveal d2">
+          <div class="acc-featured-badge">Most Popular</div>
+          <div class="acc-name" style="color:var(--accent)">Pro ECN</div>
+          <div class="acc-desc">For active traders who demand the best</div>
+          <div class="acc-spread">0.0</div>
+          <div class="acc-spread-l">Raw spread (pips) + $3.5/lot commission</div>
+          <div class="acc-features">
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Min. deposit: $200</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Leverage up to 1:500</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>All platforms supported</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Swap-free option available</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Priority 24/7 support</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>True raw interbank spreads</div>
+          </div>
+          <a href="#" class="btn btn-primary" style="width:100%;justify-content:center">Open Pro ECN</a>
+        </div>
+
+        <div class="acc-card reveal d3">
+          <div class="acc-name">Institutional</div>
+          <div class="acc-desc">For hedge funds, prop desks & HFT firms</div>
+          <div class="acc-spread">0.0</div>
+          <div class="acc-spread-l">Raw spread + negotiated commission rates</div>
+          <div class="acc-features">
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Min. deposit: $10,000</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Customizable leverage</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>FIX API access</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Dedicated account manager</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Co-location options</div>
+            <div class="acc-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2bd29b" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#2bd29b" stroke-width="2" stroke-linecap="round"/></svg>Custom reporting & analytics</div>
+          </div>
+          <a href="#" class="btn btn-ghost" style="width:100%;justify-content:center">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section bg-card border-t">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Get Started</div>
+        <h2 class="section-h2 reveal d2">Open an Account in 3 Steps</h2>
+      </div>
+      <div class="card-grid g3 mt12">
+        <div class="card reveal-scale d1" style="text-align:center">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--accent-dim);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:1.2rem;margin:0 auto 18px">1</div>
+          <h3>Sign Up</h3>
+          <p>Register in under 2 minutes using your email or social login. No paperwork required to start.</p>
+        </div>
+        <div class="card reveal-scale d2" style="text-align:center">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--accent-dim);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:1.2rem;margin:0 auto 18px">2</div>
+          <h3>Verify & Fund</h3>
+          <p>Complete quick KYC verification and deposit via credit card, bank transfer, or 20+ e-wallets.</p>
+        </div>
+        <div class="card reveal-scale d3" style="text-align:center">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--accent-dim);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:1.2rem;margin:0 auto 18px">3</div>
+          <h3>Start Trading</h3>
+          <p>Access 500+ instruments on any platform with institutional-grade execution from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container"><div class="cta-banner reveal"><h2>Not Ready? Try a Demo First.</h2><p>Practice with $10,000 virtual funds on a real market environment — no risk, no limits.</p><div class="cta-btns"><a href="#" class="btn btn-primary">Open Demo Account</a><a href="#" class="btn btn-ghost">Compare More</a></div></div></div>
+  </section>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: COMPARISON -->
+<!-- ============================================================ -->
+<div class="page" id="page-comparison">
+  <section style="background:linear-gradient(180deg,#071219 0%,var(--bg) 100%); padding-bottom:0">
+    <div class="page-hero">
+      <div class="section-tag reveal" style="margin:0 auto 18px">Why Stoxoras</div>
+      <h1 class="reveal d2">See How We <em style="color:var(--accent)">Compare</em></h1>
+      <p class="reveal d3">Stoxoras vs. the industry. We let the numbers do the talking — transparent, unsponsored comparison data.</p>
+    </div>
+  </section>
+
+  <!-- Main comparison -->
+  <section class="section">
+    <div class="container">
+      <div class="section-tag reveal mb8">Broker Comparison</div>
+      <div class="comp-table reveal">
+        <div class="comp-head"><span>Feature</span><span class="ch-Stoxoras">Stoxoras</span><span>Typical Broker A</span><span>Typical Broker B</span></div>
+        <div class="comp-row"><span class="feat">Avg. Execution Speed</span><span class="comp-check">30ms</span><span class="comp-neutral">~80ms</span><span class="comp-neutral">~120ms</span></div>
+        <div class="comp-row"><span class="feat">Min. Spread EUR/USD</span><span class="comp-check">0.0 pips</span><span class="comp-neutral">0.6 pips</span><span class="comp-neutral">1.0 pips</span></div>
+        <div class="comp-row"><span class="feat">Platform Uptime</span><span class="comp-check">99.91%</span><span class="comp-neutral">99.5%</span><span class="comp-neutral">99.2%</span></div>
+        <div class="comp-row"><span class="feat">Swap-Free Accounts</span><span class="comp-check">✓ Free</span><span class="comp-neutral">✓ Fee</span><span class="comp-cross">✗</span></div>
+        <div class="comp-row"><span class="feat">Number of Instruments</span><span class="comp-check">500+</span><span class="comp-neutral">300+</span><span class="comp-neutral">200+</span></div>
+        <div class="comp-row"><span class="feat">Negative Balance Protection</span><span class="comp-check">✓</span><span class="comp-check">✓</span><span class="comp-cross">✗</span></div>
+        <div class="comp-row"><span class="feat">FIX API Access</span><span class="comp-check">✓ All accounts</span><span class="comp-neutral">Institutional only</span><span class="comp-cross">✗</span></div>
+        <div class="comp-row"><span class="feat">24/7 Customer Support</span><span class="comp-check">✓ Live chat</span><span class="comp-neutral">Business hours</span><span class="comp-neutral">Email only</span></div>
+        <div class="comp-row"><span class="feat">Regulatory Licenses</span><span class="comp-check">3 licenses</span><span class="comp-neutral">1 license</span><span class="comp-neutral">1 license</span></div>
+        <div class="comp-row"><span class="feat">Min. Deposit</span><span class="comp-check">$100</span><span class="comp-neutral">$200</span><span class="comp-neutral">$500</span></div>
+      </div>
+      <p class="risk-note mt4">Comparison data sourced from publicly available broker information. Data is for illustrative purposes only and may not be current. Verify all details independently before making trading decisions.</p>
+    </div>
+  </section>
+
+  <!-- Why Stoxoras -->
+  <section class="section bg-card border-t">
+    <div class="container">
+      <div class="text-center mb8">
+        <div class="section-tag reveal">Our Advantage</div>
+        <h2 class="section-h2 reveal d2">What Sets Stoxoras Apart</h2>
+      </div>
+      <div class="card-grid g3 mt12">
+        <div class="card reveal d1">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h3>30ms Execution</h3>
+          <p>Our co-located infrastructure delivers sub-30ms fills — 3x faster than industry average.</p>
+        </div>
+        <div class="card reveal d2">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Triple Regulation</h3>
+          <p>Licensed in Mauritius, South Africa, and St. Vincent — giving you multi-jurisdictional protection.</p>
+        </div>
+        <div class="card reveal d3">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <h3>Zero Hidden Fees</h3>
+          <p>Transparent pricing, no deposit fees, no withdrawal fees. What you see is exactly what you pay.</p>
+        </div>
+        <div class="card reveal d4">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3>Deep Liquidity</h3>
+          <p>Connected to 20+ tier-1 liquidity providers for the tightest spreads even during news events.</p>
+        </div>
+        <div class="card reveal d5">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>24/7 Expert Support</h3>
+          <p>Live chat, phone, and email support around the clock with traders who understand markets.</p>
+        </div>
+        <div class="card reveal d6">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>All Platforms</h3>
+          <p>Trade on MT5, our WebTerminal, or our award-winning mobile app — all on one account.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container"><div class="cta-banner reveal"><h2>Experience the Difference Yourself</h2><p>Join 650,000 traders who switched to Stoxoras for better execution, tighter spreads, and real support.</p><div class="cta-btns"><a href="#" class="btn btn-primary">Open Live Account</a><a href="#" class="btn btn-ghost">Try Demo Free</a></div></div></div>
+  </section>
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+
+<script>
+  // ==================== PAGE ROUTING ====================
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const page = document.getElementById('page-' + id);
+    if (page) {
+      page.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      // Re-trigger animations
+      setTimeout(() => initReveal(), 50);
+      // Lazy load images on new page
+      loadImages();
+    }
+  }
+
+  // ==================== DROPDOWNS ====================
+  function toggleDropdown(id, btn) {
+    const dd = document.getElementById(id);
+    const isOpen = dd.classList.contains('show');
+    closeDropdowns();
+    if (!isOpen) {
+      dd.classList.add('show');
+      btn.classList.add('open');
+    }
+  }
+  function closeDropdowns() {
+    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('open'));
+  }
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav-item')) closeDropdowns();
+  });
+
+  // ==================== MOBILE MENU ====================
+  let menuOpen = false;
+  function toggleMobileMenu() {
+    menuOpen = !menuOpen;
+    document.getElementById('mobile-menu').classList.toggle('open', menuOpen);
+    document.getElementById('hamburger').classList.toggle('open', menuOpen);
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  }
+  function closeMobileMenu() {
+    menuOpen = false;
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function toggleMobileSub(id, btn) {
+    const sub = document.getElementById(id);
+    const isOpen = sub.classList.contains('open');
+    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('open'));
+    document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('open'));
+    if (!isOpen) { sub.classList.add('open'); btn.classList.add('open'); }
+  }
+
+  // ==================== SCROLL ANIMATIONS ====================
+  function initReveal() {
+    const els = document.querySelectorAll('.page.active .reveal, .page.active .reveal-left, .page.active .reveal-right, .page.active .reveal-scale');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('vis');
+          e.target.classList.remove('past');
+        } else {
+          const r = e.target.getBoundingClientRect();
+          if (r.top < 0) { e.target.classList.add('past'); e.target.classList.remove('vis'); }
+          else { e.target.classList.remove('vis'); e.target.classList.remove('past'); }
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+    els.forEach(el => obs.observe(el));
+  }
+
+  // ==================== LAZY IMAGES ====================
+  function loadImages() {
+    const imgs = document.querySelectorAll('img[data-src]');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const img = e.target;
+          img.src = img.dataset.src;
+          img.addEventListener('load', () => img.classList.add('lazy-loaded'));
+          obs.unobserve(img);
+        }
+      });
+    }, { rootMargin: '300px 0px' });
+    imgs.forEach(img => obs.observe(img));
+  }
+
+  // ==================== SCROLL TOP BUTTON ====================
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+  });
+
+  // ==================== INIT ====================
+  document.addEventListener('DOMContentLoaded', () => {
+    initReveal();
+    loadImages();
+  });
+</script>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'b1ee30112d1af43d44051608bfae7ce928134fdb';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+
+</html>

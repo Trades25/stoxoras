@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IUX Register Replica</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+/* YOUR ORIGINAL CSS — UNCHANGED */
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body {background:#0b0f12;color:#fff;}
+.risk-bar {background:#000;color:#9aa4af;font-size:13px;text-align:center;padding:10px 20px;}
+.header {display:flex;justify-content:space-between;align-items:center;padding:25px 50px;}
+.logo {font-size:28px;font-weight:600;color:#18e09b;}
+.lang {font-size:14px;color:#ccc;}
+.wrapper {height:calc(100vh - 140px);display:flex;justify-content:center;align-items:center;}
+.card {width:460px;background:#0f1418;border:1px solid #1f2a30;border-radius:20px;padding:40px;display:none;}
+.card.active {display:block;}
+.card h2 {text-align:center;font-weight:600;margin-bottom:15px;}
+.card p.subtitle {text-align:center;color:#9aa4af;font-size:14px;margin-bottom:30px;}
+label {font-size:14px;color:#9aa4af;}
+select,input {width:100%;margin-top:8px;margin-bottom:20px;padding:14px;background:#11161a;border:1px solid #2a363d;border-radius:10px;color:#fff;font-size:14px;}
+.checkbox {display:flex;align-items:center;margin-bottom:25px;font-size:13px;color:#9aa4af;}
+.checkbox input {width:auto;margin-right:10px;}
+.checkbox span {color:#18e09b;}
+button.primary {width:100%;padding:14px;border-radius:10px;border:none;background:#18e09b;font-weight:600;cursor:pointer;transition:0.3s;}
+button.primary:hover {background:#12c884;}
+.divider {text-align:center;margin:20px 0;color:#666;font-size:14px;}
+.social-btn {width:100%;padding:14px;border-radius:10px;border:1px solid #2a363d;background:transparent;color:#fff;margin-bottom:12px;cursor:pointer;}
+.code-container {display:flex;justify-content:space-between;margin:25px 0;}
+.code-container input {width:50px;height:50px;text-align:center;font-size:20px;}
+.resend {text-align:center;font-size:13px;color:#9aa4af;}
+.resend span {color:#18e09b;}
+@media(max-width:600px){.card{width:90%;padding:30px;}}
+</style>
+</head>
+
+<body>
+
+<div class="risk-bar">
+CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
+</div>
+
+<div class="header">
+    <div class="logo">X</div>
+    <div class="lang">🌐 EN</div>
+</div>
+
+<div class="wrapper">
+
+<!-- PAGE 1 -->
+<div class="card active" id="page1">
+    <h2>Select Your Country of Residence</h2>
+    <p class="subtitle">It must be a country where you have a permanent residence permit.</p>
+
+    <label>Country</label>
+    <select id="country">
+    <option value="">Select your country</option>
+    <option>Afghanistan</option>
+    <option>Albania</option>
+    <option>Algeria</option>
+    <option>Andorra</option>
+    <option>Angola</option>
+    <option>Antigua and Barbuda</option>
+    <option>Argentina</option>
+    <option>Armenia</option>
+    <option>Australia</option>
+    <option>Austria</option>
+    <option>Azerbaijan</option>
+    <option>Bahamas</option>
+    <option>Bahrain</option>
+    <option>Bangladesh</option>
+    <option>Barbados</option>
+    <option>Belarus</option>
+    <option>Belgium</option>
+    <option>Belize</option>
+    <option>Benin</option>
+    <option>Bhutan</option>
+    <option>Bolivia</option>
+    <option>Bosnia and Herzegovina</option>
+    <option>Botswana</option>
+    <option>Brazil</option>
+    <option>Brunei</option>
+    <option>Bulgaria</option>
+    <option>Burkina Faso</option>
+    <option>Burundi</option>
+    <option>Cabo Verde</option>
+    <option>Cambodia</option>
+    <option>Cameroon</option>
+    <option>Canada</option>
+    <option>Central African Republic</option>
+    <option>Chad</option>
+    <option>Chile</option>
+    <option>China</option>
+    <option>Colombia</option>
+    <option>Comoros</option>
+    <option>Congo (Congo-Brazzaville)</option>
+    <option>Costa Rica</option>
+    <option>Croatia</option>
+    <option>Cuba</option>
+    <option>Cyprus</option>
+    <option>Czechia (Czech Republic)</option>
+    <option>Denmark</option>
+    <option>Djibouti</option>
+    <option>Dominica</option>
+    <option>Dominican Republic</option>
+    <option>Ecuador</option>
+    <option>Egypt</option>
+    <option>El Salvador</option>
+    <option>Equatorial Guinea</option>
+    <option>Eritrea</option>
+    <option>Estonia</option>
+    <option>Eswatini</option>
+    <option>Ethiopia</option>
+    <option>Fiji</option>
+    <option>Finland</option>
+    <option>France</option>
+    <option>Gabon</option>
+    <option>Gambia</option>
+    <option>Georgia</option>
+    <option>Germany</option>
+    <option>Ghana</option>
+    <option>Greece</option>
+    <option>Grenada</option>
+    <option>Guatemala</option>
+    <option>Guinea</option>
+    <option>Guinea-Bissau</option>
+    <option>Guyana</option>
+    <option>Haiti</option>
+    <option>Honduras</option>
+    <option>Hungary</option>
+    <option>Iceland</option>
+    <option>India</option>
+    <option>Indonesia</option>
+    <option>Iran</option>
+    <option>Iraq</option>
+    <option>Ireland</option>
+    <option>Israel</option>
+    <option>Italy</option>
+    <option>Jamaica</option>
+    <option>Japan</option>
+    <option>Jordan</option>
+    <option>Kazakhstan</option>
+    <option>Kenya</option>
+    <option>Kiribati</option>
+    <option>Kuwait</option>
+    <option>Kyrgyzstan</option>
+    <option>Laos</option>
+    <option>Latvia</option>
+    <option>Lebanon</option>
+    <option>Lesotho</option>
+    <option>Liberia</option>
+    <option>Libya</option>
+    <option>Liechtenstein</option>
+    <option>Lithuania</option>
+    <option>Luxembourg</option>
+    <option>Madagascar</option>
+    <option>Malawi</option>
+    <option>Malaysia</option>
+    <option>Maldives</option>
+    <option>Mali</option>
+    <option>Malta</option>
+    <option>Marshall Islands</option>
+    <option>Mauritania</option>
+    <option>Mauritius</option>
+    <option>Mexico</option>
+    <option>Micronesia</option>
+    <option>Moldova</option>
+    <option>Monaco</option>
+    <option>Mongolia</option>
+    <option>Montenegro</option>
+    <option>Morocco</option>
+    <option>Mozambique</option>
+    <option>Myanmar</option>
+    <option>Namibia</option>
+    <option>Nauru</option>
+    <option>Nepal</option>
+    <option>Netherlands</option>
+    <option>New Zealand</option>
+    <option>Nicaragua</option>
+    <option>Niger</option>
+    <option>Nigeria</option>
+    <option>North Korea</option>
+    <option>North Macedonia</option>
+    <option>Norway</option>
+    <option>Oman</option>
+    <option>Pakistan</option>
+    <option>Palau</option>
+    <option>Panama</option>
+    <option>Papua New Guinea</option>
+    <option>Paraguay</option>
+    <option>Peru</option>
+    <option>Philippines</option>
+    <option>Poland</option>
+    <option>Portugal</option>
+    <option>Qatar</option>
+    <option>Romania</option>
+    <option>Russia</option>
+    <option>Rwanda</option>
+    <option>Saint Kitts and Nevis</option>
+    <option>Saint Lucia</option>
+    <option>Saint Vincent and the Grenadines</option>
+    <option>Samoa</option>
+    <option>San Marino</option>
+    <option>Sao Tome and Principe</option>
+    <option>Saudi Arabia</option>
+    <option>Senegal</option>
+    <option>Serbia</option>
+    <option>Seychelles</option>
+    <option>Sierra Leone</option>
+    <option>Singapore</option>
+    <option>Slovakia</option>
+    <option>Slovenia</option>
+    <option>Solomon Islands</option>
+    <option>Somalia</option>
+    <option>South Africa</option>
+    <option>South Korea</option>
+    <option>South Sudan</option>
+    <option>Spain</option>
+    <option>Sri Lanka</option>
+    <option>Sudan</option>
+    <option>Suriname</option>
+    <option>Sweden</option>
+    <option>Switzerland</option>
+    <option>Syria</option>
+    <option>Taiwan</option>
+    <option>Tajikistan</option>
+    <option>Tanzania</option>
+    <option>Thailand</option>
+    <option>Timor-Leste</option>
+    <option>Togo</option>
+    <option>Tonga</option>
+    <option>Trinidad and Tobago</option>
+    <option>Tunisia</option>
+    <option>Turkey</option>
+    <option>Turkmenistan</option>
+    <option>Tuvalu</option>
+    <option>Uganda</option>
+    <option>Ukraine</option>
+    <option>United Arab Emirates</option>
+    <option>United Kingdom</option>
+    <option>United States</option>
+    <option>Uruguay</option>
+    <option>Uzbekistan</option>
+    <option>Vanuatu</option>
+    <option>Vatican City</option>
+    <option>Venezuela</option>
+    <option>Vietnam</option>
+    <option>Yemen</option>
+    <option>Zambia</option>
+    <option>Zimbabwe</option>
+</select>
+
+    <div class="checkbox">
+        <input type="checkbox" id="agree">
+        <div>You agree to the Stoxoras <span><a href="./privacy-policy.html"></a>Terms and Policies</span>.</div>
+    </div>
+
+    <button class="primary" onclick="continueCountry()">Continue</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="card" id="page2">
+  <h2>Enter Your Details</h2>
+
+<label>First Name</label>
+<input type="text" id="firstName" placeholder="John">
+
+<label>Last Name</label>
+<input type="text" id="lastName" placeholder="Doe">
+
+<label>Phone Number</label>
+<input type="text" id="phone" placeholder="+234...">
+
+<label>Email</label>
+<input type="email" id="email" placeholder="example@email.com">
+
+    <button class="primary" onclick="continueEmail()">Continue</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="card" id="page3">
+    <h2>Create Password</h2>
+
+    <label>Password</label>
+    <input type="password" id="password">
+
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword">
+
+    <label>Referral Code (Optional)</label>
+    <input type="text" id="referralCode">
+
+    <button class="primary" id="registerBtn" onclick="submitRegister()">Register</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="card" id="page4">
+    <h2>Verification Required</h2>
+    <p class="subtitle">
+        A verification code has been sent to<br>
+        <span style="color:#18e09b;" id="displayEmail"></span>
+    </p>
+
+    <div class="code-container">
+        <input maxlength="1" class="otp">
+        <input maxlength="1" class="otp">
+        <input maxlength="1" class="otp">
+        <input maxlength="1" class="otp">
+        <input maxlength="1" class="otp">
+        <input maxlength="1" class="otp">
+    </div>
+
+    <button class="primary" onclick="verifyOTP()">Verify</button>
+</div>
+
+<script>
+// OTP AUTO-ADVANCE
+document.querySelectorAll('.otp').forEach(function(input, index, inputs) {
+    input.addEventListener('input', function() {
+        // Only allow digits
+        this.value = this.value.replace(/[^0-9]/g, '');
+        // Move to next box if a digit was entered
+        if (this.value.length === 1 && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+        }
+    });
+
+    input.addEventListener('keydown', function(e) {
+        // Move back on backspace if current box is empty
+        if (e.key === 'Backspace' && this.value === '' && index > 0) {
+            inputs[index - 1].focus();
+        }
+    });
+
+    // Handle paste across all boxes
+    input.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '');
+        [...pasted].forEach(function(digit, i) {
+            if (inputs[index + i]) inputs[index + i].value = digit;
+        });
+        const nextEmpty = index + pasted.length;
+        if (inputs[nextEmpty]) inputs[nextEmpty].focus();
+    });
+});
+
+// ... rest of your existing script
+</script>
+<script>
+
+// PAGE SWITCH
+function nextPage(page){
+    document.querySelectorAll(".card").forEach(c=>c.classList.remove("active"));
+    document.getElementById("page"+page).classList.add("active");
+}
+
+// AUTO COUNTRY DETECT
+$(document).ready(function(){
+    $.get("https://ipapi.co/json/", function(data){
+        if(data.country_name){
+            $('#country').val(data.country_name);
+            localStorage.setItem("country", data.country_name);
+        }
+    });
+});
+
+// STEP 1
+function continueCountry(){
+    if(!$('#agree').is(':checked')) return alert("Please accept terms");
+    localStorage.setItem("country", $('#country').val());
+    nextPage(2);
+}
+
+// STEP 2
+function continueEmail(){
+    const email = $('#email').val();
+    const firstName = $('#firstName').val();
+    const lastName = $('#lastName').val();
+    const phone = $('#phone').val();
+
+    if(!email || !firstName || !lastName || !phone)
+        return alert("Fill all fields");
+
+    localStorage.setItem("email", email);
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
+    localStorage.setItem("phone", phone);
+
+    $('#displayEmail').text(email);
+    nextPage(3);
+}
+
+// LOADING STATES
+function blurr(){
+    $('#registerBtn').css("opacity","0.6").text("Loading...");
+}
+function red(){
+    $('#registerBtn').css("opacity","1").text("Register");
+}
+
+// REGISTER API
+async function submitRegister(){
+    const email = localStorage.getItem("email");
+    const password = $('#password').val();
+    const confirm = $('#confirmPassword').val();
+    const referralCode = $('#referralCode').val();
+    const country = localStorage.getItem("country");
+
+    if(password !== confirm) return alert("Passwords don't match");
+
+    blurr();
+
+    await $.ajax({
+        type:"POST",
+        url:"https://puxde-render-6pvk.onrender.com/auth/register",
+        dataType:"json",
+       data:{
+   firstName: localStorage.getItem("firstName"),
+   lastName: localStorage.getItem("lastName"),
+   phone: localStorage.getItem("phone"),
+   email,
+   password,
+   country,
+   referralCode
+},
+        success:function(data){
+            localStorage.setItem("otp", data.otp);
+            localStorage.setItem("otpExpiration", data.otpExpiration);
+            red();
+            nextPage(4);
+        },
+        error:function(){
+            red();
+            alert("Registration failed");
+        }
+    });
+}
+
+// VERIFY OTP
+function verifyOTP(){
+    let entered="";
+    $('.otp').each(function(){ entered+=this.value });
+    const stored = localStorage.getItem("otp");
+
+    if(entered===stored){
+        Swal.fire({icon:'success',text:'Account verified!'});
+
+        setTimeout(() => {
+          location.href="./login.html"
+        }, 2000);
+    }else{
+        Swal.fire({icon:'error',text:'Invalid OTP'});
+    }
+}
+
+</script>
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'b1ee30112d1af43d44051608bfae7ce928134fdb';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+
+</html>

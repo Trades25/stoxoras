@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       SEO META TAGS — structured for Google indexing
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>Stoxoras Blog — Forex & CFD Trading Insights, Market Analysis & Trader Reviews</title>
+  <meta name="description" content="Expert forex and CFD trading analysis, market strategies, tutorials and verified trader reviews from the Stoxoras Research Desk. Updated daily.">
+  <meta name="keywords" content="forex trading blog, CFD analysis, gold trading, EUR/USD analysis, trading strategies, market outlook, bitcoin trading, forex education, Stoxoras review, trading platform review">
+  <meta name="author" content="Stoxoras Research Desk">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.Stoxoras.com/blog">
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stoxoras Blog — Forex & CFD Trading Insights, Market Analysis">
+  <meta property="og:description" content="Expert forex and CFD trading analysis, market strategies, tutorials and verified trader reviews from the Stoxoras Research Desk.">
+  <meta property="og:url" content="https://www.Stoxoras.com/blog">
+  <meta property="og:site_name" content="Stoxoras">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stoxoras Blog — Trading Insights & Market Analysis">
+  <meta name="twitter:description" content="Daily forex and CFD analysis, education, and verified trader reviews from the Stoxoras Research Desk.">
+  <meta name="twitter:site" content="@StoxorasMarkets">
+
+  <!-- Structured Data — Blog + Organization (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://www.Stoxoras.com/blog",
+        "name": "Stoxoras Blog",
+        "description": "Expert forex and CFD trading analysis, market strategies, and trader reviews.",
+        "url": "https://www.Stoxoras.com/blog",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Stoxoras Markets",
+          "url": "https://www.Stoxoras.com",
+          "logo": { "@type": "ImageObject", "url": "https://www.Stoxoras.com/logo.png" }
+        },
+        "blogPost": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Gold Breaks $2,350 — Is the Bull Run Just Getting Started?",
+            "description": "XAU/USD has surged past multiple resistance levels. Our analyst breaks down key technical levels and fundamental catalysts.",
+            "author": { "@type": "Person", "name": "David Koval" },
+            "datePublished": "2025-06-10",
+            "keywords": "gold trading, XAU/USD, bull run, market analysis"
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "The 3-Touch Trendline Strategy: Trading Breakouts With Precision",
+            "description": "Master trendline analysis for high-probability breakout trades with defined risk.",
+            "author": { "@type": "Person", "name": "Sarah Mitchell" },
+            "datePublished": "2025-06-07",
+            "keywords": "trendline strategy, breakout trading, technical analysis"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "name": "Stoxoras Markets",
+        "url": "https://www.Stoxoras.com",
+        "sameAs": [
+          "https://twitter.com/StoxorasMarkets",
+          "https://www.linkedin.com/company/Stoxoras",
+          "https://www.facebook.com/StoxorasMarkets"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.6",
+          "reviewCount": "2279",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES — White + Green theme
+    ============================================================ */
+    :root {
+      --bg: #f8faf8;
+      --bg2: #f0f5f2;
+      --bg-card: #ffffff;
+      --bg-card2: #f4f9f6;
+      --accent: #1db87a;
+      --accent-dark: #148a5a;
+      --accent-light: #e8f8f1;
+      --accent-border: rgba(29,184,122,0.25);
+      --accent-dim: rgba(29,184,122,0.10);
+      --text: #0f1a14;
+      --text-body: #2d3d35;
+      --text-muted: #6b7e74;
+      --text-dim: #9fb0a6;
+      --border: rgba(0,0,0,0.07);
+      --border-strong: rgba(0,0,0,0.14);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+      --radius: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --nav-h: 70px;
+      --gold: #d97706;
+      --red: #dc2626;
+      --blue: #1d6fdb;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.vis { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0ms !important; }
+    .d2 { transition-delay: 80ms !important; }
+    .d3 { transition-delay: 160ms !important; }
+    .d4 { transition-delay: 240ms !important; }
+    .d5 { transition-delay: 320ms !important; }
+
+    /* ============================================================
+       PAGE SYSTEM
+    ============================================================ */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ============================================================
+       HEADER — no login/account buttons, clean blog nav
+    ============================================================ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(248,250,248,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 2px; position: relative; z-index: 1; }
+    .nav-links button {
+      position: relative;
+      z-index: 1;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: color 0.2s, background 0.2s;
+      pointer-events: all;
+    }
+    .nav-links button:hover { color: var(--text); background: var(--bg2); }
+    .nav-links button.active { color: var(--accent); background: var(--accent-light); }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .logo-mark svg path { stroke: var(--accent); }
+    .logo-mark .logo-text { color: var(--accent); }
+    .logo-mark .blog-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 2px 8px;
+      background: var(--accent-light);
+      border-radius: 100px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .nav-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg2);
+      border: 1px solid var(--border-strong);
+      border-radius: 100px;
+      padding: 7px 16px;
+      transition: border-color 0.2s;
+    }
+    .nav-search:focus-within { border-color: var(--accent); }
+    .nav-search input { background: none; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 0.82rem; color: var(--text); width: 180px; }
+    .nav-search input::placeholder { color: var(--text-dim); }
+    .nav-search svg { color: var(--text-dim); flex-shrink: 0; }
+
+    /* Mobile hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; z-index: 400; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: #fff;
+      border-bottom: 2px solid var(--accent-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      z-index: 299;
+      padding: 16px 24px 24px;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav button {
+      width: 100%;
+      text-align: left;
+      padding: 13px 16px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-body);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-nav button:hover { background: var(--accent-light); color: var(--accent); }
+    .mobile-nav-search {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg2);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .mobile-nav-search input { flex: 1; background: none; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 0.88rem; color: var(--text); }
+    .mobile-nav-search input::placeholder { color: var(--text-dim); }
+
+    /* ============================================================
+       TICKER
+    ============================================================ */
+    .ticker-strip {
+      background: var(--text);
+      height: 40px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .ticker-label {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0 18px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ticker-track { display: flex; animation: ticker 32s linear infinite; align-items: center; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .ticker-item {
+      display: flex; align-items: center; gap: 8px; padding: 0 28px;
+      border-right: 1px solid rgba(255,255,255,0.1); white-space: nowrap;
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+    }
+    .ticker-pair { color: rgba(255,255,255,0.55); font-weight: 600; }
+    .ticker-price { color: #fff; }
+    .ticker-chg.up { color: #4ade80; }
+    .ticker-chg.dn { color: #f87171; }
+
+    /* ============================================================
+       SECTION TAG
+    ============================================================ */
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 14px; border-radius: 100px;
+      background: var(--accent-light); border: 1px solid var(--accent-border);
+      font-size: 0.72rem; font-weight: 700; color: var(--accent);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .section-tag::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 24px; border-radius: 10px;
+      font-weight: 600; font-size: 0.875rem;
+      transition: all 0.22s; cursor: pointer;
+      border: none; font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,184,122,0.3); }
+    .btn-outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent-border); }
+    .btn-outline:hover { background: var(--accent-light); }
+    .btn-sm { padding: 8px 16px; font-size: 0.78rem; }
+
+    /* ============================================================
+       BLOG INDEX PAGE
+    ============================================================ */
+    .blog-hero {
+      background: linear-gradient(135deg, #f0faf5 0%, #e8f5f0 50%, #f4f9f6 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 48px 64px;
+    }
+    .blog-hero-inner { max-width: 1240px; margin: 0 auto; }
+
+    .blog-hero-top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; margin-bottom: 56px; }
+    .blog-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .blog-hero h1 em { color: var(--accent); font-style: italic; }
+    .blog-hero-desc { color: var(--text-muted); font-size: 1rem; max-width: 520px; line-height: 1.75; }
+
+    /* Stats row */
+    .blog-stats { display: flex; gap: 40px; margin-top: 32px; }
+    .bstat { display: flex; flex-direction: column; gap: 2px; }
+    .bstat-n { font-size: 1.6rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; }
+    .bstat-l { font-size: 0.74rem; color: var(--text-muted); font-weight: 500; }
+
+    /* Hero search */
+    .hero-search { display: flex; align-items: center; gap: 0; background: #fff; border: 1.5px solid var(--border-strong); border-radius: 14px; padding: 6px 6px 6px 20px; width: 340px; box-shadow: var(--shadow-sm); transition: border-color 0.2s, box-shadow 0.2s; }
+    .hero-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); }
+    .hero-search input { flex: 1; background: none; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 0.88rem; color: var(--text); }
+    .hero-search input::placeholder { color: var(--text-dim); }
+    .hero-search button { background: var(--accent); color: #fff; border-radius: 8px; padding: 10px 20px; font-size: 0.8rem; font-weight: 700; transition: background 0.2s; white-space: nowrap; }
+    .hero-search button:hover { background: var(--accent-dark); }
+
+    /* ============================================================
+       FEATURED ARTICLE CARD
+    ============================================================ */
+    .featured-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: transform 0.35s, box-shadow 0.35s;
+    }
+    .featured-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+    .featured-visual {
+      background: linear-gradient(135deg, #0a1a12 0%, #061418 100%);
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .chart-art { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 32px 24px 0; gap: 3px; opacity: 0.5; }
+    .chart-bar { flex: 1; border-radius: 2px 2px 0 0; }
+    .visual-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,26,18,0.96) 0%, rgba(10,26,18,0.2) 60%, transparent 100%); }
+    .featured-badge-group { position: absolute; top: 22px; left: 22px; display: flex; gap: 8px; z-index: 2; }
+    .featured-read-time { position: absolute; top: 22px; right: 22px; z-index: 2; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 5px 12px; font-size: 0.72rem; color: rgba(255,255,255,0.7); }
+
+    .featured-body { padding: 44px 44px 44px 40px; display: flex; flex-direction: column; justify-content: center; }
+    .featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 2vw, 1.9rem);
+      line-height: 1.25;
+      margin-bottom: 14px;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .featured-card:hover .featured-title { color: var(--accent); }
+    .featured-excerpt { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
+
+    .author-row { display: flex; align-items: center; gap: 12px; }
+    .author-av { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .author-nm { font-size: 0.85rem; font-weight: 700; }
+    .author-rl { font-size: 0.72rem; color: var(--text-muted); }
+    .meta-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--text-dim); margin: 0 4px; }
+    .meta-dt { font-size: 0.76rem; color: var(--text-muted); }
+    .read-cta { margin-left: auto; color: var(--accent); font-size: 0.84rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
+    .read-cta:hover { gap: 9px; }
+
+    /* ============================================================
+       MAIN LAYOUT
+    ============================================================ */
+    .main-wrap { max-width: 1240px; margin: 0 auto; padding: 60px 48px; display: grid; grid-template-columns: 1fr 340px; gap: 52px; }
+
+    /* ============================================================
+       CATEGORY FILTER
+    ============================================================ */
+    .cat-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 36px; overflow-x: auto; scrollbar-width: none; }
+    .cat-bar::-webkit-scrollbar { display: none; }
+    .cat-pill { padding: 8px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); border: 1.5px solid var(--border-strong); background: #fff; white-space: nowrap; transition: all 0.2s; cursor: pointer; }
+    .cat-pill:hover { color: var(--text); border-color: var(--accent-border); }
+    .cat-pill.active { color: var(--accent); border-color: var(--accent); background: var(--accent-light); }
+
+    /* ============================================================
+       ARTICLE GRID
+    ============================================================ */
+    .sec-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .sec-head h2 { font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .sec-head h2::before { content: ''; width: 4px; height: 18px; background: var(--accent); border-radius: 4px; }
+    .view-all { font-size: 0.78rem; font-weight: 700; color: var(--accent); display: inline-flex; align-items: center; gap: 4px; transition: gap 0.2s; }
+    .view-all:hover { gap: 8px; }
+
+    .articles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 48px; }
+
+    .art-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column;
+    }
+    .art-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--accent-border); }
+
+    .art-thumb { height: 170px; position: relative; overflow: hidden; }
+    .thumb-chart { width:100%; height:100%; display:flex; align-items:flex-end; padding:20px 14px 0; gap:2px; }
+    .thumb-bar { flex:1; border-radius:2px 2px 0 0; }
+    .thumb-ov { position:absolute; inset:0; }
+    .thumb-badge { position:absolute; top:12px; left:12px; z-index:2; }
+
+    .art-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+    .art-title { font-size: 0.94rem; font-weight: 700; line-height: 1.4; margin-bottom: 9px; color: var(--text); transition: color 0.2s; }
+    .art-card:hover .art-title { color: var(--accent); }
+    .art-excerpt { font-size: 0.79rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 14px; flex: 1; }
+    .art-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
+    .art-author-sm { display: flex; align-items: center; gap: 7px; font-size: 0.74rem; color: var(--text-muted); font-weight: 500; }
+    .av-xs { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 800; color: #fff; }
+    .art-rt { font-size: 0.7rem; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
+
+    /* BADGES */
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ba { background: rgba(29,184,122,0.12); color: var(--accent); }
+    .bs { background: rgba(29,111,219,0.12); color: var(--blue); }
+    .bn { background: rgba(217,119,6,0.14); color: var(--gold); }
+    .be { background: rgba(124,58,237,0.12); color: #7c3aed; }
+    .bm { background: rgba(220,38,38,0.10); color: var(--red); }
+    .bc { background: rgba(245,158,11,0.14); color: #d97706; }
+
+    /* ============================================================
+       SIDEBAR
+    ============================================================ */
+    .sidebar { display: flex; flex-direction: column; gap: 28px; }
+
+    .sw { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .sw-head { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .sw-head h3 { font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+    .sw-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .sw-link { font-size: 0.72rem; font-weight: 700; color: var(--accent); }
+
+    /* Trending */
+    .trending-item { display: flex; align-items: center; gap: 14px; padding: 13px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; }
+    .trending-item:last-child { border-bottom: none; }
+    .trending-item:hover { background: var(--bg2); }
+    .tr-num { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700; color: var(--accent-border); min-width: 28px; }
+    .tr-title { font-size: 0.82rem; font-weight: 600; line-height: 1.4; margin-bottom: 3px; }
+    .tr-meta { font-size: 0.7rem; color: var(--text-muted); }
+
+    /* Market snapshot */
+    .mk-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 10px; padding: 11px 20px; border-bottom: 1px solid var(--border); font-size: 0.8rem; }
+    .mk-row:last-child { border-bottom: none; }
+    .mk-pair { font-weight: 700; }
+    .mk-price { font-family: 'JetBrains Mono', monospace; color: var(--text-muted); font-size: 0.76rem; }
+    .mk-chg { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 100px; }
+    .mk-chg.up { background: rgba(29,184,122,0.12); color: var(--accent); }
+    .mk-chg.dn { background: rgba(220,38,38,0.10); color: var(--red); }
+
+    /* Newsletter sidebar */
+    .nl-widget { background: linear-gradient(135deg, #f0faf5, #e8f5ef); border: 1.5px solid var(--accent-border); border-radius: var(--radius-lg); padding: 26px 22px; }
+    .nl-widget h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 8px; }
+    .nl-widget p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
+    .nl-form { display: flex; flex-direction: column; gap: 8px; }
+    .nl-form input { background: #fff; border: 1.5px solid var(--border-strong); border-radius: 8px; padding: 10px 14px; font-family: 'Poppins', sans-serif; font-size: 0.82rem; outline: none; transition: border-color 0.2s; }
+    .nl-form input:focus { border-color: var(--accent); }
+    .nl-form button { background: var(--accent); color: #fff; border-radius: 8px; padding: 11px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.82rem; transition: background 0.2s; }
+    .nl-form button:hover { background: var(--accent-dark); }
+
+    /* Tags */
+    .tags-cloud { padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { padding: 5px 12px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; color: var(--text-muted); border: 1px solid var(--border-strong); background: #fff; cursor: pointer; transition: all 0.2s; }
+    .tag:hover { color: var(--accent); border-color: var(--accent-border); background: var(--accent-light); }
+
+    /* Authors */
+    .author-li { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; }
+    .author-li:last-child { border-bottom: none; }
+    .author-li:hover { background: var(--bg2); }
+    .av-md { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .al-name { font-size: 0.84rem; font-weight: 700; }
+    .al-spec { font-size: 0.72rem; color: var(--text-muted); }
+    .al-cnt { font-size: 0.7rem; color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-left: auto; }
+
+    /* ============================================================
+       REVIEWS SECTION
+    ============================================================ */
+    .reviews-section {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 48px;
+    }
+    .reviews-inner { max-width: 1240px; margin: 0 auto; }
+
+    .reviews-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 56px; }
+    .reviews-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2; margin-bottom: 12px; }
+    .reviews-header h2 em { color: var(--accent); font-style: italic; }
+    .reviews-header p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.75; }
+
+    .rating-summary { display: flex; align-items: center; gap: 24px; background: var(--bg2); border-radius: var(--radius-lg); padding: 28px 28px; border: 1px solid var(--border); }
+    .big-rating { font-size: 4rem; font-weight: 800; color: var(--text); letter-spacing: -0.04em; line-height: 1; }
+    .rating-right { flex: 1; }
+    .stars-row { display: flex; gap: 3px; margin-bottom: 6px; font-size: 1.3rem; color: #f59e0b; }
+    .rating-count { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px; }
+    .rating-bars { display: flex; flex-direction: column; gap: 5px; }
+    .rb-row { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; }
+    .rb-label { color: var(--text-muted); min-width: 40px; }
+    .rb-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .rb-fill { height: 100%; background: #f59e0b; border-radius: 3px; }
+    .rb-pct { color: var(--text-muted); min-width: 30px; text-align: right; }
+
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .review-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+    .review-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--accent-border); }
+
+    .rc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .rc-user { display: flex; align-items: center; gap: 10px; }
+    .rc-av { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .rc-name { font-size: 0.86rem; font-weight: 700; }
+    .rc-loc { font-size: 0.72rem; color: var(--text-muted); }
+    .rc-verified { display: flex; align-items: center; gap: 4px; font-size: 0.68rem; font-weight: 700; color: var(--accent); background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: 100px; padding: 3px 10px; white-space: nowrap; }
+
+    .rc-stars { display: flex; gap: 2px; color: #f59e0b; font-size: 0.9rem; margin-bottom: 10px; }
+    .rc-text { font-size: 0.82rem; color: var(--text-body); line-height: 1.75; margin-bottom: 14px; }
+    .rc-footer { display: flex; align-items: center; justify-content: space-between; }
+    .rc-date { font-size: 0.7rem; color: var(--text-dim); }
+    .rc-helpful { font-size: 0.7rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; cursor: pointer; transition: color 0.2s; }
+    .rc-helpful:hover { color: var(--accent); }
+    .rc-tag { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 0.66rem; font-weight: 700; background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border); margin-bottom: 10px; }
+
+    /* ============================================================
+       NEWSLETTER FULL SECTION
+    ============================================================ */
+    .nl-section {
+      background: linear-gradient(135deg, #e8f5ef 0%, #f0faf5 50%, #e4f2ea 100%);
+      border-top: 1px solid var(--accent-border);
+      padding: 90px 48px;
+      text-align: center;
+    }
+    .nl-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 12px; }
+    .nl-section h2 em { color: var(--accent); font-style: italic; }
+    .nl-section p { color: var(--text-muted); font-size: 1rem; margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .nl-inline { display: flex; gap: 12px; justify-content: center; max-width: 480px; margin: 0 auto 20px; }
+    .nl-inline input { flex: 1; background: #fff; border: 1.5px solid var(--border-strong); border-radius: 10px; padding: 14px 18px; font-family: 'Poppins', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; }
+    .nl-inline input:focus { border-color: var(--accent); }
+    .nl-inline button { background: var(--accent); color: #fff; border-radius: 10px; padding: 14px 28px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.88rem; transition: all 0.2s; white-space: nowrap; }
+    .nl-inline button:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .nl-perks { display: flex; justify-content: center; gap: 32px; margin-top: 36px; flex-wrap: wrap; }
+    .nl-perk { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; color: var(--text-muted); }
+    .nl-perk::before { content:'✓'; width:20px; height:20px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:800; flex-shrink:0; }
+
+    /* ============================================================
+       ARTICLE FULL READ PAGE
+    ============================================================ */
+    .article-page { max-width: 820px; margin: 0 auto; padding: 60px 48px 80px; }
+
+    .article-page-hero { margin-bottom: 40px; }
+    .article-page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+    .article-page-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+    .article-hero-img { width: 100%; height: 400px; border-radius: var(--radius-xl); overflow: hidden; position: relative; margin-bottom: 40px; }
+
+    .article-body { font-size: 1.02rem; line-height: 1.85; color: var(--text-body); }
+    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; color: var(--text); margin: 40px 0 16px; line-height: 1.25; }
+    .article-body h3 { font-size: 1.15rem; font-weight: 700; color: var(--text); margin: 28px 0 12px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body strong { color: var(--text); font-weight: 700; }
+    .article-body em { color: var(--accent); font-style: italic; }
+
+    .article-blockquote {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-light);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      font-style: italic;
+      color: var(--text-body);
+      font-size: 1rem;
+    }
+
+    .article-highlight-box {
+      background: var(--bg2);
+      border: 1.5px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .article-highlight-box h4 { font-size: 0.9rem; font-weight: 800; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .data-table-art { width: 100%; border-collapse: collapse; margin: 28px 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .data-table-art th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .data-table-art td { padding: 12px 16px; font-size: 0.86rem; border-bottom: 1px solid var(--border); }
+    .data-table-art tr:last-child td { border-bottom: none; }
+    .data-table-art tr:hover td { background: var(--bg2); }
+
+    .article-tags { margin: 40px 0 0; padding-top: 28px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .article-tags span { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin-right: 8px; }
+
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 0.84rem; font-weight: 700; margin-bottom: 36px; cursor: pointer; transition: gap 0.2s; }
+    .back-btn:hover { gap: 12px; }
+    .back-btn svg { transform: rotate(180deg); }
+
+    /* Related articles */
+    .related-section { background: var(--bg2); border-top: 1px solid var(--border); padding: 56px 48px; }
+    .related-inner { max-width: 820px; margin: 0 auto; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .blog-footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.85);
+      padding: 64px 48px 36px;
+    }
+    .bf-top { display: grid; grid-template-columns: 240px 1fr; gap: 80px; margin-bottom: 52px; }
+    .bf-brand { display: flex; flex-direction: column; gap: 18px; }
+    .bf-brand p { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
+    .bf-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; }
+    .bf-logo svg path { stroke: var(--accent); }
+    .bf-logo span { color: var(--accent); }
+    .soc-row { display: flex; gap: 12px; }
+    .soc-row a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .soc-row a:hover { color: var(--accent); }
+    .bf-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .bf-cols h5 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    .bf-cols ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .bf-cols a { font-size: 0.82rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .bf-cols a:hover { color: var(--accent); }
+    .bf-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .bf-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.28); line-height: 1.7; max-width: 700px; }
+
+    /* ============================================================
+       SCROLL TOP
+    ============================================================ */
+    .scroll-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transform: translateY(10px); transition: opacity 0.3s, transform 0.3s; z-index: 200; box-shadow: 0 4px 16px rgba(29,184,122,0.4); }
+    .scroll-top.show { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { background: var(--accent-dark); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .sidebar { display: grid; grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .header { padding: 0 24px; }
+      .nav-links, .nav-search { display: none !important; }
+      .hamburger { display: flex; }
+      .blog-hero { padding: 52px 24px 44px; }
+      .blog-hero-top { grid-template-columns: 1fr; }
+      .hero-search { width: 100%; max-width: 100%; }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 260px; }
+      .main-wrap { padding: 40px 24px; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .sidebar { grid-template-columns: 1fr; }
+      .reviews-section { padding: 60px 24px; }
+      .reviews-header { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .nl-section { padding: 60px 24px; }
+      .nl-inline { flex-direction: column; }
+      .article-page { padding: 40px 24px 60px; }
+      .article-page-hero h1 { font-size: 1.8rem; }
+      .article-hero-img { height: 240px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .related-section { padding: 48px 24px; }
+      .blog-footer { padding: 52px 24px 28px; }
+      .bf-top { grid-template-columns: 1fr; gap: 36px; }
+      .bf-cols { grid-template-columns: 1fr 1fr; }
+      .blog-stats { flex-wrap: wrap; gap: 24px; }
+    }
+    @media (max-width: 480px) {
+      .bf-cols { grid-template-columns: 1fr; }
+      .nl-perks { flex-direction: column; align-items: center; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo-mark" onclick="showPage('index')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-text">Stoxoras</span>
+      <span class="blog-label">Blog</span>
+    </div>
+    <nav class="nav-links" id="desktopNav">
+      <button type="button" onclick="showPage('index')" class="active" id="nav-home">Home</button>
+      <button type="button" onclick="filterCat('Market Analysis')">Analysis</button>
+      <button type="button" onclick="filterCat('Strategy')">Strategy</button>
+      <button type="button" onclick="filterCat('Education')">Education</button>
+      <button type="button" onclick="filterCat('Macro')">Macro</button>
+      <button type="button" onclick="filterCat('Crypto')">Crypto</button>
+      <button type="button" onclick="scrollToReviews()">Reviews</button>
+    </nav>
+    <div class="nav-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search articles…" oninput="handleSearch(this.value)">
+    </div>
+    <button type="button" class="hamburger" id="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="mobile-nav" id="mobileNav">
+    <button type="button" onclick="mobileNav('index')">🏠 Home</button>
+    <button type="button" onclick="mobileNav('analysis')">📊 Analysis</button>
+    <button type="button" onclick="mobileNav('strategy')">🎯 Strategy</button>
+    <button type="button" onclick="mobileNav('education')">📚 Education</button>
+    <button type="button" onclick="mobileNav('macro')">🌍 Macro & Economy</button>
+    <button type="button" onclick="mobileNav('crypto')">₿ Crypto</button>
+    <button type="button" onclick="mobileNav('reviews')">⭐ Reviews</button>
+    <div class="mobile-nav-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search articles…" oninput="handleSearch(this.value)">
+    </div>
+  </div>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker-strip">
+    <div class="ticker-label">MARKETS</div>
+    <div style="overflow:hidden;flex:1">
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="ticker-pair">EUR/USD</span><span class="ticker-price">1.0843</span><span class="ticker-chg up">+0.18%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">GBP/USD</span><span class="ticker-price">1.2704</span><span class="ticker-chg dn">-0.07%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">XAU/USD</span><span class="ticker-price">2,345.60</span><span class="ticker-chg up">+0.42%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">US30</span><span class="ticker-price">39,218</span><span class="ticker-chg up">+0.33%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USOIL</span><span class="ticker-price">82.14</span><span class="ticker-chg dn">-0.21%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">BTC/USD</span><span class="ticker-price">67,440</span><span class="ticker-chg up">+1.24%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/JPY</span><span class="ticker-price">153.82</span><span class="ticker-chg dn">-0.14%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">ETH/USD</span><span class="ticker-price">3,125</span><span class="ticker-chg up">+0.85%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">SPX500</span><span class="ticker-price">5,248</span><span class="ticker-chg up">+0.27%</span></div>
+        <!-- dupe for loop -->
+        <div class="ticker-item"><span class="ticker-pair">EUR/USD</span><span class="ticker-price">1.0843</span><span class="ticker-chg up">+0.18%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">GBP/USD</span><span class="ticker-price">1.2704</span><span class="ticker-chg dn">-0.07%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">XAU/USD</span><span class="ticker-price">2,345.60</span><span class="ticker-chg up">+0.42%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">US30</span><span class="ticker-price">39,218</span><span class="ticker-chg up">+0.33%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USOIL</span><span class="ticker-price">82.14</span><span class="ticker-chg dn">-0.21%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">BTC/USD</span><span class="ticker-price">67,440</span><span class="ticker-chg up">+1.24%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/JPY</span><span class="ticker-price">153.82</span><span class="ticker-chg dn">-0.14%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">ETH/USD</span><span class="ticker-price">3,125</span><span class="ticker-chg up">+0.85%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">SPX500</span><span class="ticker-price">5,248</span><span class="ticker-chg up">+0.27%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       PAGE: INDEX (Blog home)
+  ================================================================ -->
+  <div class="page active" id="page-index">
+
+    <!-- Hero -->
+    <section class="blog-hero">
+      <div class="blog-hero-inner">
+        <div class="blog-hero-top">
+          <div>
+            <div class="section-tag reveal">Stoxoras Research Desk</div>
+            <h1 class="reveal d2">Trading <em>Insights</em> That<br>Move With the Markets</h1>
+            <p class="blog-hero-desc reveal d3">Deep analysis, proven strategies, macro commentary and verified trader reviews — all in one place. Published daily by Stoxoras's expert analysts.</p>
+            <div class="blog-stats reveal d4">
+              <div class="bstat"><span class="bstat-n">148+</span><span class="bstat-l">Articles published</span></div>
+              <div class="bstat"><span class="bstat-n">42K</span><span class="bstat-l">Newsletter readers</span></div>
+              <div class="bstat"><span class="bstat-n">4.6★</span><span class="bstat-l">Average rating</span></div>
+              <div class="bstat"><span class="bstat-n">2,279</span><span class="bstat-l">Verified reviews</span></div>
+            </div>
+          </div>
+          <div class="reveal d4" style="align-self:flex-start;margin-top:8px">
+            <div class="hero-search">
+              <input type="text" placeholder="Search articles, strategies, pairs…" oninput="handleSearch(this.value)">
+              <button onclick="handleSearch(this.previousElementSibling.value)">Search</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Article -->
+        <article class="featured-card reveal" onclick="openArticle('gold-bull-run')">
+          <div class="featured-visual">
+            <div class="chart-art">
+              <div class="chart-bar" style="height:38%;background:rgba(29,184,122,0.4)"></div>
+              <div class="chart-bar" style="height:55%;background:rgba(29,184,122,0.45)"></div>
+              <div class="chart-bar" style="height:42%;background:rgba(29,184,122,0.35)"></div>
+              <div class="chart-bar" style="height:68%;background:rgba(29,184,122,0.5)"></div>
+              <div class="chart-bar" style="height:52%;background:rgba(29,184,122,0.4)"></div>
+              <div class="chart-bar" style="height:78%;background:rgba(29,184,122,0.55)"></div>
+              <div class="chart-bar" style="height:65%;background:rgba(29,184,122,0.45)"></div>
+              <div class="chart-bar" style="height:90%;background:rgba(29,184,122,0.65)"></div>
+              <div class="chart-bar" style="height:75%;background:rgba(29,184,122,0.5)"></div>
+              <div class="chart-bar" style="height:100%;background:rgba(29,184,122,0.7)"></div>
+              <div class="chart-bar" style="height:85%;background:rgba(29,184,122,0.55)"></div>
+              <div class="chart-bar" style="height:92%;background:rgba(29,184,122,0.65)"></div>
+            </div>
+            <div class="visual-overlay"></div>
+            <div class="featured-badge-group"><span class="badge ba">Market Analysis</span><span class="badge" style="background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.8)">Featured</span></div>
+            <div class="featured-read-time">⏱ 8 min read</div>
+          </div>
+          <div class="featured-body">
+            <div class="section-tag" style="margin-bottom:18px">EDITOR'S PICK</div>
+            <h2 class="featured-title">Gold Breaks $2,350 — Is the Bull Run Just Getting Started, or Is a Pullback Imminent?</h2>
+            <p class="featured-excerpt">XAU/USD has surged past multiple resistance levels driven by safe-haven demand, central bank buying, and USD weakness. Our senior analyst breaks down key Fibonacci levels, fundamental catalysts, and whether $2,280 offers a strategic entry.</p>
+            <div class="author-row">
+              <div class="author-av" style="background:linear-gradient(135deg,#1db87a,#0d8f5a)">DK</div>
+              <div>
+                <div class="author-nm">David Koval</div>
+                <div class="author-rl">Senior Market Analyst</div>
+              </div>
+              <div class="meta-sep"></div>
+              <span class="meta-dt">June 10, 2025</span>
+              <span class="read-cta" style="cursor:pointer">Read Analysis <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Main content + sidebar -->
+    <div class="main-wrap">
+      <main>
+        <!-- Category filter -->
+        <div class="cat-bar" id="catBar">
+          <button class="cat-pill active" onclick="filterCat('All')">All Posts</button>
+          <button class="cat-pill" onclick="filterCat('Market Analysis')">Market Analysis</button>
+          <button class="cat-pill" onclick="filterCat('Strategy')">Strategy</button>
+          <button class="cat-pill" onclick="filterCat('Macro')">Macro & Economy</button>
+          <button class="cat-pill" onclick="filterCat('Education')">Education</button>
+          <button class="cat-pill" onclick="filterCat('Crypto')">Crypto</button>
+          <button class="cat-pill" onclick="filterCat('News')">News</button>
+        </div>
+
+        <div class="sec-head reveal">
+          <h2>Latest Articles</h2>
+          <span class="view-all">View all <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2"/></svg></span>
+        </div>
+
+        <div class="articles-grid" id="articlesGrid">
+
+          <article class="art-card reveal d1" data-cat="Strategy" onclick="openArticle('trendline-strategy')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#050f20,#081a14)">
+              <div class="thumb-chart">
+                <div class="thumb-bar" style="height:40%;background:rgba(29,111,219,0.5)"></div>
+                <div class="thumb-bar" style="height:60%;background:rgba(29,111,219,0.55)"></div>
+                <div class="thumb-bar" style="height:45%;background:rgba(29,111,219,0.45)"></div>
+                <div class="thumb-bar" style="height:75%;background:rgba(29,111,219,0.6)"></div>
+                <div class="thumb-bar" style="height:55%;background:rgba(29,111,219,0.5)"></div>
+                <div class="thumb-bar" style="height:85%;background:rgba(29,111,219,0.65)"></div>
+                <div class="thumb-bar" style="height:65%;background:rgba(29,111,219,0.55)"></div>
+                <div class="thumb-bar" style="height:90%;background:rgba(29,111,219,0.7)"></div>
+              </div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(5,15,32,1) 0%,rgba(5,15,32,0.15) 60%,transparent 100%)"></div>
+              <div class="thumb-badge"><span class="badge bs">Strategy</span></div>
+            </div>
+            <div class="art-body">
+              <h3 class="art-title">The 3-Touch Trendline Strategy: Trade Breakouts With Surgical Precision</h3>
+              <p class="art-excerpt">Master trendline analysis with the critical 3rd touch confirmation, breakout entry timing, and stop placement for defined-risk trades.</p>
+              <div class="art-footer">
+                <div class="art-author-sm"><div class="av-xs" style="background:linear-gradient(135deg,#1d6fdb,#1444a0)">SM</div>Sarah Mitchell</div>
+                <span class="art-rt">⏱ 6 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="art-card reveal d2" data-cat="Macro" onclick="openArticle('fed-rate-decision')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#1a0a05,#120408)">
+              <div class="thumb-chart">
+                <div class="thumb-bar" style="height:80%;background:rgba(217,119,6,0.5)"></div>
+                <div class="thumb-bar" style="height:55%;background:rgba(217,119,6,0.4)"></div>
+                <div class="thumb-bar" style="height:70%;background:rgba(217,119,6,0.45)"></div>
+                <div class="thumb-bar" style="height:45%;background:rgba(220,38,38,0.45)"></div>
+                <div class="thumb-bar" style="height:30%;background:rgba(220,38,38,0.38)"></div>
+                <div class="thumb-bar" style="height:20%;background:rgba(220,38,38,0.32)"></div>
+                <div class="thumb-bar" style="height:35%;background:rgba(220,38,38,0.4)"></div>
+                <div class="thumb-bar" style="height:25%;background:rgba(220,38,38,0.35)"></div>
+              </div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(26,10,5,1) 0%,rgba(26,10,5,0.15) 60%,transparent 100%)"></div>
+              <div class="thumb-badge"><span class="badge bm">Macro</span></div>
+            </div>
+            <div class="art-body">
+              <h3 class="art-title">Fed Rate Pause vs. Cut: What Every Forex Trader Must Know Before the Next FOMC</h3>
+              <p class="art-excerpt">The Fed's upcoming decision could trigger significant USD volatility. We break down probabilities, historical precedents, and how to position across major pairs.</p>
+              <div class="art-footer">
+                <div class="art-author-sm"><div class="av-xs" style="background:linear-gradient(135deg,#ec4899,#be185d)">NL</div>Nina Lowe</div>
+                <span class="art-rt">⏱ 9 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="art-card reveal d3" data-cat="Crypto" onclick="openArticle('bitcoin-halving')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#0a0812,#12090a)">
+              <div class="thumb-chart">
+                <div class="thumb-bar" style="height:20%;background:rgba(245,158,11,0.4)"></div>
+                <div class="thumb-bar" style="height:38%;background:rgba(245,158,11,0.45)"></div>
+                <div class="thumb-bar" style="height:55%;background:rgba(245,158,11,0.5)"></div>
+                <div class="thumb-bar" style="height:70%;background:rgba(245,158,11,0.55)"></div>
+                <div class="thumb-bar" style="height:85%;background:rgba(245,158,11,0.6)"></div>
+                <div class="thumb-bar" style="height:95%;background:rgba(245,158,11,0.7)"></div>
+                <div class="thumb-bar" style="height:80%;background:rgba(245,158,11,0.6)"></div>
+                <div class="thumb-bar" style="height:90%;background:rgba(245,158,11,0.65)"></div>
+              </div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(10,8,18,1) 0%,rgba(10,8,18,0.15) 60%,transparent 100%)"></div>
+              <div class="thumb-badge"><span class="badge bc">Crypto</span></div>
+            </div>
+            <div class="art-body">
+              <h3 class="art-title">Bitcoin Post-Halving Analysis: On-Chain Data Signals the Next Leg of the Bull Market</h3>
+              <p class="art-excerpt">NUPL data, miner behavior, and historical cycles suggest we're in an accumulation phase that has historically preceded 200–400% rallies. Here's what the data says.</p>
+              <div class="art-footer">
+                <div class="art-author-sm"><div class="av-xs" style="background:linear-gradient(135deg,#1db87a,#0d8f5a)">AR</div>Alex Reyes</div>
+                <span class="art-rt">⏱ 11 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="art-card reveal d4" data-cat="Education" onclick="openArticle('smc-guide')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#120718,#07050e)">
+              <div class="thumb-chart">
+                <div class="thumb-bar" style="height:60%;background:rgba(124,58,237,0.5)"></div>
+                <div class="thumb-bar" style="height:75%;background:rgba(124,58,237,0.55)"></div>
+                <div class="thumb-bar" style="height:50%;background:rgba(124,58,237,0.45)"></div>
+                <div class="thumb-bar" style="height:85%;background:rgba(124,58,237,0.6)"></div>
+                <div class="thumb-bar" style="height:65%;background:rgba(124,58,237,0.5)"></div>
+                <div class="thumb-bar" style="height:90%;background:rgba(124,58,237,0.65)"></div>
+                <div class="thumb-bar" style="height:72%;background:rgba(124,58,237,0.55)"></div>
+                <div class="thumb-bar" style="height:80%;background:rgba(124,58,237,0.6)"></div>
+              </div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(18,7,24,1) 0%,rgba(18,7,24,0.15) 60%,transparent 100%)"></div>
+              <div class="thumb-badge"><span class="badge be">Education</span></div>
+            </div>
+            <div class="art-body">
+              <h3 class="art-title">What is Smart Money Concept (SMC) Trading? A Complete Beginner's Guide</h3>
+              <p class="art-excerpt">We demystify order blocks, fair value gaps, liquidity sweeps, and how to apply ICT-inspired concepts directly in the markets using Stoxoras's platform tools.</p>
+              <div class="art-footer">
+                <div class="art-author-sm"><div class="av-xs" style="background:linear-gradient(135deg,#f59e0b,#d97706)">JT</div>James Torres</div>
+                <span class="art-rt">⏱ 14 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="art-card reveal d5" data-cat="Market Analysis" onclick="openArticle('gbpusd-outlook')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#071a12,#04100e)">
+              <div class="thumb-chart">
+                <div class="thumb-bar" style="height:30%;background:rgba(29,184,122,0.35)"></div>
+                <div class="thumb-bar" style="height:50%;background:rgba(29,184,122,0.4)"></div>
+                <div class="thumb-bar" style="height:65%;background:rgba(29,184,122,0.45)"></div>
+                <div class="thumb-bar" style="height:75%;background:rgba(29,184,122,0.5)"></div>
+                <div class="thumb-bar" style="height:60%;background:rgba(29,184,122,0.42)"></div>
+                <div class="thumb-bar" style="height:80%;background:rgba(29,184,122,0.55)"></div>
+                <div class="thumb-bar" style="height:70%;background:rgba(29,184,122,0.48)"></div>
+                <div class="thumb-bar" style="height:85%;background:rgba(29,184,122,0.6)"></div>
+              </div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(7,26,18,1) 0%,rgba(7,26,18,0.15) 60%,transparent 100%)"></div>
+              <div class="thumb-badge"><span class="badge ba">Analysis</span></div>
+            </div>
+            <div class="art-body">
+              <h3 class="art-title">GBP/USD Weekly Outlook: Key Levels to Watch Ahead of UK CPI Release</h3>
+              <p class="art-excerpt">Sterling faces a pivotal week. Critical support at 1.2580, resistance at 1.2750. We model three scenarios and their precise trade implications for GBP pairs.</p>
+              <div class="art-footer">
+                <div class="art-author-sm"><div class="av-xs" style="background:linear-gradient(135deg,#1db87a,#0d8f5a)">DK</div>David Koval</div>
+                <span class="art-rt">⏱ 7 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="art-card reveal d5" data-cat="News" onclick="openArticle('oil-opec')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#1a0507,#120306)">
+              <div class="thumb-chart">
+                <div class="thumb-bar" style="height:90%;background:rgba(220,38,38,0.5)"></div>
+                <div class="thumb-bar" style="height:70%;background:rgba(220,38,38,0.42)"></div>
+                <div class="thumb-bar" style="height:80%;background:rgba(220,38,38,0.46)"></div>
+                <div class="thumb-bar" style="height:55%;background:rgba(220,38,38,0.38)"></div>
+                <div class="thumb-bar" style="height:45%;background:rgba(220,38,38,0.34)"></div>
+                <div class="thumb-bar" style="height:35%;background:rgba(220,38,38,0.3)"></div>
+                <div class="thumb-bar" style="height:40%;background:rgba(220,38,38,0.33)"></div>
+                <div class="thumb-bar" style="height:30%;background:rgba(220,38,38,0.28)"></div>
+              </div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(26,5,7,1) 0%,rgba(26,5,7,0.15) 60%,transparent 100%)"></div>
+              <div class="thumb-badge"><span class="badge bn">News</span></div>
+            </div>
+            <div class="art-body">
+              <h3 class="art-title">Oil Markets Under Pressure: OPEC+ Disagreements and Rising US Inventories</h3>
+              <p class="art-excerpt">Crude oil enters a choppy consolidation phase as OPEC+ member tensions surface. We analyze what rising US stockpile data means for WTI and Brent traders this week.</p>
+              <div class="art-footer">
+                <div class="art-author-sm"><div class="av-xs" style="background:linear-gradient(135deg,#1d6fdb,#1444a0)">SM</div>Sarah Mitchell</div>
+                <span class="art-rt">⏱ 5 min</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- end articles-grid -->
+
+        <!-- No results message -->
+        <div id="noResults" style="display:none;text-align:center;padding:48px 0;color:var(--text-muted)">
+          <div style="font-size:2.5rem;margin-bottom:12px">🔍</div>
+          <p style="font-weight:600;margin-bottom:6px">No articles found</p>
+          <p style="font-size:0.84rem">Try a different search term or category</p>
+        </div>
+
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+
+        <div class="sw reveal">
+          <div class="sw-head"><h3><div class="sw-dot"></div> Trending Now</h3><span class="sw-link">View all</span></div>
+          <div>
+            <div class="trending-item" onclick="openArticle('gold-bull-run')">
+              <div class="tr-num">01</div>
+              <div><div class="tr-title">Gold Breaks $2,350 — Bull Run Analysis</div><div class="tr-meta">Analysis · 8.2k reads</div></div>
+            </div>
+            <div class="trending-item" onclick="openArticle('smc-guide')">
+              <div class="tr-num">02</div>
+              <div><div class="tr-title">Smart Money Concept Complete Guide</div><div class="tr-meta">Education · 6.5k reads</div></div>
+            </div>
+            <div class="trending-item" onclick="openArticle('bitcoin-halving')">
+              <div class="tr-num">03</div>
+              <div><div class="tr-title">Bitcoin Halving: On-Chain Data Analysis</div><div class="tr-meta">Crypto · 5.8k reads</div></div>
+            </div>
+            <div class="trending-item" onclick="openArticle('fed-rate-decision')">
+              <div class="tr-num">04</div>
+              <div><div class="tr-title">Fed Rate Decision: Forex Trader's Guide</div><div class="tr-meta">Macro · 4.3k reads</div></div>
+            </div>
+            <div class="trending-item" onclick="openArticle('trendline-strategy')">
+              <div class="tr-num">05</div>
+              <div><div class="tr-title">3-Touch Trendline Breakout Strategy</div><div class="tr-meta">Strategy · 4.1k reads</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sw reveal">
+          <div class="sw-head"><h3><div class="sw-dot"></div> Market Snapshot</h3><span class="sw-link" style="color:var(--accent);font-size:0.72rem;font-weight:700">Trade now →</span></div>
+          <div>
+            <div class="mk-row"><span class="mk-pair">EUR/USD</span><span class="mk-price">1.0843</span><span class="mk-chg up">+0.18%</span></div>
+            <div class="mk-row"><span class="mk-pair">GBP/USD</span><span class="mk-price">1.2704</span><span class="mk-chg dn">-0.07%</span></div>
+            <div class="mk-row"><span class="mk-pair">XAU/USD</span><span class="mk-price">2,345.60</span><span class="mk-chg up">+0.42%</span></div>
+            <div class="mk-row"><span class="mk-pair">BTC/USD</span><span class="mk-price">67,440</span><span class="mk-chg up">+1.24%</span></div>
+            <div class="mk-row"><span class="mk-pair">USOIL</span><span class="mk-price">82.14</span><span class="mk-chg dn">-0.21%</span></div>
+            <div class="mk-row"><span class="mk-pair">US30</span><span class="mk-price">39,218</span><span class="mk-chg up">+0.33%</span></div>
+          </div>
+        </div>
+
+        <div class="nl-widget reveal">
+          <div class="section-tag" style="margin-bottom:12px;font-size:0.64rem">Free Daily Brief</div>
+          <h3>Get the Morning Brief</h3>
+          <p>Market outlook, key levels and trade ideas in your inbox before the market opens. Join 42,000+ traders.</p>
+          <div class="nl-form">
+            <input type="email" placeholder="Your email address">
+            <button onclick="subscribeNL(this)">Subscribe — It's Free</button>
+          </div>
+        </div>
+
+        <div class="sw reveal">
+          <div class="sw-head"><h3>Browse Topics</h3></div>
+          <div class="tags-cloud">
+            <button class="tag" onclick="filterCat('Market Analysis')">Forex</button>
+            <button class="tag">Gold</button>
+            <button class="tag" onclick="filterCat('Crypto')">Bitcoin</button>
+            <button class="tag" onclick="filterCat('Macro')">FOMC</button>
+            <button class="tag">EUR/USD</button>
+            <button class="tag">Risk Management</button>
+            <button class="tag" onclick="filterCat('Education')">Technical Analysis</button>
+            <button class="tag">Fundamentals</button>
+            <button class="tag">Oil</button>
+            <button class="tag">MT5</button>
+            <button class="tag">Scalping</button>
+            <button class="tag" onclick="filterCat('Strategy')">Swing Trading</button>
+            <button class="tag" onclick="filterCat('Education')">Smart Money</button>
+          </div>
+        </div>
+
+        <div class="sw reveal">
+          <div class="sw-head"><h3>Our Analysts</h3></div>
+          <div>
+            <div class="author-li">
+              <div class="av-md" style="background:linear-gradient(135deg,#1db87a,#0d8f5a)">DK</div>
+              <div class="author-info2"><div class="al-name">David Koval</div><div class="al-spec">Gold & Forex Macro</div></div>
+              <span class="al-cnt">48 posts</span>
+            </div>
+            <div class="author-li">
+              <div class="av-md" style="background:linear-gradient(135deg,#1d6fdb,#1444a0)">SM</div>
+              <div><div class="al-name">Sarah Mitchell</div><div class="al-spec">Platform & Tech</div></div>
+              <span class="al-cnt">35 posts</span>
+            </div>
+            <div class="author-li">
+              <div class="av-md" style="background:linear-gradient(135deg,#f59e0b,#d97706)">DR</div>
+              <div><div class="al-name">David Rosen</div><div class="al-spec">Liquidity & Execution</div></div>
+              <span class="al-cnt">29 posts</span>
+            </div>
+            <div class="author-li">
+              <div class="av-md" style="background:linear-gradient(135deg,#ec4899,#be185d)">NL</div>
+              <div><div class="al-name">Nina Lowe</div><div class="al-spec">Macro & Compliance</div></div>
+              <span class="al-cnt">22 posts</span>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div><!-- end main-wrap -->
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section" id="reviewsSection">
+      <div class="reviews-inner">
+        <div class="reviews-header">
+          <div>
+            <div class="section-tag reveal">Verified Reviews</div>
+            <h2 class="reveal d2">What Our <em>Traders</em><br>Are Saying</h2>
+            <p class="reveal d3">All reviews are verified by TrustFinance and submitted by real Stoxoras account holders. We never delete negative feedback — transparency is fundamental to who we are.</p>
+            <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap" class="reveal d4">
+              <a href="https://www.Stoxoras.com" class="btn btn-primary btn-sm">Start Trading</a>
+              <button class="btn btn-outline btn-sm" onclick="document.getElementById('writeReview').scrollIntoView({behavior:'smooth'})">Write a Review</button>
+            </div>
+          </div>
+          <div class="reveal d3">
+            <div class="rating-summary">
+              <div class="big-rating">4.6</div>
+              <div class="rating-right">
+                <div class="stars-row">★★★★★</div>
+                <div class="rating-count">Based on 2,279 verified reviews</div>
+                <div class="rating-bars">
+                  <div class="rb-row"><span class="rb-label">5 ★</span><div class="rb-track"><div class="rb-fill" style="width:68%"></div></div><span class="rb-pct">68%</span></div>
+                  <div class="rb-row"><span class="rb-label">4 ★</span><div class="rb-track"><div class="rb-fill" style="width:18%"></div></div><span class="rb-pct">18%</span></div>
+                  <div class="rb-row"><span class="rb-label">3 ★</span><div class="rb-track"><div class="rb-fill" style="width:8%"></div></div><span class="rb-pct">8%</span></div>
+                  <div class="rb-row"><span class="rb-label">2 ★</span><div class="rb-track"><div class="rb-fill" style="width:4%"></div></div><span class="rb-pct">4%</span></div>
+                  <div class="rb-row"><span class="rb-label">1 ★</span><div class="rb-track"><div class="rb-fill" style="width:2%"></div></div><span class="rb-pct">2%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+
+          <div class="review-card reveal d1">
+            <div class="rc-top">
+              <div class="rc-user">
+                <div class="rc-av" style="background:linear-gradient(135deg,#1db87a,#0d8f5a)">MO</div>
+                <div><div class="rc-name">Marcus O.</div><div class="rc-loc">Lagos, Nigeria</div></div>
+              </div>
+              <div class="rc-verified">✓ Verified</div>
+            </div>
+            <div class="rc-tag">Pro ECN Account</div>
+            <div class="rc-stars">★★★★★</div>
+            <p class="rc-text">I've been with Stoxoras for 14 months and the execution speed genuinely is what they advertise — fills under 30ms even during major news events like NFP. The spreads on EUR/USD during London session average around 0.5 pips for me. Withdrawals have always processed within 24 hours. No complaints at all.</p>
+            <div class="rc-footer">
+              <span class="rc-date">May 28, 2025</span>
+              <span class="rc-helpful" onclick="this.textContent='👍 Helpful (1)'">👍 Helpful (0)</span>
+            </div>
+          </div>
+
+          <div class="review-card reveal d2">
+            <div class="rc-top">
+              <div class="rc-user">
+                <div class="rc-av" style="background:linear-gradient(135deg,#1d6fdb,#1444a0)">JK</div>
+                <div><div class="rc-name">Jana K.</div><div class="rc-loc">Prague, Czech Republic</div></div>
+              </div>
+              <div class="rc-verified">✓ Verified</div>
+            </div>
+            <div class="rc-tag">Standard Account</div>
+            <div class="rc-stars">★★★★★</div>
+            <p class="rc-text">Switched from a major EU broker 6 months ago. The biggest difference is the mobile app — it's actually fast and the charts don't lag on my phone. The educational content and this blog has helped me understand risk management far better. Spreads are competitive on the major pairs I trade.</p>
+            <div class="rc-footer">
+              <span class="rc-date">May 15, 2025</span>
+              <span class="rc-helpful" onclick="this.textContent='👍 Helpful (1)'">👍 Helpful (0)</span>
+            </div>
+          </div>
+
+          <div class="review-card reveal d3">
+            <div class="rc-top">
+              <div class="rc-user">
+                <div class="rc-av" style="background:linear-gradient(135deg,#f59e0b,#d97706)">RT</div>
+                <div><div class="rc-name">Ravi T.</div><div class="rc-loc">Mumbai, India</div></div>
+              </div>
+              <div class="rc-verified">✓ Verified</div>
+            </div>
+            <div class="rc-tag">Pro ECN Account</div>
+            <div class="rc-stars">★★★★☆</div>
+            <p class="rc-text">Solid broker overall. Gold trading is excellent — very tight spreads and I've never experienced slippage during my normal trading hours. The only thing I'd improve is the desktop platform UI which feels slightly dated compared to the mobile app. Support team was helpful when I had a withdrawal question.</p>
+            <div class="rc-footer">
+              <span class="rc-date">Apr 30, 2025</span>
+              <span class="rc-helpful" onclick="this.textContent='👍 Helpful (1)'">👍 Helpful (0)</span>
+            </div>
+          </div>
+
+          <div class="review-card reveal d4">
+            <div class="rc-top">
+              <div class="rc-user">
+                <div class="rc-av" style="background:linear-gradient(135deg,#ec4899,#be185d)">AS</div>
+                <div><div class="rc-name">Amara S.</div><div class="rc-loc">Accra, Ghana</div></div>
+              </div>
+              <div class="rc-verified">✓ Verified</div>
+            </div>
+            <div class="rc-tag">Standard Account</div>
+            <div class="rc-stars">★★★★★</div>
+            <p class="rc-text">Starting with just $100 was possible and the account opened quickly. The swap-free option was important for my trading approach and they set it up with no extra fees. The Stoxoras blog has genuinely improved my technical analysis. I've been profitable for 3 consecutive months now — partly thanks to the articles here.</p>
+            <div class="rc-footer">
+              <span class="rc-date">Apr 18, 2025</span>
+              <span class="rc-helpful" onclick="this.textContent='👍 Helpful (1)'">👍 Helpful (0)</span>
+            </div>
+          </div>
+
+          <div class="review-card reveal d5">
+            <div class="rc-top">
+              <div class="rc-user">
+                <div class="rc-av" style="background:linear-gradient(135deg,#7c3aed,#5b21b6)">PL</div>
+                <div><div class="rc-name">Piotr L.</div><div class="rc-loc">Warsaw, Poland</div></div>
+              </div>
+              <div class="rc-verified">✓ Verified</div>
+            </div>
+            <div class="rc-tag">Institutional Account</div>
+            <div class="rc-stars">★★★★★</div>
+            <p class="rc-text">Running algorithmic strategies via FIX API — latency is genuinely excellent from our Warsaw servers to their LD4 co-location. The institutional team has been responsive to our custom needs. The raw spreads on EUR/USD during peak hours are consistently sub-0.1 pip. Exactly what systematic traders need.</p>
+            <div class="rc-footer">
+              <span class="rc-date">Apr 5, 2025</span>
+              <span class="rc-helpful" onclick="this.textContent='👍 Helpful (1)'">👍 Helpful (0)</span>
+            </div>
+          </div>
+
+          <div class="review-card reveal d5">
+            <div class="rc-top">
+              <div class="rc-user">
+                <div class="rc-av" style="background:linear-gradient(135deg,#0ea5e9,#0369a1)">CN</div>
+                <div><div class="rc-name">Carlos N.</div><div class="rc-loc">São Paulo, Brazil</div></div>
+              </div>
+              <div class="rc-verified">✓ Verified</div>
+            </div>
+            <div class="rc-tag">Pro ECN Account</div>
+            <div class="rc-stars">★★★★☆</div>
+            <p class="rc-text">Great broker for commodities trading specifically. Oil and gold both have excellent conditions. I trade USOIL a lot and the spreads during US session are very tight. One minor note: I'd love to see more exotic pairs added. The platform stability during volatile markets like Jackson Hole is excellent.</p>
+            <div class="rc-footer">
+              <span class="rc-date">Mar 22, 2025</span>
+              <span class="rc-helpful" onclick="this.textContent='👍 Helpful (1)'">👍 Helpful (0)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Write a review -->
+        <div id="writeReview" style="margin-top:52px;background:var(--bg2);border:1.5px solid var(--accent-border);border-radius:var(--radius-xl);padding:40px 40px" class="reveal">
+          <div class="section-tag" style="margin-bottom:16px">Share Your Experience</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:8px">Write a Review</h3>
+          <p style="color:var(--text-muted);font-size:0.86rem;margin-bottom:28px">Help other traders make informed decisions. Only verified Stoxoras account holders can submit reviews.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+            <input type="text" placeholder="Your name" style="background:#fff;border:1.5px solid var(--border-strong);border-radius:8px;padding:12px 16px;font-family:'Poppins',sans-serif;font-size:0.86rem;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-strong)'">
+            <input type="text" placeholder="Account type (Standard / Pro ECN / Institutional)" style="background:#fff;border:1.5px solid var(--border-strong);border-radius:8px;padding:12px 16px;font-family:'Poppins',sans-serif;font-size:0.86rem;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-strong)'">
+          </div>
+          <div style="margin-bottom:16px;display:flex;align-items:center;gap:8px">
+            <span style="font-size:0.82rem;font-weight:600;color:var(--text-muted)">Rating:</span>
+            <div id="starRating" style="display:flex;gap:4px;font-size:1.4rem;cursor:pointer;color:#d1d5db">
+              <span onclick="setRating(1)" onmouseover="hoverRating(1)" onmouseout="unhoverRating()">★</span>
+              <span onclick="setRating(2)" onmouseover="hoverRating(2)" onmouseout="unhoverRating()">★</span>
+              <span onclick="setRating(3)" onmouseover="hoverRating(3)" onmouseout="unhoverRating()">★</span>
+              <span onclick="setRating(4)" onmouseover="hoverRating(4)" onmouseout="unhoverRating()">★</span>
+              <span onclick="setRating(5)" onmouseover="hoverRating(5)" onmouseout="unhoverRating()">★</span>
+            </div>
+            <span id="ratingLabel" style="font-size:0.8rem;color:var(--text-muted)">Click to rate</span>
+          </div>
+          <textarea placeholder="Share your experience with Stoxoras — execution speed, spreads, support, withdrawals…" style="width:100%;background:#fff;border:1.5px solid var(--border-strong);border-radius:8px;padding:14px 16px;font-family:'Poppins',sans-serif;font-size:0.86rem;outline:none;resize:vertical;min-height:130px;transition:border-color 0.2s;margin-bottom:16px" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-strong)'"></textarea>
+          <button class="btn btn-primary" onclick="submitReview(this)">Submit Review</button>
+          <p style="font-size:0.72rem;color:var(--text-dim);margin-top:12px">Reviews are moderated and verified before publishing. By submitting you confirm you are a Stoxoras account holder.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="nl-section">
+      <div class="section-tag reveal" style="margin:0 auto 18px">Free Daily Brief</div>
+      <h2 class="reveal d2">Never Miss an <em>Edge</em></h2>
+      <p class="reveal d3">Get the Stoxoras Morning Brief — market outlook, key levels to watch, and top trade ideas every trading day at 7:30 AM GMT.</p>
+      <div class="nl-inline reveal d4">
+        <input type="email" placeholder="Enter your email address">
+        <button onclick="subscribeNL(this)">Subscribe Free</button>
+      </div>
+      <p style="font-size:0.72rem;color:var(--text-muted)" class="reveal d5">No spam. Unsubscribe anytime.</p>
+      <div class="nl-perks reveal d5">
+        <div class="nl-perk">Daily market outlook</div>
+        <div class="nl-perk">Key levels & trade setups</div>
+        <div class="nl-perk">Exclusive analyst insights</div>
+        <div class="nl-perk">Sent pre-market, 7:30 AM GMT</div>
+      </div>
+    </section>
+
+  </div><!-- end page-index -->
+
+
+  <!-- ================================================================
+       ARTICLE PAGES — Full readable articles
+  ================================================================ -->
+
+  <!-- ARTICLE: Gold Bull Run -->
+  <div class="page" id="page-gold-bull-run">
+    <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:20px 48px">
+      <div style="max-width:820px;margin:0 auto">
+        <button class="back-btn" onclick="showPage('index')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Back to Blog</button>
+      </div>
+    </div>
+    <div class="article-page">
+      <div class="article-page-hero">
+        <div style="margin-bottom:16px"><span class="badge ba">Market Analysis</span></div>
+        <h1>Gold Breaks $2,350 — Is the Bull Run Just Getting Started, or Is a Pullback Imminent?</h1>
+        <div class="article-page-meta">
+          <div class="author-row" style="gap:10px">
+            <div class="author-av" style="background:linear-gradient(135deg,#1db87a,#0d8f5a);width:36px;height:36px">DK</div>
+            <div><div class="author-nm">David Koval</div><div class="author-rl">Senior Market Analyst, Stoxoras</div></div>
+          </div>
+          <div class="meta-sep"></div>
+          <span class="meta-dt">June 10, 2025</span>
+          <div class="meta-sep"></div>
+          <span class="meta-dt">⏱ 8 min read</span>
+          <div class="meta-sep"></div>
+          <span class="meta-dt" style="color:var(--accent)">8,200 reads</span>
+        </div>
+        <div class="article-hero-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#071a12,#061218);display:flex;align-items:flex-end;padding:30px 24px 0;gap:3px">
+            <div style="flex:1;height:38%;background:rgba(29,184,122,0.35);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:55%;background:rgba(29,184,122,0.4);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:48%;background:rgba(29,184,122,0.37);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:65%;background:rgba(29,184,122,0.45);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:58%;background:rgba(29,184,122,0.42);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:72%;background:rgba(29,184,122,0.5);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:68%;background:rgba(29,184,122,0.48);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:82%;background:rgba(29,184,122,0.58);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:76%;background:rgba(29,184,122,0.54);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:90%;background:rgba(29,184,122,0.65);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:85%;background:rgba(29,184,122,0.6);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:95%;background:rgba(29,184,122,0.7);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:88%;background:rgba(29,184,122,0.62);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:100%;background:rgba(29,184,122,0.75);border-radius:2px 2px 0 0"></div>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <p>Gold has done something remarkable in 2025: it has <strong>broken through $2,350 per troy ounce</strong> and continues to hold above that critical threshold, setting up what could be one of the most consequential bull runs in the precious metal's modern trading history. For traders, the question isn't whether gold has moved — it clearly has — but whether this move has legs, or whether a pullback is the smarter play right now.</p>
+
+        <h2>Why Gold Is Surging: The Fundamental Drivers</h2>
+        <p>Gold's rally isn't happening in a vacuum. Several structural forces have converged to create a perfect environment for higher prices:</p>
+        <ul>
+          <li><strong>Central bank buying at record pace.</strong> Central banks globally purchased over 1,037 tonnes of gold in 2023 and have continued buying aggressively in 2024-2025. China, Poland, and several Middle Eastern nations have been the most aggressive buyers, diversifying reserves away from US dollar assets.</li>
+          <li><strong>Real yields declining.</strong> Despite elevated nominal rates, inflation expectations have ticked higher, compressing real yields — the primary driver of gold's opportunity cost. When real yields fall, gold typically rises.</li>
+          <li><strong>Geopolitical risk premium.</strong> Ongoing geopolitical tensions across multiple regions have sustained safe-haven demand. Gold's function as a crisis hedge has rarely been more relevant.</li>
+          <li><strong>USD weakness on the margin.</strong> The DXY index has softened as Fed rate cut expectations — while delayed — have slowly repriced into futures markets. A softer dollar historically provides a tailwind for gold priced in USD.</li>
+        </ul>
+
+        <div class="article-blockquote">
+          "Central bank demand has fundamentally shifted the supply/demand equation for gold. When the largest institutional buyers in the world are structurally accumulating, it creates a floor that technical traders must account for." — David Koval
+        </div>
+
+        <h2>The Technical Picture: Key Levels to Watch</h2>
+        <p>From a pure price action perspective, XAU/USD has printed a clean series of <em>higher highs and higher lows</em> on the weekly chart since October 2023. The current structure is bullish by virtually every technical measure. However, nothing moves in a straight line, and understanding the critical levels is essential for managing risk intelligently.</p>
+
+        <div class="article-highlight-box">
+          <h4>Key Technical Levels — XAU/USD</h4>
+          <table class="data-table-art">
+            <thead><tr><th>Level</th><th>Price</th><th>Significance</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><strong>All-time high zone</strong></td><td>$2,430–2,450</td><td>No historical precedent — uncharted territory</td><td>Potential resistance / profit-take zone</td></tr>
+              <tr><td><strong>Current price</strong></td><td>$2,345</td><td>Above 2023 breakout level</td><td>Watch for continuation vs. rejection</td></tr>
+              <tr><td><strong>Support 1</strong></td><td>$2,280–2,300</td><td>Previous resistance turned support (flip zone)</td><td>Ideal buy-the-dip zone for bulls</td></tr>
+              <tr><td><strong>Support 2</strong></td><td>$2,180–2,200</td><td>Volume cluster + 50-week MA</td><td>Strong structural support — macro buy zone</td></tr>
+              <tr><td><strong>Breakdown level</strong></td><td>Below $2,080</td><td>Would invalidate bull structure</td><td>Stop placement for long-term positions</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Fibonacci Analysis: Where Could This Move End?</h2>
+        <p>Applying Fibonacci extensions to the primary swing from the 2022 low of $1,614 to the 2023 high of $2,079, then back to the October 2023 low of $1,810, we get the following projection targets:</p>
+        <ul>
+          <li><strong>1.0 extension:</strong> $2,348 — already reached and holding</li>
+          <li><strong>1.272 extension:</strong> $2,438 — first major Fibonacci resistance</li>
+          <li><strong>1.618 extension:</strong> $2,590 — the ultimate bull target for the current macro cycle</li>
+        </ul>
+        <p>The fact that gold is currently consolidating just above the 1.0 extension is technically constructive. Consolidations at extension levels often resolve in the direction of the prevailing trend — which is up.</p>
+
+        <h2>Is a Pullback Imminent? The Bear Case</h2>
+        <p>Intellectual honesty requires acknowledging the risks. Several factors could precipitate a meaningful correction:</p>
+        <ul>
+          <li><strong>USD strength on surprise data.</strong> A stronger-than-expected jobs report or CPI print could reprice Fed cut expectations and push the DXY higher, pressuring gold.</li>
+          <li><strong>Profit-taking at all-time highs.</strong> Institutional players who bought at lower levels have strong incentives to take profits at these extended levels.</li>
+          <li><strong>Margin calls in a risk-off event.</strong> In a severe equity selloff, gold can briefly drop as traders sell liquid assets to meet margin requirements — before later rallying on safe-haven demand.</li>
+        </ul>
+
+        <h2>The Trading Playbook</h2>
+        <p>Given the above analysis, here is how we are thinking about the trade at Stoxoras Research:</p>
+        <ol>
+          <li><strong>Scenario 1 — Continuation bull:</strong> If gold closes a weekly candle above $2,380 on strong volume, the next meaningful target is $2,438 (Fib 1.272). Aggressive traders can add to longs on this breakout with a stop below $2,310.</li>
+          <li><strong>Scenario 2 — Healthy pullback / buy the dip:</strong> A retracement to $2,280–2,300 (the old resistance, now expected support) provides an exceptional risk-reward long entry. Risk to $2,220, target $2,438. That's approximately a 1:2.5 risk-reward ratio.</li>
+          <li><strong>Scenario 3 — Deeper correction:</strong> If macro data shifts significantly (major USD strength event), a drop to $2,180–2,200 is possible. This would still be a bull market correction and an even more attractive entry point for the longer-term move toward $2,590.</li>
+        </ol>
+
+        <div class="article-blockquote">
+          The most dangerous trade right now is chasing gold at $2,345 without a defined plan. The safest trade is waiting for the market to come to you — at $2,280 support or on a confirmed weekly breakout above $2,380.
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>Gold's fundamental and technical picture remains decisively bullish. Central bank demand, falling real yields, geopolitical risk, and a softening dollar have created the conditions for a sustained move higher. The all-time high territory around $2,430–2,450 is likely to be tested within the next two quarters, with $2,590 as a realistic 12-month target if macro conditions hold.</p>
+        <p>That said, entries matter. <strong>Trading into momentum at extended levels without a plan is how accounts get damaged.</strong> Use the key levels outlined above, define your risk before entering, and trade the pullbacks rather than chasing the highs.</p>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)"><em>This article is for educational and informational purposes only. It does not constitute financial advice. CFD trading involves significant risk of loss. Past performance is not indicative of future results.</em></p>
+        <div class="article-tags">
+          <span>Tags:</span>
+          <span class="badge ba">Gold</span>
+          <span class="badge ba">XAU/USD</span>
+          <span class="badge ba">Market Analysis</span>
+          <span class="badge bs">Technical Analysis</span>
+          <span class="badge bm">Macro</span>
+        </div>
+      </div>
+    </div>
+    <section class="related-section">
+      <div class="related-inner">
+        <div class="sec-head"><h2>Related Articles</h2></div>
+        <div class="related-grid">
+          <article class="art-card" style="cursor:pointer" onclick="openArticle('trendline-strategy')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#050f20,#08140e);height:130px">
+              <div class="thumb-chart"><div class="thumb-bar" style="height:60%;background:rgba(29,111,219,0.5)"></div><div class="thumb-bar" style="height:80%;background:rgba(29,111,219,0.6)"></div><div class="thumb-bar" style="height:70%;background:rgba(29,111,219,0.55)"></div><div class="thumb-bar" style="height:90%;background:rgba(29,111,219,0.65)"></div></div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(5,15,32,1) 0%,rgba(5,15,32,0.1) 70%,transparent 100%)"></div>
+            </div>
+            <div class="art-body"><h3 class="art-title">The 3-Touch Trendline Strategy</h3><div class="art-footer"><span class="badge bs">Strategy</span><span class="art-rt">6 min</span></div></div>
+          </article>
+          <article class="art-card" style="cursor:pointer" onclick="openArticle('fed-rate-decision')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#1a0a05,#12040a);height:130px">
+              <div class="thumb-chart"><div class="thumb-bar" style="height:70%;background:rgba(217,119,6,0.5)"></div><div class="thumb-bar" style="height:50%;background:rgba(220,38,38,0.45)"></div><div class="thumb-bar" style="height:35%;background:rgba(220,38,38,0.38)"></div><div class="thumb-bar" style="height:25%;background:rgba(220,38,38,0.32)"></div></div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(26,10,5,1) 0%,rgba(26,10,5,0.1) 70%,transparent 100%)"></div>
+            </div>
+            <div class="art-body"><h3 class="art-title">Fed Rate Decision: Forex Guide</h3><div class="art-footer"><span class="badge bm">Macro</span><span class="art-rt">9 min</span></div></div>
+          </article>
+          <article class="art-card" style="cursor:pointer" onclick="openArticle('gbpusd-outlook')">
+            <div class="art-thumb" style="background:linear-gradient(135deg,#071a12,#04100e);height:130px">
+              <div class="thumb-chart"><div class="thumb-bar" style="height:50%;background:rgba(29,184,122,0.4)"></div><div class="thumb-bar" style="height:70%;background:rgba(29,184,122,0.5)"></div><div class="thumb-bar" style="height:85%;background:rgba(29,184,122,0.6)"></div><div class="thumb-bar" style="height:75%;background:rgba(29,184,122,0.55)"></div></div>
+              <div class="thumb-ov" style="background:linear-gradient(to top,rgba(7,26,18,1) 0%,rgba(7,26,18,0.1) 70%,transparent 100%)"></div>
+            </div>
+            <div class="art-body"><h3 class="art-title">GBP/USD Weekly Outlook</h3><div class="art-footer"><span class="badge ba">Analysis</span><span class="art-rt">7 min</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <div id="art1-footer-slot"></div>
+  </div><!-- end page-gold-bull-run -->
+
+
+  <!-- ARTICLE: Trendline Strategy -->
+  <div class="page" id="page-trendline-strategy">
+    <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:20px 48px">
+      <div style="max-width:820px;margin:0 auto">
+        <button class="back-btn" onclick="showPage('index')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Back to Blog</button>
+      </div>
+    </div>
+    <div class="article-page">
+      <div class="article-page-hero">
+        <div style="margin-bottom:16px"><span class="badge bs">Strategy</span></div>
+        <h1>The 3-Touch Trendline Strategy: Trade Breakouts With Surgical Precision</h1>
+        <div class="article-page-meta">
+          <div class="author-row" style="gap:10px">
+            <div class="author-av" style="background:linear-gradient(135deg,#1d6fdb,#1444a0);width:36px;height:36px">SM</div>
+            <div><div class="author-nm">Sarah Mitchell</div><div class="author-rl">Head of Platform & Trading Technology</div></div>
+          </div>
+          <div class="meta-sep"></div>
+          <span class="meta-dt">June 7, 2025</span>
+          <div class="meta-sep"></div>
+          <span class="meta-dt">⏱ 6 min read</span>
+        </div>
+        <div class="article-hero-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#050f20,#081a14);display:flex;align-items:flex-end;padding:30px 24px 0;gap:3px">
+            <div style="flex:1;height:25%;background:rgba(29,111,219,0.4);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:40%;background:rgba(29,111,219,0.45);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:35%;background:rgba(29,111,219,0.42);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:55%;background:rgba(29,111,219,0.5);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:48%;background:rgba(29,111,219,0.47);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:65%;background:rgba(29,111,219,0.55);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:72%;background:rgba(29,111,219,0.58);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:85%;background:rgba(29,111,219,0.65);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:78%;background:rgba(29,111,219,0.62);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:95%;background:rgba(29,111,219,0.7);border-radius:2px 2px 0 0"></div>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <p>Of all the tools in a technical trader's toolkit, the humble trendline remains one of the most powerful and least understood. It's drawn on millions of charts daily, yet most traders draw them incorrectly, confirm them too early, and trade the breakouts without a clear edge. The <strong>3-Touch Trendline Strategy</strong> changes that.</p>
+
+        <h2>What Makes a Valid Trendline?</h2>
+        <p>Most traders draw a trendline the moment they see two touches. This is where the trouble begins. A line connecting two points is nothing more than a straight line — it has no statistical significance and tells you nothing reliable about where price will react in the future.</p>
+        <p>A <strong>valid trendline requires a minimum of three confirmed touches</strong>. Here's the logic: two points define the line, but the third touch is what <em>confirms</em> that price is actively respecting that angle. The third touch transforms a geometrical observation into a probabilistic edge.</p>
+
+        <div class="article-highlight-box">
+          <h4>Rules for Drawing a Valid Trendline</h4>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px">
+            <li style="display:flex;align-items:flex-start;gap:10px"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span>Must connect <strong>at least 3 wicks or closes</strong> at the same angle</li>
+            <li style="display:flex;align-items:flex-start;gap:10px"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span>The touches should be <strong>spaced out in time</strong> (not clustered together)</li>
+            <li style="display:flex;align-items:flex-start;gap:10px"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span>Use the <strong>same timeframe</strong> for all touches</li>
+            <li style="display:flex;align-items:flex-start;gap:10px"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span>Wicks touching the line are valid; <strong>large candle bodies cutting through</strong> the line are not</li>
+            <li style="display:flex;align-items:flex-start;gap:10px"><span style="color:var(--red);font-weight:700;flex-shrink:0">✗</span>Don't force the line — if the angle looks awkward, the trendline isn't valid</li>
+          </ul>
+        </div>
+
+        <h2>How to Execute the 3-Touch Breakout Trade</h2>
+        <p>Once you have identified a valid trendline with 3+ touches, you're looking for a breakout. But not just any break — a <strong>confirmed breakout</strong> with momentum and follow-through. Here's the step-by-step execution:</p>
+        <ol>
+          <li><strong>Wait for the candle to close.</strong> Never enter on a wick or mid-candle break. Price must close beyond the trendline on your trading timeframe.</li>
+          <li><strong>Look for a retest (optional but ideal).</strong> After a breakout, price frequently returns to the trendline from the other side. This "retest as new support/resistance" is one of the cleanest entries in trading — you enter on confirmation with a tight stop.</li>
+          <li><strong>Set your stop loss.</strong> For a bullish trendline breakout (down-sloping line broken to the upside), your stop goes below the most recent swing low before the breakout. For a bearish break, stop goes above the most recent swing high.</li>
+          <li><strong>Define your target using the measured move.</strong> Take the widest point of the channel/trendline, and project that distance from the breakout point. This gives your primary target.</li>
+        </ol>
+
+        <div class="article-blockquote">
+          The retest entry is the professional trader's version of the breakout trade. You let the impulsive buyers take the risk, then you enter when the market confirms the new direction — at a better price, with a tighter stop, and a higher probability of success.
+        </div>
+
+        <h2>Risk Management: The Non-Negotiable Part</h2>
+        <p>A great strategy without discipline is worthless. For the 3-Touch Trendline Strategy, we recommend a strict risk framework:</p>
+        <table class="data-table-art">
+          <thead><tr><th>Parameter</th><th>Recommendation</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Risk per trade</td><td>1–2% of account</td><td>Preserves capital through drawdown periods</td></tr>
+            <tr><td>Minimum R:R</td><td>1:2 before entry</td><td>Ensures strategy is profitable even at 40% win rate</td></tr>
+            <tr><td>Stop placement</td><td>Beyond swing high/low</td><td>Avoids stop hunts from institutional liquidity grabs</td></tr>
+            <tr><td>Partial profits</td><td>50% at 1:1, rest to target</td><td>Reduces psychological pressure to close early</td></tr>
+          </tbody>
+        </table>
+
+        <h2>The Most Common Mistakes</h2>
+        <p>After reviewing thousands of trade analyses from our community, these are the errors we see most frequently:</p>
+        <ul>
+          <li><strong>Entering before the 3rd touch is confirmed.</strong> Two touches is not a trendline — stop trading them as if they are.</li>
+          <li><strong>Trading the retest but using too wide a stop.</strong> The whole point of the retest entry is a tight stop. If you're placing your stop 50 pips away when the structure calls for a 15-pip stop, you're doing it wrong.</li>
+          <li><strong>Ignoring the higher timeframe trend.</strong> A trendline breakout on the H1 chart that goes against the D1 trend is a low-probability trade. Always trade breakouts in the direction of the larger trend.</li>
+          <li><strong>Drawing trendlines on cryptocurrency pairs in the same way.</strong> Crypto's volatility means wicks frequently pierce trendlines falsely. Use closes, not wicks, exclusively on crypto charts.</li>
+        </ul>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)"><em>This article is for educational purposes only and does not constitute financial advice. Trading involves significant risk of loss.</em></p>
+        <div class="article-tags">
+          <span>Tags:</span>
+          <span class="badge bs">Strategy</span>
+          <span class="badge bs">Technical Analysis</span>
+          <span class="badge bs">Trendlines</span>
+          <span class="badge bs">Breakout Trading</span>
+        </div>
+      </div>
+    </div>
+    <div id="art2-footer-slot"></div>
+  </div>
+
+  <!-- ARTICLE: Bitcoin Halving -->
+  <div class="page" id="page-bitcoin-halving">
+    <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:20px 48px">
+      <div style="max-width:820px;margin:0 auto">
+        <button class="back-btn" onclick="showPage('index')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Back to Blog</button>
+      </div>
+    </div>
+    <div class="article-page">
+      <div class="article-page-hero">
+        <div style="margin-bottom:16px"><span class="badge bc">Crypto</span></div>
+        <h1>Bitcoin Post-Halving Analysis: On-Chain Data Signals the Next Leg of the Bull Market</h1>
+        <div class="article-page-meta">
+          <div class="author-row" style="gap:10px">
+            <div class="author-av" style="background:linear-gradient(135deg,#1db87a,#0d8f5a);width:36px;height:36px">AR</div>
+            <div><div class="author-nm">Alex Reyes</div><div class="author-rl">Crypto & Digital Assets Analyst</div></div>
+          </div>
+          <div class="meta-sep"></div>
+          <span class="meta-dt">June 5, 2025</span>
+          <div class="meta-sep"></div>
+          <span class="meta-dt">⏱ 11 min read</span>
+        </div>
+        <div class="article-hero-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0812,#120408);display:flex;align-items:flex-end;padding:30px 24px 0;gap:3px">
+            <div style="flex:1;height:18%;background:rgba(245,158,11,0.35);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:30%;background:rgba(245,158,11,0.4);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:45%;background:rgba(245,158,11,0.45);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:58%;background:rgba(245,158,11,0.5);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:70%;background:rgba(245,158,11,0.55);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:82%;background:rgba(245,158,11,0.6);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:78%;background:rgba(245,158,11,0.58);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:92%;background:rgba(245,158,11,0.68);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:85%;background:rgba(245,158,11,0.63);border-radius:2px 2px 0 0"></div>
+            <div style="flex:1;height:100%;background:rgba(245,158,11,0.75);border-radius:2px 2px 0 0"></div>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <p>The fourth Bitcoin halving occurred in April 2024, cutting the block reward from 6.25 BTC to 3.125 BTC per block. Thirteen months later, we are now in the window that historically has produced Bitcoin's most explosive price appreciation. Using on-chain data, miner behavior analysis, and historical cycle comparisons, here is what the evidence suggests about where we are — and where we're likely going.</p>
+
+        <h2>Understanding the Halving Cycle Mechanics</h2>
+        <p>The halving's effect on price isn't immediate — it operates through supply reduction over time. When new BTC issuance is cut in half, miners receive 50% less revenue. Those who cannot cover electricity costs at current prices either shut down or sell BTC reserves. This creates an initial sell pressure phase lasting approximately 3–6 months post-halving, before the supply reduction effect becomes dominant and price begins its major move.</p>
+        <p>Looking at the three previous halvings (2012, 2016, 2020), the pattern is consistent: the major bull run doesn't begin at the halving date — it begins approximately 6–12 months afterward, when miner-induced selling pressure has been absorbed by the market.</p>
+
+        <div class="article-highlight-box">
+          <h4>Historical Halving Cycle Performance</h4>
+          <table class="data-table-art">
+            <thead><tr><th>Halving</th><th>Date</th><th>Pre-halving price</th><th>Cycle peak</th><th>Max gain</th><th>Time to peak</th></tr></thead>
+            <tbody>
+              <tr><td>1st Halving</td><td>Nov 2012</td><td>$12</td><td>$1,150</td><td><strong style="color:var(--accent)">+9,480%</strong></td><td>~13 months</td></tr>
+              <tr><td>2nd Halving</td><td>Jul 2016</td><td>$650</td><td>$19,800</td><td><strong style="color:var(--accent)">+3,046%</strong></td><td>~17 months</td></tr>
+              <tr><td>3rd Halving</td><td>May 2020</td><td>$8,500</td><td>$69,000</td><td><strong style="color:var(--accent)">+811%</strong></td><td>~18 months</td></tr>
+              <tr><td>4th Halving</td><td>Apr 2024</td><td>$64,000</td><td>TBD</td><td><strong style="color:var(--accent-dark)">Projected: +200-400%</strong></td><td>Ongoing</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What On-Chain Data Is Telling Us Right Now</h2>
+        <p>On-chain metrics provide a transparent, real-time view of investor behavior that price alone cannot capture. The current readings paint a picture consistent with mid-cycle accumulation — not the euphoric excess that precedes tops.</p>
+        <ul>
+          <li><strong>NUPL (Net Unrealized Profit/Loss):</strong> Currently in the "Belief" zone (0.50–0.75). Historically, major tops occur when NUPL enters "Euphoria" (above 0.75). We are not there yet.</li>
+          <li><strong>MVRV Z-Score:</strong> At approximately 2.8, still well below the 7.0+ readings that have marked previous cycle tops.</li>
+          <li><strong>Exchange reserves:</strong> BTC held on exchanges continues to decline — a strongly bullish sign indicating holders are moving coins to cold storage rather than preparing to sell.</li>
+          <li><strong>Long-Term Holder supply:</strong> Long-term holders (coins dormant for 155+ days) are accumulating at a rate not seen since early 2020 — immediately before the 2020-2021 bull run.</li>
+        </ul>
+
+        <div class="article-blockquote">
+          On-chain data doesn't lie. When long-term holders are accumulating and exchange reserves are declining simultaneously, the historical precedent is clear: a major price appreciation event is in progress, not complete.
+        </div>
+
+        <h2>The Role of ETF Flows</h2>
+        <p>The January 2024 approval of spot Bitcoin ETFs in the United States has fundamentally altered this cycle's dynamics. Institutional demand via ETF flows represents genuinely <em>new demand</em> that did not exist in previous cycles. BlackRock's IBIT, Fidelity's FBTC, and other approved products have collectively absorbed hundreds of thousands of BTC since launch — acting as a sustained demand layer beneath the market.</p>
+
+        <h2>Price Targets and Risk Management for BTC/USD CFD Traders</h2>
+        <p>Trading Bitcoin via CFDs on Stoxoras gives traders access to the full BTC price move without needing to custody the underlying asset. For those positioning for the next major move:</p>
+        <ul>
+          <li><strong>Bull target 1:</strong> $78,000–$80,000 — measured move from current consolidation base</li>
+          <li><strong>Bull target 2:</strong> $95,000–$100,000 — psychological resistance and 2x from halving price</li>
+          <li><strong>Stretch target:</strong> $130,000–$150,000 — consistent with a diminishing but still substantial halving cycle gain</li>
+          <li><strong>Invalidation level:</strong> A weekly close below $52,000 would suggest cycle disruption and require reassessment</li>
+        </ul>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)"><em>Cryptocurrency CFD trading involves significant risk. This article is for educational purposes only and does not constitute financial advice.</em></p>
+        <div class="article-tags">
+          <span>Tags:</span>
+          <span class="badge bc">Bitcoin</span>
+          <span class="badge bc">Crypto</span>
+          <span class="badge bc">Halving</span>
+          <span class="badge ba">On-Chain Analysis</span>
+        </div>
+      </div>
+    </div>
+    <div id="art3-footer-slot"></div>
+  </div>
+
+  <!-- ARTICLES: Fed, SMC, GBP, Oil — compact but full versions -->
+  <div class="page" id="page-fed-rate-decision">
+    <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:20px 48px"><div style="max-width:820px;margin:0 auto"><button class="back-btn" onclick="showPage('index')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Back to Blog</button></div></div>
+    <div class="article-page">
+      <div class="article-page-hero">
+        <div style="margin-bottom:16px"><span class="badge bm">Macro</span></div>
+        <h1>Fed Rate Pause vs. Cut: What Every Forex Trader Must Know Before the Next FOMC</h1>
+        <div class="article-page-meta"><div class="author-row" style="gap:10px"><div class="author-av" style="background:linear-gradient(135deg,#ec4899,#be185d);width:36px;height:36px">NL</div><div><div class="author-nm">Nina Lowe</div><div class="author-rl">Chief Macro & Compliance Analyst</div></div></div><div class="meta-sep"></div><span class="meta-dt">June 3, 2025</span><div class="meta-sep"></div><span class="meta-dt">⏱ 9 min read</span></div>
+      </div>
+      <div class="article-body">
+        <p>Every FOMC meeting moves markets. But not all FOMC meetings are created equal. The next Fed decision comes at a pivotal moment — inflation has cooled but remains sticky above target, the labor market shows signs of softening, and Fed officials have been sending mixed signals about the timing of the first rate cut. For forex traders, this uncertainty is opportunity — if you understand the mechanics.</p>
+        <h2>How the Fed Decision Moves Forex Markets</h2>
+        <p>The Federal Reserve's interest rate decisions affect the USD through two primary channels. First, <strong>rate differentials</strong>: when US rates are higher than those of other major economies, the USD becomes more attractive to yield-seeking capital, driving the dollar higher. Second, <strong>forward guidance expectations</strong>: what the Fed says about future policy direction often matters more than what it does today.</p>
+        <div class="article-blockquote">"Buy the rumor, sell the fact" is never more relevant than on FOMC day. By the time the decision is announced, most of the move has already happened in the run-up. — Nina Lowe</div>
+        <h2>Three FOMC Scenarios and Their FX Implications</h2>
+        <table class="data-table-art">
+          <thead><tr><th>Scenario</th><th>USD Impact</th><th>EUR/USD</th><th>GBP/USD</th><th>Gold</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hawkish pause</strong> (hold + upside inflation language)</td><td>Strong rally</td><td>Sell to 1.06</td><td>Sell to 1.24</td><td>Sell to 2,250</td></tr>
+            <tr><td><strong>Neutral pause</strong> (hold + balanced language)</td><td>Modest strength</td><td>Range-bound</td><td>Range-bound</td><td>Sideways</td></tr>
+            <tr><td><strong>Dovish signal</strong> (hold + explicit cut hints)</td><td>Sharp weakness</td><td>Rally to 1.10</td><td>Rally to 1.29</td><td>Rally to 2,450</td></tr>
+          </tbody>
+        </table>
+        <h2>How to Position Your Portfolio</h2>
+        <p>The key is to avoid holding large directional positions into the FOMC decision itself, then react decisively to the confirmed outcome. Enter on the retest after the initial spike — not in the first 5 minutes of chaos. Use the scenario framework above to have pre-planned entries for each outcome, so you're executing a plan rather than reacting emotionally to price.</p>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)"><em>Educational content only. Not financial advice. CFD trading involves significant risk.</em></p>
+        <div class="article-tags"><span>Tags:</span><span class="badge bm">Fed</span><span class="badge bm">FOMC</span><span class="badge bm">Macro</span><span class="badge ba">USD</span><span class="badge ba">EUR/USD</span></div>
+      </div>
+    </div>
+    <div id="art4-footer-slot"></div>
+  </div>
+
+  <div class="page" id="page-smc-guide">
+    <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:20px 48px"><div style="max-width:820px;margin:0 auto"><button class="back-btn" onclick="showPage('index')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Back to Blog</button></div></div>
+    <div class="article-page">
+      <div class="article-page-hero">
+        <div style="margin-bottom:16px"><span class="badge be">Education</span></div>
+        <h1>What is Smart Money Concept (SMC) Trading? A Complete Beginner's Guide</h1>
+        <div class="article-page-meta"><div class="author-row" style="gap:10px"><div class="author-av" style="background:linear-gradient(135deg,#f59e0b,#d97706);width:36px;height:36px">JT</div><div><div class="author-nm">James Torres</div><div class="author-rl">Education & Strategy Writer</div></div></div><div class="meta-sep"></div><span class="meta-dt">May 31, 2025</span><div class="meta-sep"></div><span class="meta-dt">⏱ 14 min read</span></div>
+      </div>
+      <div class="article-body">
+        <p>Smart Money Concept (SMC) trading — sometimes called ICT methodology — has exploded in popularity among retail traders over the last three years. It promises to reveal how institutional traders, banks, and market makers operate — and how retail traders can align with, rather than trade against, these large players. But what is it really? And does it actually work?</p>
+        <h2>The Core Philosophy Behind SMC</h2>
+        <p>SMC is built on a fundamental insight: <strong>markets are not random</strong>. They are driven by large institutions that require enormous liquidity to fill their orders. Because institutions can't simply buy or sell millions of dollars worth of currency at a single price without moving the market against themselves, they engineer price movements to create the liquidity they need. Understanding this process is the foundation of the entire SMC framework.</p>
+        <h2>The 5 Key SMC Concepts Explained</h2>
+        <h3>1. Order Blocks</h3>
+        <p>An order block is the last bearish candle before a significant bullish move (bullish order block), or the last bullish candle before a significant bearish move (bearish order block). These areas represent zones where institutional orders were placed, and price frequently returns to these levels before continuing in the original direction. When price returns to an order block and holds, it's a high-probability entry signal.</p>
+        <h3>2. Fair Value Gaps (FVG)</h3>
+        <p>A fair value gap occurs when price moves so aggressively in one direction that a gap forms between three consecutive candles — the high of candle 1 and the low of candle 3 don't overlap. This gap represents an imbalance in the market that price often returns to fill before continuing the move. FVGs are some of the most reliable entry zones in SMC.</p>
+        <h3>3. Liquidity Sweeps</h3>
+        <p>Stop losses cluster at obvious levels: below recent lows, above recent highs, at round numbers, and at trendlines. Institutions know this. A liquidity sweep is when price briefly moves beyond these levels — triggering retail stop losses and generating the liquidity institutions need — before reversing sharply in the opposite direction. Identifying these sweeps before they happen is one of the highest-edge opportunities in SMC trading.</p>
+        <h3>4. Break of Structure (BOS)</h3>
+        <p>A Break of Structure occurs when price breaks beyond a previous significant high (bullish BOS) or low (bearish BOS). In SMC, a BOS signals a change in market direction and provides the context for identifying which order blocks and FVGs to trade.</p>
+        <h3>5. Change of Character (ChoCH)</h3>
+        <p>A Change of Character is the first counter-trend BOS after an established trend — it signals the potential beginning of a new move in the opposite direction. ChoCH provides the earliest signal of a trend reversal in the SMC framework.</p>
+        <div class="article-blockquote">SMC isn't magic. It's a structured way of reading price that aligns retail traders with how markets actually work, rather than how textbooks say they should work. The discipline required to wait for the right setup is what separates profitable SMC traders from unprofitable ones.</div>
+        <h2>Does SMC Work? The Honest Assessment</h2>
+        <p>SMC concepts have real merit — liquidity sweeps, order blocks, and imbalances are genuinely observable market phenomena. However, several important caveats apply: not every order block is respected; SMC requires significant screen time and experience to apply correctly; and the community around ICT has sometimes overhyped win rates that are simply not realistic for beginners. With disciplined application and proper risk management, SMC provides a legitimate edge for traders willing to invest the time to master it.</p>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)"><em>Educational content only. Not financial advice. Trading involves significant risk of loss.</em></p>
+        <div class="article-tags"><span>Tags:</span><span class="badge be">Education</span><span class="badge be">SMC</span><span class="badge be">ICT</span><span class="badge bs">Order Blocks</span><span class="badge bs">Liquidity</span></div>
+      </div>
+    </div>
+    <div id="art5-footer-slot"></div>
+  </div>
+
+  <div class="page" id="page-gbpusd-outlook">
+    <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:20px 48px"><div style="max-width:820px;margin:0 auto"><button class="back-btn" onclick="showPage('index')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Back to Blog</button></div></div>
+    <div class="article-page">
+      <div class="article-page-hero">
+        <div style="margin-bottom:16px"><span class="badge ba">Analysis</span></div>
+        <h1>GBP/USD Weekly Outlook: Key Levels to Watch Ahead of UK CPI Release</h1>
+        <div class="article-page-meta"><div class="author-row" style="gap:10px"><div class="author-av" style="background:linear-gradient(135deg,#1db87a,#0d8f5a);width:36px;height:36px">DK</div><div><div class="author-nm">David Koval</div><div class="author-rl">Senior Market Analyst, Stoxoras</div></div></div><div class="meta-sep"></div><span class="meta-dt">June 8, 2025</span><div class="meta-sep"></div><span class="meta-dt">⏱ 7 min read</span></div>
+      </div>
+      <div class="article-body">
+        <p>Sterling enters this week under the microscope, with UK CPI data due Thursday and a Bank of England speaker calendar that could significantly reprice rate cut expectations. GBP/USD has been trading in a defined range between 1.2580 and 1.2750 for the past three weeks — a compression that typically precedes a directional expansion. Here's what the charts and macro data are suggesting.</p>
+        <h2>Current Technical Structure</h2>
+        <p>On the daily chart, GBP/USD has formed a symmetrical triangle pattern — lower highs and higher lows converging toward a breakout point. The apex of this pattern aligns closely with the CPI release date, which is either a remarkable coincidence or a reflection of how market participants are waiting for fundamental clarity before committing directionally. Either way, the CPI print will likely be the catalyst.</p>
+        <div class="article-highlight-box">
+          <h4>GBP/USD Key Levels This Week</h4>
+          <table class="data-table-art">
+            <thead><tr><th>Level</th><th>Price</th><th>Type</th></tr></thead>
+            <tbody>
+              <tr><td>Major resistance</td><td>1.2750</td><td>Previous swing high + 50-day MA</td></tr>
+              <tr><td>Breakout target (bull)</td><td>1.2820–1.2850</td><td>Measured move from triangle</td></tr>
+              <tr><td>Support 1</td><td>1.2620–1.2640</td><td>Demand zone + 20-day MA</td></tr>
+              <tr><td>Key support</td><td>1.2580</td><td>Major structural support — triangle base</td></tr>
+              <tr><td>Breakdown target (bear)</td><td>1.2440</td><td>Next significant demand zone if 1.2580 breaks</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>CPI Scenarios</h2>
+        <p><strong>Higher than expected CPI (above 3.3%):</strong> Reduces BoE rate cut probability. GBP rallies — target 1.2750, potential extension to 1.2820. <strong>In-line CPI (around 3.1%):</strong> Market-neutral, likely continues range. Watch for a false break of 1.2580 or 1.2750 before the real move. <strong>Lower than expected CPI (below 2.9%):</strong> Accelerates BoE cut timeline. GBP drops — target 1.2580 then 1.2440. This is the higher-impact scenario in the current environment.</p>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)"><em>Educational content only. Not financial advice.</em></p>
+        <div class="article-tags"><span>Tags:</span><span class="badge ba">GBP/USD</span><span class="badge ba">Forex</span><span class="badge ba">Weekly Outlook</span><span class="badge bm">UK Economy</span></div>
+      </div>
+    </div>
+    <div id="art6-footer-slot"></div>
+  </div>
+
+  <div class="page" id="page-oil-opec">
+    <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:20px 48px"><div style="max-width:820px;margin:0 auto"><button class="back-btn" onclick="showPage('index')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Back to Blog</button></div></div>
+    <div class="article-page">
+      <div class="article-page-hero">
+        <div style="margin-bottom:16px"><span class="badge bn">News</span></div>
+        <h1>Oil Markets Under Pressure: OPEC+ Disagreements and Rising US Inventories</h1>
+        <div class="article-page-meta"><div class="author-row" style="gap:10px"><div class="author-av" style="background:linear-gradient(135deg,#1d6fdb,#1444a0);width:36px;height:36px">SM</div><div><div class="author-nm">Sarah Mitchell</div><div class="author-rl">Head of Platform & Market Research</div></div></div><div class="meta-sep"></div><span class="meta-dt">June 6, 2025</span><div class="meta-sep"></div><span class="meta-dt">⏱ 5 min read</span></div>
+      </div>
+      <div class="article-body">
+        <p>Crude oil has entered a choppy consolidation phase that is testing the patience of both bulls and bears. The culprit is a familiar combination: disagreements within the OPEC+ alliance over production quotas, rising US commercial crude inventories, and demand uncertainty from China's uneven economic recovery. For oil CFD traders, understanding the forces at play is essential for navigating what could be a volatile period ahead.</p>
+        <h2>The OPEC+ Fracture Lines</h2>
+        <p>Recent reports suggest growing tension within the OPEC+ bloc, specifically around compliance with agreed production cuts. Several member nations — reportedly including UAE and Kazakhstan — have been producing above their quotas, effectively undermining the alliance's stated goal of supporting prices. When compliance erodes, the cartel loses its pricing power, and oil markets respond accordingly.</p>
+        <h2>US Inventory Build: A Bearish Signal</h2>
+        <p>The EIA weekly inventory report showed a build of 4.6 million barrels — significantly above analyst expectations of a 1.2 million barrel draw. Rising inventories signal weaker-than-expected demand or excess supply, and both are currently at play in the US market. The latest SPR (Strategic Petroleum Reserve) data shows no meaningful government purchases to offset this build, suggesting this is genuine market softness rather than strategic stockpiling.</p>
+        <div class="article-highlight-box">
+          <h4>WTI Crude Oil — Technical Snapshot</h4>
+          <table class="data-table-art">
+            <thead><tr><th>Level</th><th>Price</th><th>Significance</th></tr></thead>
+            <tbody>
+              <tr><td>Current price</td><td>$82.14</td><td>Below 50-day MA — bearish short-term</td></tr>
+              <tr><td>Resistance</td><td>$84.50</td><td>50-day MA + previous breakdown level</td></tr>
+              <tr><td>Support 1</td><td>$79.50</td><td>H4 demand zone</td></tr>
+              <tr><td>Support 2</td><td>$76.80</td><td>Monthly support + 200-day MA</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The bias remains bearish in the short-term while price trades below $84.50. A confirmed break and close above that level would shift the technical picture back to neutral. For now, the path of least resistance is lower, with $79.50 as the first meaningful support target.</p>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)"><em>Educational content only. Not financial advice. CFD trading involves significant risk.</em></p>
+        <div class="article-tags"><span>Tags:</span><span class="badge bn">Oil</span><span class="badge bn">OPEC</span><span class="badge bn">WTI</span><span class="badge bm">Commodities</span></div>
+      </div>
+    </div>
+    <div id="art7-footer-slot"></div>
+  </div>
+
+  <!-- ===== SHARED FOOTER TEMPLATE ===== -->
+  <template id="footer-tpl">
+    <footer class="blog-footer">
+      <div class="bf-top">
+        <div class="bf-brand">
+          <div class="bf-logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Stoxoras</span></div>
+          <p>Institutional-grade trading for the modern professional. Fast. Transparent. Global.</p>
+          <div class="soc-row">
+            <a href="https://www.facebook.com/StoxorasMarkets" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/Stoxoras" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1"/></svg></a>
+            <a href="https://twitter.com/StoxorasMarkets" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="bf-cols">
+          <div><h5>Blog</h5><ul><li><a href="javascript:void(0)" onclick="filterCat('Market Analysis')">Market Analysis</a></li><li><a href="javascript:void(0)" onclick="filterCat('Strategy')">Strategy</a></li><li><a href="javascript:void(0)" onclick="filterCat('Macro')">Macro</a></li><li><a href="javascript:void(0)" onclick="filterCat('Crypto')">Crypto</a></li><li><a href="javascript:void(0)" onclick="filterCat('Education')">Education</a></li></ul></div>
+          <div><h5>Trading</h5><ul><li><a href="https://www.Stoxoras.com" target="_blank">Currency CFDs</a></li><li><a href="https://www.Stoxoras.com" target="_blank">Commodities</a></li><li><a href="https://www.Stoxoras.com" target="_blank">Stock CFDs</a></li><li><a href="https://www.Stoxoras.com" target="_blank">Indices</a></li><li><a href="https://www.Stoxoras.com" target="_blank">Crypto CFDs</a></li></ul></div>
+          <div><h5>Platforms</h5><ul><li><a href="https://www.Stoxoras.com" target="_blank">Trade App</a></li><li><a href="https://www.Stoxoras.com" target="_blank">WebTerminal</a></li><li><a href="https://www.Stoxoras.com" target="_blank">MetaTrader 5</a></li><li><a href="https://www.Stoxoras.com" target="_blank">Account Types</a></li></ul></div>
+          <div><h5>Company</h5><ul><li><a href="https://www.Stoxoras.com" target="_blank">About Stoxoras</a></li><li><a href="https://www.Stoxoras.com" target="_blank">Regulation</a></li><li><a href="javascript:void(0)" onclick="scrollToReviews()">Reviews</a></li><li><a href="https://www.Stoxoras.com" target="_blank">Contact</a></li></ul></div>
+        </div>
+      </div>
+      <div class="bf-bottom">
+        
+        <p style="white-space:nowrap;color:rgba(255,255,255,0.3)">© 2025 Stoxoras</p>
+      </div>
+    </footer>
+  </template>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+
+  <script>
+    // ============================================================
+    // ROUTING — bulletproof SPA navigation
+    // ============================================================
+    function showPage(id) {
+      // hide all pages
+      document.querySelectorAll('.page').forEach(function(p) {
+        p.classList.remove('active');
+        p.style.display = 'none';
+      });
+      // show target
+      var page = document.getElementById('page-' + id);
+      if (!page) {
+        // fallback to index
+        page = document.getElementById('page-index');
+      }
+      page.classList.add('active');
+      page.style.display = 'block';
+      window.scrollTo(0, 0);
+      setTimeout(initReveal, 50);
+    }
+
+    function openArticle(slug) {
+      showPage(slug);
+    }
+
+    // ============================================================
+    // CATEGORY FILTER
+    // ============================================================
+    function filterCat(cat) {
+      // First go to index page
+      document.querySelectorAll('.page').forEach(function(p) {
+        p.classList.remove('active');
+        p.style.display = 'none';
+      });
+      var indexPage = document.getElementById('page-index');
+      indexPage.classList.add('active');
+      indexPage.style.display = 'block';
+      window.scrollTo(0, 0);
+
+      // Update pills
+      document.querySelectorAll('.cat-pill').forEach(function(b) {
+        b.classList.remove('active');
+      });
+
+      // Filter cards
+      var all = document.querySelectorAll('.articles-grid .art-card');
+      var visible = 0;
+      all.forEach(function(card) {
+        var cardCat = card.getAttribute('data-cat') || '';
+        var show = (cat === 'All' || cardCat === cat);
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+
+      var noResults = document.getElementById('noResults');
+      if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+
+      // Mark active pill
+      document.querySelectorAll('.cat-pill').forEach(function(b) {
+        var label = b.textContent.trim();
+        if (label === cat || (cat === 'All' && label === 'All Posts')) {
+          b.classList.add('active');
+        }
+      });
+
+      setTimeout(initReveal, 50);
+    }
+
+    // ============================================================
+    // SEARCH
+    // ============================================================
+    function handleSearch(val) {
+      if (!val || val.trim() === '') {
+        filterCat('All');
+        return;
+      }
+      // go to index
+      document.querySelectorAll('.page').forEach(function(p) {
+        p.classList.remove('active');
+        p.style.display = 'none';
+      });
+      var indexPage = document.getElementById('page-index');
+      indexPage.classList.add('active');
+      indexPage.style.display = 'block';
+      window.scrollTo(0, 0);
+
+      var q = val.toLowerCase().trim();
+      var all = document.querySelectorAll('.articles-grid .art-card');
+      var visible = 0;
+      all.forEach(function(card) {
+        var text = card.textContent.toLowerCase();
+        var show = text.includes(q);
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+      var noResults = document.getElementById('noResults');
+      if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    // ============================================================
+    // SCROLL TO REVIEWS
+    // ============================================================
+    function scrollToReviews() {
+      document.querySelectorAll('.page').forEach(function(p) {
+        p.classList.remove('active');
+        p.style.display = 'none';
+      });
+      var indexPage = document.getElementById('page-index');
+      indexPage.classList.add('active');
+      indexPage.style.display = 'block';
+      setTimeout(function() {
+        var el = document.getElementById('reviewsSection');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
+    }
+
+    // ============================================================
+    // MOBILE NAV TOGGLE
+    // ============================================================
+    function toggleMobileNav() {
+      var nav = document.getElementById('mobileNav');
+      var btn = document.getElementById('hamburger');
+      var isOpen = nav.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+    }
+
+    function closeMobileNav() {
+      var nav = document.getElementById('mobileNav');
+      var btn = document.getElementById('hamburger');
+      if (nav) nav.classList.remove('open');
+      if (btn) btn.classList.remove('open');
+    }
+
+    function mobileNav(action) {
+      closeMobileNav();
+      if (action === 'index')    { showPage('index'); }
+      else if (action === 'reviews')  { scrollToReviews(); }
+      else if (action === 'analysis') { filterCat('Market Analysis'); }
+      else if (action === 'strategy') { filterCat('Strategy'); }
+      else if (action === 'education'){ filterCat('Education'); }
+      else if (action === 'macro')    { filterCat('Macro'); }
+      else if (action === 'crypto')   { filterCat('Crypto'); }
+    }
+
+    // ============================================================
+    // SCROLL REVEAL
+    // ============================================================
+    var revealObs = null;
+    function initReveal() {
+      if (revealObs) revealObs.disconnect();
+      var activePage = document.querySelector('.page.active');
+      if (!activePage) return;
+      var els = activePage.querySelectorAll('.reveal');
+      revealObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('vis');
+            revealObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.06, rootMargin: '0px 0px -4% 0px' });
+      els.forEach(function(el) { revealObs.observe(el); });
+    }
+
+    // ============================================================
+    // STAR RATING
+    // ============================================================
+    var selectedRating = 0;
+    var ratingLabels = ['', 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
+    function setRating(n) {
+      selectedRating = n;
+      updateStars(n);
+      var label = document.getElementById('ratingLabel');
+      if (label) label.textContent = ratingLabels[n];
+    }
+    function hoverRating(n) { updateStars(n); }
+    function unhoverRating() { updateStars(selectedRating); }
+    function updateStars(n) {
+      var stars = document.querySelectorAll('#starRating span');
+      stars.forEach(function(s, i) { s.style.color = i < n ? '#f59e0b' : '#d1d5db'; });
+    }
+
+    // ============================================================
+    // REVIEW SUBMIT
+    // ============================================================
+    function submitReview(btn) {
+      var original = btn.textContent;
+      btn.textContent = '✓ Review Submitted!';
+      btn.style.background = 'var(--accent-dark)';
+      btn.disabled = true;
+      setTimeout(function() { btn.textContent = original; btn.style.background = ''; btn.disabled = false; }, 4000);
+    }
+
+    // ============================================================
+    // NEWSLETTER SUBSCRIBE
+    // ============================================================
+    function subscribeNL(btn) {
+      var original = btn.textContent;
+      btn.textContent = '✓ Subscribed!';
+      btn.style.background = 'var(--accent-dark)';
+      setTimeout(function() { btn.textContent = original; btn.style.background = ''; }, 3000);
+    }
+
+    // ============================================================
+    // SCROLL TO TOP BTN
+    // ============================================================
+    window.addEventListener('scroll', function() {
+      var btn = document.getElementById('scrollTop');
+      if (btn) btn.classList.toggle('show', window.scrollY > 500);
+    });
+
+    // ============================================================
+    // INIT — runs after DOM is fully loaded
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inject footers into all article pages
+      var tpl = document.getElementById('footer-tpl');
+      if (tpl) {
+        ['art1-footer-slot','art2-footer-slot','art3-footer-slot',
+         'art4-footer-slot','art5-footer-slot','art6-footer-slot','art7-footer-slot'
+        ].forEach(function(id) {
+          var slot = document.getElementById(id);
+          if (slot) slot.replaceWith(tpl.content.cloneNode(true));
+        });
+      }
+
+      // Make sure all non-index pages are hidden initially
+      document.querySelectorAll('.page').forEach(function(p) {
+        if (p.id !== 'page-index') {
+          p.style.display = 'none';
+          p.classList.remove('active');
+        } else {
+          p.style.display = 'block';
+          p.classList.add('active');
+        }
+      });
+
+      // Close mobile nav when clicking outside
+      document.addEventListener('click', function(e) {
+        var nav = document.getElementById('mobileNav');
+        var hamburger = document.getElementById('hamburger');
+        if (nav && nav.classList.contains('open') &&
+            !nav.contains(e.target) && hamburger && !hamburger.contains(e.target)) {
+          closeMobileNav();
+        }
+      });
+
+      initReveal();
+    });
+  </script>
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'b1ee30112d1af43d44051608bfae7ce928134fdb';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+
+</html>

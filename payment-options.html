@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Options — Stoxoras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://ext.same-assets.com/3096741692/3057708573.ico">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0d12;--bg-card:#111620;--accent:#2bd29b;--accent-dim:rgba(43,210,155,0.12);--accent-border:rgba(43,210,155,0.22);--text:#e8edf5;--text-muted:#7a8499;--border:rgba(255,255,255,0.07);--radius:14px;--nav-h:68px}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;border:none;background:none;font-family:inherit}
+    .warning-banner{background:rgba(255,200,50,0.08);border-bottom:1px solid rgba(255,200,50,0.18);padding:10px 24px;text-align:center}
+    .warning-banner p{font-size:11px;color:rgba(255,200,50,0.75);max-width:1100px;margin:0 auto}
+    .header{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,13,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .logo-mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;letter-spacing:-0.03em;color:var(--text)}
+    .logo-mark span{color:var(--accent)}
+    .logo-mark svg path{stroke:var(--accent)}
+    .header-actions{display:flex;align-items:center;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:8px;font-weight:600;font-size:0.875rem;transition:all 0.22s;cursor:pointer;border:none;font-family:inherit}
+    .btn-primary{background:var(--accent);color:#060a0e}
+    .btn-primary:hover{background:#38f0b2;transform:translateY(-2px);box-shadow:0 8px 28px rgba(43,210,155,0.28)}
+    .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+    .section-tag{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;background:var(--accent-dim);border:1px solid var(--accent-border);font-size:0.78rem;font-weight:600;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px}
+    .section-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .page-hero{padding:100px 80px 60px;max-width:1200px;margin:0 auto;text-align:center}
+    .page-hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:800;letter-spacing:-0.04em;margin-bottom:20px}
+    .page-hero p{font-size:1.1rem;color:var(--text-muted);max-width:600px;margin:0 auto;line-height:1.7}
+    .section{padding:80px 80px}
+    .container{max-width:1100px;margin:0 auto}
+    .text-center{text-align:center}
+    .data-table{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:40px}
+    .t-head,.t-row{display:grid;padding:16px 24px;gap:16px;align-items:center}
+    .t-head{background:rgba(255,255,255,0.03);color:var(--text-muted);font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+    .t-row{border-top:1px solid var(--border);font-size:0.88rem;transition:background 0.2s}
+    .t-row:hover{background:rgba(255,255,255,0.03)}
+    .t5{grid-template-columns:2fr 1fr 1fr 1fr 1fr}
+    .badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:0.75rem;font-weight:600}
+    .badge-green{background:rgba(43,210,155,0.12);color:var(--accent)}
+    .badge-blue{background:rgba(59,130,246,0.12);color:#60a5fa}
+    .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+    .pay-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;transition:border-color 0.3s,transform 0.3s}
+    .pay-card:hover{border-color:var(--accent-border);transform:translateY(-4px)}
+    .pay-card h3{font-size:1rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+    .pay-card p{font-size:0.83rem;color:var(--text-muted);line-height:1.7;margin-bottom:14px}
+    .pay-detail{font-size:0.8rem;display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)}
+    .pay-detail:last-child{border-bottom:none}
+    .pay-detail span:last-child{color:var(--accent);font-weight:600}
+    .bg-card{background:var(--bg-card)}
+    .border-t{border-top:1px solid var(--border)}
+    .cta-banner{background:linear-gradient(135deg,#071a12 0%,#0a1a2a 100%);border:1px solid var(--accent-border);border-radius:24px;padding:70px 60px;text-align:center;position:relative;overflow:hidden}
+    .cta-banner::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(43,210,155,0.08) 0%,transparent 70%)}
+    .cta-banner h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:14px;position:relative}
+    .cta-banner p{color:var(--text-muted);font-size:1.05rem;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;position:relative}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+    .ifooter{border-top:1px solid var(--border);padding:70px 80px 40px}
+    .ifooter-top{display:grid;grid-template-columns:220px 1fr;gap:80px;margin-bottom:60px}
+    .ifooter-brand{display:flex;flex-direction:column;gap:22px}
+    .ifooter-brand p{font-size:0.82rem;color:var(--text-muted);line-height:1.7}
+    .social-row{display:flex;gap:14px}
+    .social-row a{color:var(--text-muted);transition:color 0.2s}
+    .social-row a:hover{color:var(--accent)}
+    .ifooter-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+    .ifooter-cols h5{font-size:0.78rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px}
+    .ifooter-cols ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .ifooter-cols a{font-size:0.85rem;color:var(--text-muted);transition:color 0.2s}
+    .ifooter-cols a:hover{color:var(--accent)}
+    .ifooter-bottom{border-top:1px solid var(--border);padding-top:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+    .ifooter-bottom p{font-size:0.78rem;color:rgba(107,122,148,0.6)}
+    .risk-note{font-size:0.75rem;color:rgba(107,122,148,0.5);line-height:1.6}
+    @media(max-width:900px){
+      .page-hero,.section{padding-left:24px;padding-right:24px}
+      .pay-grid{grid-template-columns:1fr}
+      .t5{grid-template-columns:2fr 1fr 1fr}
+      .t-head>*:nth-child(n+4),.t-row>*:nth-child(n+4){display:none}
+      .header{padding:0 24px}
+      .ifooter{padding:50px 24px 28px}
+      .ifooter-top{grid-template-columns:1fr;gap:40px}
+      .ifooter-cols{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+<div class="warning-banner"><p>CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 76% of retail investor accounts lose money when trading CFDs with this provider.</p></div>
+
+<header class="header">
+  <a href="./index.html" class="logo-mark"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Stoxoras</span></a>
+  <div class="header-actions">
+    <a href="./login.html" class="btn btn-ghost">Login</a>
+    <a href="./register.html" class="btn btn-primary">Open Account</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="section-tag" style="margin:0 auto 18px">Fast & Secure</div>
+  <h1>Payment <em style="color:var(--accent)">Options</em></h1>
+  <p>Deposit and withdraw funds quickly and securely using your preferred payment method. Zero fees on all transactions.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:10px"><div class="section-tag">Deposit Methods</div></div>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;text-align:center;margin-bottom:12px">Choose How You Fund</h2>
+    <p style="color:var(--text-muted);text-align:center;max-width:540px;margin:0 auto">All deposits are free of charge. Processing times vary by method.</p>
+
+    <div class="data-table">
+      <div class="t-head t5"><span>Method</span><span>Min. Deposit</span><span>Processing</span><span>Fee</span><span>Availability</span></div>
+      <div class="t-row t5"><span style="font-weight:600">💳 Visa / Mastercard</span><span>$10</span><span>Instant</span><span style="color:var(--accent)">Free</span><span><span class="badge badge-green">Global</span></span></div>
+      <div class="t-row t5"><span style="font-weight:600">🏦 Bank Wire Transfer</span><span>$50</span><span>1–3 Days</span><span style="color:var(--accent)">Free</span><span><span class="badge badge-green">Global</span></span></div>
+      <div class="t-row t5"><span style="font-weight:600">₿ Bitcoin (BTC)</span><span>$10</span><span>~30 min</span><span style="color:var(--accent)">Free</span><span><span class="badge badge-blue">Crypto</span></span></div>
+      <div class="t-row t5"><span style="font-weight:600">Ξ Ethereum (ETH)</span><span>$10</span><span>~15 min</span><span style="color:var(--accent)">Free</span><span><span class="badge badge-blue">Crypto</span></span></div>
+      <div class="t-row t5"><span style="font-weight:600">💵 USDT (TRC20/ERC20)</span><span>$10</span><span>~10 min</span><span style="color:var(--accent)">Free</span><span><span class="badge badge-blue">Crypto</span></span></div>
+      <div class="t-row t5"><span style="font-weight:600">🌐 Skrill</span><span>$10</span><span>Instant</span><span style="color:var(--accent)">Free</span><span><span class="badge badge-green">Global</span></span></div>
+      <div class="t-row t5"><span style="font-weight:600">🌐 Neteller</span><span>$10</span><span>Instant</span><span style="color:var(--accent)">Free</span><span><span class="badge badge-green">Global</span></span></div>
+      <div class="t-row t5"><span style="font-weight:600">📱 M-Pesa</span><span>$5</span><span>Instant</span><span style="color:var(--accent)">Free</span><span><span class="badge badge-green">Africa</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-card border-t">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:10px"><div class="section-tag">Withdrawals</div></div>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;text-align:center;margin-bottom:40px">Fast, Fee-Free Withdrawals</h2>
+    <div class="pay-grid">
+      <div class="pay-card">
+        <h3>💳 Card Withdrawal</h3>
+        <p>Withdraw directly back to your debit or credit card. Processed daily at 12:00 GMT.</p>
+        <div class="pay-detail"><span>Processing Time</span><span>1–5 Business Days</span></div>
+        <div class="pay-detail"><span>Minimum</span><span>$10</span></div>
+        <div class="pay-detail"><span>Maximum</span><span>Up to deposit amount</span></div>
+        <div class="pay-detail"><span>Fee</span><span>Free</span></div>
+      </div>
+      <div class="pay-card">
+        <h3>🏦 Bank Wire</h3>
+        <p>Direct transfer to your bank account. Available globally in most major currencies.</p>
+        <div class="pay-detail"><span>Processing Time</span><span>1–3 Business Days</span></div>
+        <div class="pay-detail"><span>Minimum</span><span>$50</span></div>
+        <div class="pay-detail"><span>Maximum</span><span>Unlimited</span></div>
+        <div class="pay-detail"><span>Fee</span><span>Free</span></div>
+      </div>
+      <div class="pay-card">
+        <h3>₿ Crypto Withdrawal</h3>
+        <p>Fast and private withdrawals via Bitcoin, Ethereum, USDT and other major cryptocurrencies.</p>
+        <div class="pay-detail"><span>Processing Time</span><span>Under 1 Hour</span></div>
+        <div class="pay-detail"><span>Minimum</span><span>$10</span></div>
+        <div class="pay-detail"><span>Maximum</span><span>Unlimited</span></div>
+        <div class="pay-detail"><span>Fee</span><span>Network fee only</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Ready to Fund Your Account?</h2>
+      <p>Open your account today and make your first deposit in under 5 minutes.</p>
+      <div class="cta-btns"><a href="./register.html" class="btn btn-primary">Open Account</a><a href="./contact.html" class="btn btn-ghost">Need Help?</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="ifooter">
+  <div class="ifooter-top">
+    <div class="ifooter-brand">
+      <a href="./index.html" class="logo-mark"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 12L6 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Stoxoras</span></a>
+      <p>Institutional-grade trading for the modern professional.</p>
+      <div class="social-row"><a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div>
+    </div>
+    <div class="ifooter-cols">
+      <div><h5>Markets</h5><ul><li><a href="./index.html">Forex</a></li><li><a href="./index.html">Commodities</a></li><li><a href="./index.html">Stocks</a></li></ul></div>
+      <div><h5>Trading</h5><ul><li><a href="./index.html">Account Types</a></li><li><a href="./trading-fees.html">Trading Fees</a></li><li><a href="./payment-options.html">Payments</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="./index.html">About</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./careers.html">Careers</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="./client-security.html">Security</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </div>
+  </div>
+  
+</footer>
+</body>
+</html>
